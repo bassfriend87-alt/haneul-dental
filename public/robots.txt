@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /api
+
+# 준비중 페이지 (라미네이트 오픈 시 제거)
+Disallow: /treatment/aesthetic
+
+Sitemap: https://www.haneuldental.co.kr/sitemap.xml
