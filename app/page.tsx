@@ -93,63 +93,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(fullSchema) }}
       />
 
-      {/* ── Header ── */}
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="font-bold text-charcoal tracking-tight text-lg"
-          >
-            상암하늘치과의원
-          </Link>
-          <nav className="hidden md:flex gap-7 text-sm text-charcoal-light">
-            <Link
-              href="/treatment/prosthetics"
-              className="hover:text-primary transition-colors"
-            >
-              보철치료
-            </Link>
-            <Link
-              href="/treatment/implant"
-              className="hover:text-primary transition-colors"
-            >
-              임플란트
-            </Link>
-            <Link
-              href="/treatment/restorative"
-              className="hover:text-primary transition-colors"
-            >
-              보존·치주
-            </Link>
-            <Link
-              href="/treatment/tmj"
-              className="hover:text-primary transition-colors"
-            >
-              턱관절
-            </Link>
-            <Link
-              href="/about"
-              className="hover:text-primary transition-colors"
-            >
-              원장 소개
-            </Link>
-            <Link
-              href="/contact"
-              className="hover:text-primary transition-colors"
-            >
-              예약·오시는 길
-            </Link>
-          </nav>
-          <a
-            href="tel:02-375-8278"
-            className="hidden md:inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors"
-          >
-            전화 예약
-          </a>
-        </div>
-      </header>
-
-      <main className="pb-14 md:pb-0">
+      <main>
 
         {/* ── Hero ── */}
         <section className="bg-white px-5 pt-20 pb-24 md:pt-28 md:pb-32">
@@ -354,46 +298,6 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-
-      {/* ── Footer ── */}
-      <footer className="bg-charcoal text-gray-400 px-5 py-10">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-white font-medium mb-2">상암하늘치과의원</p>
-          <p className="text-sm">
-            서울 마포구 상암산로1길 69, 302호 &middot; 02-375-8278
-          </p>
-          <p className="text-sm mt-1">
-            평일 08:30–17:30 &middot; 토 08:30–14:00 &middot; 화목야간
-            18:00–20:30
-          </p>
-          <p className="text-xs mt-8 text-gray-600">
-            &copy; 2025 상암하늘치과의원. All rights reserved.
-          </p>
-        </div>
-      </footer>
-
-      {/* ── Mobile Bottom Bar ── */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-gray-100 flex h-14">
-        <a
-          href="tel:02-375-8278"
-          className="flex-1 flex items-center justify-center text-xs font-medium text-charcoal hover:bg-gray-50 transition-colors"
-        >
-          전화 예약
-        </a>
-        {/* TODO: 네이버 예약 URL 확정 후 href 교체 */}
-        <a
-          href="/contact"
-          className="flex-1 flex items-center justify-center text-xs font-bold bg-primary text-white"
-        >
-          네이버 예약
-        </a>
-        <button
-          disabled
-          className="flex-1 flex items-center justify-center text-xs font-medium text-gray-300 cursor-not-allowed"
-        >
-          카카오톡
-        </button>
-      </div>
     </>
   );
 }
