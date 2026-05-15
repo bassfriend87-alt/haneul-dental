@@ -158,14 +158,12 @@ export default function HomePage() {
               Sangam Haneul Dental &middot; 보철과 전문의
             </p>
             <h1 className="text-4xl md:text-6xl font-bold text-charcoal leading-tight mb-6">
-              치아를 가장<br />
-              잘 아는 환자를<br />
-              만듭니다
+              잘 만든 보철은,<br />
+              환자가 잊고 삽니다
             </h1>
             <p className="text-base md:text-lg text-charcoal-light leading-relaxed mb-10 max-w-lg">
-              정직하게 진단하고, 충분히 설명하여<br className="hidden md:block" />
-              환자가 스스로 선택하게 합니다.<br />
-              보철의 전문성으로 그 선택에 책임집니다.
+              치아를 가장 잘 아는 환자를 만듭니다.<br />
+              보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
@@ -246,13 +244,13 @@ export default function HomePage() {
               원장 소개
             </p>
             <blockquote className="text-2xl md:text-3xl font-light text-white leading-relaxed mb-8">
-              &ldquo;잘 만든 보철은,<br />
-              환자가 잊고 삽니다&rdquo;
+              &ldquo;치아를 가장 잘 아는<br />
+              환자를 만듭니다&rdquo;
             </blockquote>
             <p className="text-gray-400 leading-relaxed mb-8 max-w-xl text-sm">
-              보철과 전문의로서 오랫동안 보철 치료에 집중해 왔습니다.
-              단독 개원을 선택한 이유도 같습니다.
-              한 명의 환자를 처음부터 끝까지, 일관되게 책임지기 위해서입니다.
+              정직하게 진단하여 환자가 자신의 치아를 이해하게 하고,
+              충분히 설명하여 스스로 선택하게 하며,
+              보철의 전문성으로 그 선택에 책임지는 치과를 지향합니다.
             </p>
             <Link
               href="/about"
