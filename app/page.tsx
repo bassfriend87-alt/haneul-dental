@@ -243,7 +243,13 @@ export default function HomePage() {
             <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
               원장 소개
             </p>
-            <blockquote className="text-2xl md:text-3xl font-light text-white leading-relaxed mb-8">
+            <div className="mb-8">
+              <p className="text-white text-2xl font-bold mb-1">김준연 대표원장</p>
+              <p className="text-primary text-sm font-medium">
+                치과보철과 전문의 &middot; 통합치의학과 전문의
+              </p>
+            </div>
+            <blockquote className="text-xl md:text-2xl font-light text-white leading-relaxed mb-6">
               &ldquo;치아를 가장 잘 아는<br />
               환자를 만듭니다&rdquo;
             </blockquote>
