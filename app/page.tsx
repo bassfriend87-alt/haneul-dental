@@ -195,16 +195,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── Motto Wall ── */}
-        <div className="relative h-52 md:h-72 overflow-hidden">
-          <Image
-            src="/images/clinic-wall-motto.jpg"
-            alt="하늘처럼 높이 신뢰를 쌓고, 하늘만큼 깊이 정성을 다하는"
-            fill
-            className="object-cover object-center"
-          />
-        </div>
-
         {/* ── About ── */}
         <section className="bg-charcoal overflow-hidden">
           <div className="max-w-5xl mx-auto md:grid md:grid-cols-2">
