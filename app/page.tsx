@@ -204,7 +204,7 @@ export default function HomePage() {
                 src="/images/doctor-consult-talking.jpg"
                 alt="환자와 상담하는 김준연 원장"
                 fill
-                className="object-cover scale-[1.4] origin-top"
+                className="object-cover object-center"
               />
             </div>
             {/* 텍스트 */}
