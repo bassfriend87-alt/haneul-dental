@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { dentistSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -33,24 +34,37 @@ export default function AboutPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-charcoal px-5 pt-20 pb-20">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-10">
-            원장 소개
-          </p>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-2">
-            김준연
-          </h1>
-          <p className="text-charcoal-light mb-8">대표원장</p>
-          <div className="flex flex-wrap gap-2">
-            {credentials.map((c) => (
-              <span
-                key={c}
-                className="inline-block text-sm text-primary border border-primary/40 rounded-full px-4 py-1.5"
-              >
-                {c}
-              </span>
-            ))}
+      <section className="bg-charcoal overflow-hidden">
+        <div className="max-w-5xl mx-auto md:grid md:grid-cols-2 md:min-h-[560px]">
+          {/* 텍스트 */}
+          <div className="px-5 pt-20 pb-12 md:py-28 flex flex-col justify-center">
+            <p className="text-xs text-gray-500 tracking-widest uppercase mb-10">
+              원장 소개
+            </p>
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-2">
+              김준연
+            </h1>
+            <p className="text-charcoal-light mb-8">대표원장</p>
+            <div className="flex flex-wrap gap-2">
+              {credentials.map((c) => (
+                <span
+                  key={c}
+                  className="inline-block text-sm text-primary border border-primary/40 rounded-full px-4 py-1.5"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+          </div>
+          {/* 이미지 */}
+          <div className="relative h-72 md:h-auto">
+            <Image
+              src="/images/doctor-profile-stand-white.jpg"
+              alt="김준연 대표원장"
+              fill
+              className="object-cover object-top"
+              priority
+            />
           </div>
         </div>
       </section>

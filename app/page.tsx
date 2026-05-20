@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { dentistSchema, getSpecialHours } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -96,32 +97,45 @@ export default function HomePage() {
       <main>
 
         {/* ── Hero ── */}
-        <section className="bg-ink px-5 pt-20 pb-24 md:pt-28 md:pb-32">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
-              Sangam Haneul Dental &middot; 보철과 전문의
-            </p>
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-              잘 만든 보철은,<br />
-              환자가 잊고 삽니다
-            </h1>
-            <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-10 max-w-lg">
-              치아를 가장 잘 아는 환자를 만듭니다.<br />
-              보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="tel:02-375-8278"
-                className="inline-flex items-center justify-center bg-primary text-white font-medium px-6 py-3.5 rounded-full hover:bg-primary-dark transition-colors"
-              >
-                전화 예약 &middot; 02-375-8278
-              </a>
-              <Link
-                href="/treatment"
-                className="inline-flex items-center justify-center border border-white/30 text-white font-medium px-6 py-3.5 rounded-full hover:bg-white/10 transition-colors"
-              >
-                진료과목 보기
-              </Link>
+        <section className="bg-ink overflow-hidden">
+          <div className="max-w-5xl mx-auto md:grid md:grid-cols-2 md:min-h-[680px]">
+            {/* 텍스트 */}
+            <div className="px-5 pt-20 pb-12 md:py-28 flex flex-col justify-center">
+              <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
+                Sangam Haneul Dental &middot; 보철과 전문의
+              </p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                잘 만든 보철은,<br />
+                환자가 잊고 삽니다
+              </h1>
+              <p className="text-base text-gray-400 leading-relaxed mb-10 max-w-sm">
+                치아를 가장 잘 아는 환자를 만듭니다.<br />
+                보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="tel:02-375-8278"
+                  className="inline-flex items-center justify-center bg-primary text-white font-medium px-6 py-3.5 rounded-full hover:bg-primary-dark transition-colors"
+                >
+                  전화 예약 &middot; 02-375-8278
+                </a>
+                <Link
+                  href="/treatment"
+                  className="inline-flex items-center justify-center border border-white/30 text-white font-medium px-6 py-3.5 rounded-full hover:bg-white/10 transition-colors"
+                >
+                  진료과목 보기
+                </Link>
+              </div>
+            </div>
+            {/* 이미지 */}
+            <div className="relative h-72 md:h-auto">
+              <Image
+                src="/images/doctor-profile-desk-gray.jpg"
+                alt="김준연 대표원장"
+                fill
+                className="object-cover object-top"
+                priority
+              />
             </div>
           </div>
         </section>
@@ -181,33 +195,55 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── Motto Wall ── */}
+        <div className="relative h-52 md:h-72 overflow-hidden">
+          <Image
+            src="/images/clinic-wall-motto.jpg"
+            alt="하늘처럼 높이 신뢰를 쌓고, 하늘만큼 깊이 정성을 다하는"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+
         {/* ── About ── */}
-        <section className="bg-charcoal px-5 py-20">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
-              원장 소개
-            </p>
-            <div className="mb-8">
-              <p className="text-white text-2xl font-bold mb-1">김준연 대표원장</p>
-              <p className="text-primary text-sm font-medium">
-                치과보철과 전문의 &middot; 통합치의학과 전문의
-              </p>
+        <section className="bg-charcoal overflow-hidden">
+          <div className="max-w-5xl mx-auto md:grid md:grid-cols-2">
+            {/* 이미지 */}
+            <div className="relative h-72 md:h-auto order-last md:order-first">
+              <Image
+                src="/images/doctor-consult-talking.jpg"
+                alt="환자와 상담하는 김준연 원장"
+                fill
+                className="object-cover object-center"
+              />
             </div>
-            <blockquote className="text-xl md:text-2xl font-light text-white leading-relaxed mb-6">
-              &ldquo;치아를 가장 잘 아는<br />
-              환자를 만듭니다&rdquo;
-            </blockquote>
-            <p className="text-gray-400 leading-relaxed mb-8 max-w-xl text-sm">
-              정직하게 진단하여 환자가 자신의 치아를 이해하게 하고,
-              충분히 설명하여 스스로 선택하게 하며,
-              보철의 전문성으로 그 선택에 책임지는 치과를 지향합니다.
-            </p>
-            <Link
-              href="/about"
-              className="inline-flex items-center text-sm text-white border border-white/30 rounded-full px-5 py-2.5 hover:bg-white/10 transition-colors"
-            >
-              원장 소개 보기 →
-            </Link>
+            {/* 텍스트 */}
+            <div className="px-5 py-16 md:py-24 flex flex-col justify-center">
+              <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
+                원장 소개
+              </p>
+              <div className="mb-6">
+                <p className="text-white text-2xl font-bold mb-1">김준연 대표원장</p>
+                <p className="text-primary text-sm font-medium">
+                  치과보철과 전문의 &middot; 통합치의학과 전문의
+                </p>
+              </div>
+              <blockquote className="text-xl font-light text-white leading-relaxed mb-5">
+                &ldquo;치아를 가장 잘 아는<br />
+                환자를 만듭니다&rdquo;
+              </blockquote>
+              <p className="text-gray-400 leading-relaxed mb-8 text-sm">
+                정직하게 진단하여 환자가 자신의 치아를 이해하게 하고,
+                충분히 설명하여 스스로 선택하게 하며,
+                보철의 전문성으로 그 선택에 책임지는 치과를 지향합니다.
+              </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center text-sm text-white border border-white/30 rounded-full px-5 py-2.5 hover:bg-white/10 transition-colors w-fit"
+              >
+                원장 소개 보기 →
+              </Link>
+            </div>
           </div>
         </section>
 
