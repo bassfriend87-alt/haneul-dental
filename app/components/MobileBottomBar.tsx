@@ -17,7 +17,8 @@ export function MobileBottomBar() {
       </a>
       <button
         disabled
-        className="flex-1 flex items-center justify-center text-xs font-medium text-gray-300 cursor-not-allowed"
+        className="flex-1 flex items-center justify-center text-xs font-bold cursor-not-allowed"
+        style={{ backgroundColor: '#FEE500', color: '#191919' }}
       >
         카카오톡
       </button>
