@@ -128,7 +128,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* 이미지 */}
-            <div className="relative aspect-square md:aspect-auto">
+            <div className="relative aspect-[3/4] md:aspect-auto">
               <Image
                 src="/images/doctor-profile-desk-gray.jpg"
                 alt="김준연 대표원장"
