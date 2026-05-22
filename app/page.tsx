@@ -310,13 +310,15 @@ export default function HomePage() {
               {/* TODO: 네이버 예약 URL 확정 후 href 교체 */}
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center bg-white/20 text-white font-medium px-7 py-3.5 rounded-full hover:bg-white/30 transition-colors"
+                className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full"
+                style={{ backgroundColor: '#03C75A', color: '#ffffff' }}
               >
                 네이버 예약
               </a>
               <button
                 disabled
-                className="inline-flex items-center justify-center bg-white/10 text-white/40 font-medium px-7 py-3.5 rounded-full cursor-not-allowed"
+                className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full cursor-not-allowed"
+                style={{ backgroundColor: '#FEE500', color: '#191919' }}
               >
                 카카오톡 (준비중)
               </button>
