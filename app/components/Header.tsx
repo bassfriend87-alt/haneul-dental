@@ -1,11 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
-        <Link href="/" className="font-bold text-charcoal tracking-tight text-lg">
-          상암하늘치과의원
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logo-color.png"
+            alt="상암하늘치과의원"
+            width={148}
+            height={24}
+            priority
+          />
         </Link>
         <nav className="hidden md:flex gap-7 text-sm text-charcoal-light">
           <Link href="/treatment/prosthetics" className="hover:text-primary transition-colors">보철치료</Link>
