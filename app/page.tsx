@@ -128,7 +128,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* 이미지 */}
-            <div className="relative h-72 md:h-auto">
+            <div className="relative h-96 md:h-auto">
               <Image
                 src="/images/doctor-profile-desk-gray.jpg"
                 alt="김준연 대표원장"
