@@ -24,7 +24,7 @@ const services = [
     name: "보철치료",
     desc: "크라운·브릿지·틀니",
     href: "/treatment/prosthetics",
-    tag: "핵심 전문성",
+    tag: null,
   },
   {
     name: "임플란트",
