@@ -209,7 +209,7 @@ export default function HomePage() {
             </div>
             {/* 텍스트 */}
             <div className="px-5 py-16 md:py-24 flex flex-col justify-center">
-              <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
+              <p className="text-xs text-gray-300 tracking-widest uppercase mb-8">
                 원장 소개
               </p>
               <div className="mb-6">
