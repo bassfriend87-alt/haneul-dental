@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { MobileBottomBar } from "./components/MobileBottomBar";
+import { DesktopFloatingButtons } from "./components/DesktopFloatingButtons";
 
 const notoKR = Noto_Sans_KR({
   weight: ["300", "400", "500", "700"],
@@ -36,6 +37,7 @@ export default function RootLayout({
         <div className="flex-1 pb-14 md:pb-0">{children}</div>
         <Footer />
         <MobileBottomBar />
+        <DesktopFloatingButtons />
       </body>
     </html>
   );
