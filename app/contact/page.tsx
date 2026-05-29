@@ -127,6 +127,19 @@ export default function ContactPage() {
               02-375-8278
             </a>
           </address>
+          {/* 지도 */}
+          <div className="rounded-2xl overflow-hidden border border-gray-100 mb-6" style={{ height: '400px' }}>
+            <iframe
+              src="https://maps.google.com/maps?q=37.5801378,126.8835080&z=16&output=embed&hl=ko"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="상암하늘치과의원 위치"
+            />
+          </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="https://map.naver.com/v5/search/상암하늘치과의원"
@@ -137,7 +150,7 @@ export default function ContactPage() {
               네이버 지도에서 찾기 →
             </a>
             <a
-              href="https://maps.google.com/?q=서울특별시+마포구+상암산로1길+69"
+              href="https://maps.google.com/?q=37.5801378,126.8835080"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 border border-gray-200 text-charcoal text-sm font-medium px-5 py-3 rounded-full hover:border-charcoal transition-colors"
