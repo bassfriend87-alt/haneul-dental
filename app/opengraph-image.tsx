@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 
 export default function OGImage() {
   const logoBuffer = readFileSync(
-    join(process.cwd(), "public/images/logo-white.png")
+    join(process.cwd(), "public/images/logo-vertical.png")
   );
   const logoSrc = `data:image/png;base64,${logoBuffer.toString("base64")}`;
 
@@ -16,27 +16,15 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: "#1a1a1a",
+          background: "#ffffff",
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 28,
         }}
       >
-        <img src={logoSrc} width={520} height={86} />
-        <div
-          style={{
-            color: "#8a8a8a",
-            fontSize: 26,
-            fontFamily: "sans-serif",
-            letterSpacing: "0.05em",
-          }}
-        >
-          보철과 전문의 · 상암동
-        </div>
+        <img src={logoSrc} width={400} height={186} />
       </div>
     ),
     { ...size }
