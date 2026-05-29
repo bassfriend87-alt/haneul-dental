@@ -9,7 +9,7 @@ export function MobileBottomBar() {
       </a>
       {/* TODO: 네이버 예약 URL 확정 후 href 교체 */}
       <a
-        href="/contact"
+        href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789"
         className="flex-1 flex items-center justify-center text-xs font-bold text-white"
         style={{ backgroundColor: '#03C75A' }}
       >

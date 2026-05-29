@@ -307,9 +307,10 @@ export default function HomePage() {
               >
                 전화 예약 &middot; 02-375-8278
               </a>
-              {/* TODO: 네이버 예약 URL 확정 후 href 교체 */}
               <a
-                href="/contact"
+                href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full"
                 style={{ backgroundColor: '#03C75A', color: '#ffffff' }}
               >
