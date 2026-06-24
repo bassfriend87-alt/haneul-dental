@@ -16,8 +16,8 @@ export function Footer() {
         <p className="text-sm mt-1">
           평일 08:30–17:30 &middot; 토 08:30–14:00 &middot; 화목야간 18:00–20:30
         </p>
-        <div className="mt-4">
-          <Link href="/fees" className="text-sm text-gray-400 hover:text-white transition-colors">
+        <div className="mt-5">
+          <Link href="/fees" className="inline-flex items-center text-sm text-gray-400 border border-gray-600 rounded-full px-4 py-2 hover:border-gray-400 hover:text-white transition-colors">
             비급여 수가표
           </Link>
         </div>
