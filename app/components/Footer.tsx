@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -15,7 +16,12 @@ export function Footer() {
         <p className="text-sm mt-1">
           평일 08:30–17:30 &middot; 토 08:30–14:00 &middot; 화목야간 18:00–20:30
         </p>
-        <p className="text-xs mt-8 text-gray-600">
+        <div className="mt-4">
+          <Link href="/fees" className="text-sm text-gray-400 hover:text-white transition-colors">
+            비급여 수가표
+          </Link>
+        </div>
+        <p className="text-xs mt-6 text-gray-600">
           &copy; 2025 상암하늘치과의원. All rights reserved.
         </p>
       </div>
