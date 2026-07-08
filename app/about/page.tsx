@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
 import { dentistSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -27,14 +28,17 @@ const memberships = [
 
 const differentiators = [
   {
+    icon: <IconStethoscope size={32} stroke={1.5} className="text-primary" />,
     label: "정직한 진단",
     body: "치아 상태를 있는 그대로 설명합니다. 필요 이상의 치료를 권하지 않습니다.",
   },
   {
+    icon: <IconMessageCircle size={32} stroke={1.5} className="text-primary" />,
     label: "충분한 설명",
     body: "환자가 자신의 치아를 이해하고, 스스로 선택할 수 있을 때까지 안내합니다.",
   },
   {
+    icon: <IconCrown size={32} stroke={1.5} className="text-primary" />,
     label: "평생 책임 관리",
     body: "진단부터 보철 제작·장착·관리까지 한 사람이 처음부터 끝까지 담당합니다.",
   },
@@ -100,7 +104,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-12">
             {differentiators.map((d) => (
               <div key={d.label}>
-                <div className="w-8 h-0.5 bg-primary mb-6" />
+                <div className="mb-6">{d.icon}</div>
                 <h2 className="text-xl font-bold text-charcoal mb-3">{d.label}</h2>
                 <p className="text-charcoal-light leading-relaxed text-sm">{d.body}</p>
               </div>
