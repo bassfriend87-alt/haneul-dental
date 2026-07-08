@@ -67,7 +67,7 @@ export function Header() {
           href="/contact"
           className="hidden md:inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors"
         >
-          예약·오시는길
+          예약·오시는 길
         </Link>
       </div>
     </header>
