@@ -136,7 +136,7 @@ export function Header() {
           >
             예약·오시는 길
           </Link>
-          <Link href="/about" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-50 hover:text-primary transition-colors">
+          <Link href="/about" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
             원장 소개
           </Link>
           <div className="border-b border-gray-100 py-3">
