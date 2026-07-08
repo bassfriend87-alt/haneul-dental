@@ -1,11 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
