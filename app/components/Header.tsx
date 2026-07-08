@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,10 +7,6 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [isOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
@@ -102,9 +98,9 @@ export function Header() {
         </button>
       </div>
 
-      {/* 모바일 메뉴 */}
+      {/* 모바일 메뉴 — fixed 오버레이 */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-5 py-4">
+        <div className="md:hidden fixed inset-0 top-16 bg-white z-40 overflow-y-auto px-5 py-4">
           <Link
             href="/contact"
             onClick={close}
