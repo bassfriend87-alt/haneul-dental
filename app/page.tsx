@@ -178,7 +178,7 @@ export default function HomePage() {
                 <Link
                   key={s.name}
                   href={s.href}
-                  className="group border border-gray-100 rounded-2xl p-6 hover:border-primary transition-colors"
+                  className="group border border-gray-200 rounded-2xl p-6 hover:border-primary transition-colors"
                 >
                   {s.tag && (
                     <span className="inline-block text-xs text-primary bg-orange-50 rounded-full px-2.5 py-0.5 mb-3">
