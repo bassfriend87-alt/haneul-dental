@@ -98,7 +98,7 @@ export default function HomePage() {
 
         {/* ── Hero ── */}
         <section className="bg-ink overflow-hidden">
-          <div className="max-w-5xl mx-auto md:grid md:grid-cols-[3fr_2fr] md:min-h-[680px]">
+          <div className="max-w-5xl mx-auto md:grid md:grid-cols-2 md:min-h-[680px]">
             {/* 텍스트 */}
             <div className="px-5 pt-20 pb-12 md:py-28 flex flex-col justify-center">
               <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
