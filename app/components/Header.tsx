@@ -16,6 +16,7 @@ export function Header() {
         </Link>
         <nav className="hidden md:flex gap-5 text-sm text-charcoal-light">
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
+          <span className="w-px h-4 bg-gray-200 self-center" />
           <Link href="/treatment/implant" className="hover:text-primary transition-colors">임플란트</Link>
           <div className="relative group">
             <Link href="/treatment/prosthetics" className="hover:text-primary transition-colors flex items-center gap-0.5">
