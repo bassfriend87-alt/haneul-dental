@@ -9,8 +9,8 @@ export function Header() {
           <Image
             src="/images/logo-color.png"
             alt="상암하늘치과의원"
-            width={185}
-            height={30}
+            width={197}
+            height={32}
             priority
           />
         </Link>
