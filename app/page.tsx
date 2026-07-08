@@ -27,9 +27,9 @@ const services = [
     tag: null,
   },
   {
-    name: "보존치료",
-    desc: "충치·신경치료",
-    href: "/treatment/restorative",
+    name: "보철치료",
+    desc: "크라운·브릿지·틀니",
+    href: "/treatment/prosthetics",
     tag: null,
   },
   {
@@ -39,9 +39,9 @@ const services = [
     tag: null,
   },
   {
-    name: "보철치료",
-    desc: "크라운·브릿지·틀니",
-    href: "/treatment/prosthetics",
+    name: "보존치료",
+    desc: "충치·신경치료",
+    href: "/treatment/restorative",
     tag: null,
   },
   {
