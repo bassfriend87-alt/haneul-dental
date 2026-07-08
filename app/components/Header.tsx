@@ -79,14 +79,6 @@ export function Header() {
           예약·오시는 길
         </Link>
 
-        {/* 모바일 예약 버튼 */}
-        <Link
-          href="/contact"
-          className="md:hidden inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors"
-        >
-          예약·오시는 길
-        </Link>
-
         {/* 모바일 햄버거 버튼 */}
         <button
           className="md:hidden p-2 text-charcoal"
@@ -108,6 +100,13 @@ export function Header() {
       {/* 모바일 메뉴 */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-5 py-4">
+          <Link
+            href="/contact"
+            onClick={close}
+            className="mb-4 flex items-center justify-center bg-primary text-white text-sm font-medium px-4 py-3 rounded-full hover:bg-primary-dark transition-colors"
+          >
+            예약·오시는 길
+          </Link>
           <Link href="/about" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-50 hover:text-primary transition-colors">
             원장 소개
           </Link>
