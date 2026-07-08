@@ -87,8 +87,8 @@ export default function AboutPage() {
             {/* pull-quote */}
             <blockquote className="border-l-2 border-primary pl-5">
               <p className="text-xl md:text-2xl font-light text-white leading-relaxed">
-                잘 만든 보철은,<br />
-                환자가 잊고 삽니다
+                환자분이 이해하실 때까지,<br />
+                설명을 아끼지 않습니다
               </p>
             </blockquote>
           </div>
