@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
-import { restorativeFAQs } from "@/data/faqs";
+import { restorativeFAQs, cavityFAQs, rootCanalFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
 
 export const metadata: Metadata = {
@@ -43,16 +43,27 @@ export default function RestorativePage() {
         </div>
       </section>
 
-      {/* ── 치료 안내 ── */}
+      {/* ── 충치치료 ── */}
       <section className="bg-white px-5 py-16">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-charcoal mb-4">충치·신경치료</h2>
+          <h2 className="text-2xl font-bold text-charcoal mb-4">충치치료</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
             충치의 진행 정도에 따라 레진, 인레이, 크라운 등 적합한 방법을 선택합니다.
-            신경까지 침범한 경우에는 신경치료를 선행한 후 크라운으로 보호합니다.
-            치아를 최대한 보존하는 방향으로 치료 계획을 세웁니다.
+            초기에 발견할수록 치아를 더 많이 지킬 수 있습니다.
           </p>
-          <FAQSection faqs={restorativeFAQs} />
+          <FAQSection faqs={cavityFAQs} />
+        </div>
+      </section>
+
+      {/* ── 신경치료 ── */}
+      <section className="bg-surface px-5 py-16">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-charcoal mb-4">신경치료</h2>
+          <p className="text-sm text-charcoal-light leading-relaxed mb-8">
+            충치가 신경(치수)까지 침범한 경우 신경치료를 통해 치아를 살립니다.
+            치료 후 크라운으로 보호해 치아의 기능을 최대한 유지합니다.
+          </p>
+          <FAQSection faqs={rootCanalFAQs} />
         </div>
       </section>
 
