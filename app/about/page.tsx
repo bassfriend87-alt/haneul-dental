@@ -34,7 +34,7 @@ export default function AboutPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-charcoal overflow-hidden">
+      <section className="bg-ink overflow-hidden">
         <div className="max-w-5xl mx-auto md:grid md:grid-cols-2 md:min-h-[560px]">
           {/* 텍스트 */}
           <div className="px-5 pt-20 pb-12 md:py-28 flex flex-col justify-center">
