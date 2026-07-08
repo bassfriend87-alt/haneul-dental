@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
-import { periodontalFAQs } from "@/data/faqs";
+import { periodontalFAQs, scalingFAQs, gumTreatmentFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
 
 export const metadata: Metadata = {
@@ -43,16 +43,27 @@ export default function PeriodontalPage() {
         </div>
       </section>
 
-      {/* ── 치료 안내 ── */}
+      {/* ── 스케일링 ── */}
       <section className="bg-white px-5 py-16">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-charcoal mb-4">스케일링·잇몸치료</h2>
+          <h2 className="text-2xl font-bold text-charcoal mb-4">스케일링</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
-            스케일링은 치아 표면의 치석과 세균막을 제거하는 기본 치료입니다.
-            잇몸 상태에 따라 잇몸치료(치근활택술)가 추가로 필요한 경우도 있습니다.
-            만 19세 이상은 연 1회 스케일링에 건강보험이 적용됩니다.
+            치아 표면의 치석과 세균막을 제거하는 기본 치료입니다.
+            만 19세 이상은 연 1회 건강보험이 적용됩니다.
           </p>
-          <FAQSection faqs={periodontalFAQs} />
+          <FAQSection faqs={scalingFAQs} />
+        </div>
+      </section>
+
+      {/* ── 잇몸치료 ── */}
+      <section className="bg-surface px-5 py-16">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-charcoal mb-4">잇몸치료</h2>
+          <p className="text-sm text-charcoal-light leading-relaxed mb-8">
+            스케일링만으로 해결이 어려운 깊은 치주낭은 치근활택술(잇몸치료)로 관리합니다.
+            치주질환은 조기 발견과 꾸준한 유지 치료가 핵심입니다.
+          </p>
+          <FAQSection faqs={gumTreatmentFAQs} />
         </div>
       </section>
 

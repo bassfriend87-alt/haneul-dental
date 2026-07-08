@@ -221,7 +221,7 @@ export const rootCanalFAQs = [
 
 export const restorativeFAQs = [...cavityFAQs, ...rootCanalFAQs]
 
-export const periodontalFAQs = [
+export const scalingFAQs = [
   {
     question: "스케일링은 얼마나 자주 해야 하나요?",
     answer: "일반적으로 6개월~1년에 한 번을 권장합니다. 잇몸 상태가 좋지 않거나 치석이 빨리 쌓이는 경우에는 3~4개월 간격으로 받는 것이 좋습니다. 만 19세 이상은 연 1회 건강보험이 적용되어 부담 없이 받을 수 있습니다."
@@ -233,7 +233,10 @@ export const periodontalFAQs = [
   {
     question: "스케일링을 하면 치아가 약해지나요?",
     answer: "그렇지 않습니다. 스케일링은 치아 표면의 치석과 세균막을 제거하는 치료로, 치아 자체를 손상시키지 않습니다. 치석이 제거된 후 일시적으로 치아 사이가 벌어진 것처럼 느껴지는 경우가 있는데, 이는 치석이 채우고 있던 공간이 드러난 것입니다. 오히려 치석을 방치하면 잇몸뼈가 손상되어 치아가 약해질 수 있습니다."
-  },
+  }
+]
+
+export const gumTreatmentFAQs = [
   {
     question: "잇몸치료가 필요한 경우는 어떤 경우인가요?",
     answer: "잇몸이 자주 붓거나 피가 나는 경우, 치아가 흔들리는 경우, 잇몸이 내려앉아 치아 뿌리가 보이는 경우, 스케일링만으로 해결되지 않는 깊은 치주낭이 있는 경우에 잇몸치료가 필요합니다. 증상이 없어도 정기검진에서 치주 상태를 확인하는 것이 중요합니다."
@@ -263,6 +266,8 @@ export const periodontalFAQs = [
     answer: "완치보다는 관리의 개념으로 접근하는 것이 맞습니다. 치주질환은 치료 후에도 구강 위생 관리를 소홀히 하면 재발할 수 있습니다. 정기적인 유지 치료와 올바른 구강 관리를 통해 진행을 막고 현재 상태를 유지하는 것이 목표입니다."
   }
 ]
+
+export const periodontalFAQs = [...scalingFAQs, ...gumTreatmentFAQs]
 
 export const tmjFAQs = [
   {
