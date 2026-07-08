@@ -21,15 +21,15 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    name: "보철치료",
-    desc: "크라운·브릿지·틀니",
-    href: "/treatment/prosthetics",
-    tag: null,
-  },
-  {
     name: "임플란트",
     desc: "식립부터 보철까지 일관 치료",
     href: "/treatment/implant",
+    tag: null,
+  },
+  {
+    name: "보철치료",
+    desc: "크라운·브릿지·틀니",
+    href: "/treatment/prosthetics",
     tag: null,
   },
   {
