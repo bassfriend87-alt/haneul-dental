@@ -143,9 +143,9 @@ export default function HomePage() {
         {/* ── Values ── */}
         <section className="bg-white px-5 py-20">
           <div className="max-w-5xl mx-auto">
-            <p className="text-xs text-charcoal-light tracking-widest uppercase mb-14 text-center">
+            <h2 className="text-3xl font-bold text-charcoal mb-14 text-center">
               진료 철학
-            </p>
+            </h2>
             <div className="grid md:grid-cols-3 gap-12">
               {values.map((v) => (
                 <div key={v.label}>
