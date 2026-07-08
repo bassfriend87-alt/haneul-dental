@@ -44,7 +44,7 @@ export default function RestorativePage() {
       </section>
 
       {/* ── 충치치료 ── */}
-      <section className="bg-white px-5 py-16">
+      <section id="cavity" className="bg-white px-5 py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">충치치료</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -56,7 +56,7 @@ export default function RestorativePage() {
       </section>
 
       {/* ── 신경치료 ── */}
-      <section className="bg-surface px-5 py-16">
+      <section id="root-canal" className="bg-surface px-5 py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">신경치료</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">

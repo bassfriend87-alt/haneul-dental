@@ -31,7 +31,20 @@ export function Header() {
               </div>
             </div>
           </div>
-          <Link href="/treatment/restorative" className="hover:text-primary transition-colors">보존치료</Link>
+          <div className="relative group">
+            <Link href="/treatment/restorative" className="hover:text-primary transition-colors flex items-center gap-0.5">
+              보존치료
+              <svg className="w-3 h-3 mt-0.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </Link>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-150 z-50">
+              <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-1 w-24">
+                <Link href="/treatment/restorative#cavity" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">충치치료</Link>
+                <Link href="/treatment/restorative#root-canal" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">신경치료</Link>
+              </div>
+            </div>
+          </div>
           <Link href="/treatment/periodontal" className="hover:text-primary transition-colors">치주치료</Link>
           <Link href="/treatment/tmj" className="hover:text-primary transition-colors">턱관절</Link>
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
