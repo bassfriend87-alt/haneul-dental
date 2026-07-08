@@ -61,7 +61,6 @@ export function Header() {
           </div>
           <Link href="/treatment/tmj" className="hover:text-primary transition-colors">턱관절</Link>
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
-          <Link href="/contact" className="hover:text-primary transition-colors">예약·오시는 길</Link>
         </nav>
         <Link
           href="/contact"
