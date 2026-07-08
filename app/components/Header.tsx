@@ -15,6 +15,7 @@ export function Header() {
           />
         </Link>
         <nav className="hidden md:flex gap-5 text-sm text-charcoal-light">
+          <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
           <Link href="/treatment/implant" className="hover:text-primary transition-colors">임플란트</Link>
           <div className="relative group">
             <Link href="/treatment/prosthetics" className="hover:text-primary transition-colors flex items-center gap-0.5">
@@ -60,7 +61,6 @@ export function Header() {
             </div>
           </div>
           <Link href="/treatment/tmj" className="hover:text-primary transition-colors">턱관절</Link>
-          <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
         </nav>
         <Link
           href="/contact"
