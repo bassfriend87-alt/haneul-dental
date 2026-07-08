@@ -195,47 +195,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── About ── */}
-        <section className="bg-charcoal overflow-hidden">
-          <div className="max-w-5xl mx-auto md:grid md:grid-cols-2">
-            {/* 이미지 */}
-            <div className="relative h-72 md:h-auto order-last md:order-first">
-              <Image
-                src="/images/doctor-consult-talking.jpg"
-                alt="환자와 상담하는 김준연 원장"
-                fill
-                className="object-cover object-center"
-              />
-            </div>
-            {/* 텍스트 */}
-            <div className="px-5 py-16 md:py-24 flex flex-col justify-center">
-              <p className="text-xs text-gray-300 tracking-widest uppercase mb-8">
-                원장 소개
-              </p>
-              <div className="mb-6">
-                <p className="text-white text-2xl font-bold mb-1">김준연 대표원장</p>
-                <p className="text-primary text-sm font-medium">
-                  치과보철과 전문의 &middot; 통합치의학과 전문의
-                </p>
-              </div>
-              <blockquote className="text-xl font-light text-white leading-relaxed mb-5">
-                &ldquo;치아를 가장 잘 아는<br />
-                환자를 만듭니다&rdquo;
-              </blockquote>
-              <p className="text-gray-400 leading-relaxed mb-8 text-sm">
-                정직하게 진단하여 환자가 자신의 치아를 이해하게 하고,
-                충분히 설명하여 스스로 선택하게 하며,
-                보철의 전문성으로 그 선택에 책임지는 치과를 지향합니다.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center text-sm text-white border border-white/30 rounded-full px-5 py-2.5 hover:bg-white/10 transition-colors w-fit"
-              >
-                원장 소개 보기 →
-              </Link>
-            </div>
-          </div>
-        </section>
+
 
         {/* ── Hours + Location ── */}
         <section className="bg-surface px-5 py-20">
