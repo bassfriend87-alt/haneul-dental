@@ -49,7 +49,7 @@ export default function ProstheticsPage() {
       </section>
 
       {/* ── 크라운 ── */}
-      <section className="bg-white px-5 py-16">
+      <section id="crown" className="bg-white px-5 py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">크라운</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -62,7 +62,7 @@ export default function ProstheticsPage() {
       </section>
 
       {/* ── 브릿지 ── */}
-      <section className="bg-surface px-5 py-16">
+      <section id="bridge" className="bg-surface px-5 py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">브릿지</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -75,7 +75,7 @@ export default function ProstheticsPage() {
       </section>
 
       {/* ── 틀니 ── */}
-      <section className="bg-white px-5 py-16">
+      <section id="denture" className="bg-white px-5 py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">틀니</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
