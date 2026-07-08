@@ -198,7 +198,7 @@ export default function HomePage() {
 
 
         {/* ── Hours + Location ── */}
-        <section className="bg-surface px-5 py-20">
+        <section className="bg-white px-5 py-20">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14">
             <div>
               <p className="text-xs text-charcoal-light tracking-widest uppercase mb-7">
