@@ -14,10 +14,11 @@ export function Header() {
             priority
           />
         </Link>
-        <nav className="hidden md:flex gap-7 text-sm text-charcoal-light">
+        <nav className="hidden md:flex gap-5 text-sm text-charcoal-light">
           <Link href="/treatment/prosthetics" className="hover:text-primary transition-colors">보철치료</Link>
           <Link href="/treatment/implant" className="hover:text-primary transition-colors">임플란트</Link>
-          <Link href="/treatment/restorative" className="hover:text-primary transition-colors">보존·치주</Link>
+          <Link href="/treatment/restorative" className="hover:text-primary transition-colors">보존치료</Link>
+          <Link href="/treatment/periodontal" className="hover:text-primary transition-colors">치주치료</Link>
           <Link href="/treatment/tmj" className="hover:text-primary transition-colors">턱관절</Link>
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
           <Link href="/contact" className="hover:text-primary transition-colors">예약·오시는 길</Link>
