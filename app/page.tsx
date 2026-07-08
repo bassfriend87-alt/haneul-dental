@@ -197,6 +197,40 @@ export default function HomePage() {
 
 
 
+        {/* ── CTA ── */}
+        <section className="bg-primary px-5 py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">진료 예약</h2>
+            <p className="text-white/70 text-sm mb-10">
+              전화 또는 네이버 예약으로 방문 일정을 잡으실 수 있습니다.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="tel:02-375-8278"
+                className="inline-flex items-center justify-center bg-white text-primary font-bold px-7 py-3.5 rounded-full hover:bg-orange-50 transition-colors"
+              >
+                전화 예약 &middot; 02-375-8278
+              </a>
+              <a
+                href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full"
+                style={{ backgroundColor: '#03C75A', color: '#ffffff' }}
+              >
+                네이버 예약
+              </a>
+              <button
+                disabled
+                className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full cursor-not-allowed"
+                style={{ backgroundColor: '#FEE500', color: '#191919' }}
+              >
+                카카오톡 (준비중)
+              </button>
+            </div>
+          </div>
+        </section>
+
         {/* ── Hours + Location ── */}
         <section className="bg-white px-5 py-20">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14">
@@ -249,40 +283,6 @@ export default function HomePage() {
               >
                 네이버 지도에서 찾기 →
               </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ── CTA ── */}
-        <section className="bg-primary px-5 py-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-3">진료 예약</h2>
-            <p className="text-white/70 text-sm mb-10">
-              전화 또는 네이버 예약으로 방문 일정을 잡으실 수 있습니다.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href="tel:02-375-8278"
-                className="inline-flex items-center justify-center bg-white text-primary font-bold px-7 py-3.5 rounded-full hover:bg-orange-50 transition-colors"
-              >
-                전화 예약 &middot; 02-375-8278
-              </a>
-              <a
-                href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full"
-                style={{ backgroundColor: '#03C75A', color: '#ffffff' }}
-              >
-                네이버 예약
-              </a>
-              <button
-                disabled
-                className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full cursor-not-allowed"
-                style={{ backgroundColor: '#FEE500', color: '#191919' }}
-              >
-                카카오톡 (준비중)
-              </button>
             </div>
           </div>
         </section>
