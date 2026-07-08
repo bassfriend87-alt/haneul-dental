@@ -109,8 +109,8 @@ export default function HomePage() {
                 환자가 잊고 삽니다
               </h1>
               <p className="text-base text-gray-400 leading-relaxed mb-10 max-w-sm">
-                치아를 가장 잘 아는 환자를 만듭니다.<br />
-                보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
+                치료 전, 환자가 충분히 이해하고 선택할 수 있도록 안내합니다.<br />
+                진단부터 보철 완성까지, 한 명의 전문의가 책임집니다.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
