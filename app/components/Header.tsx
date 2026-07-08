@@ -63,12 +63,12 @@ export function Header() {
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
           <Link href="/contact" className="hover:text-primary transition-colors">예약·오시는 길</Link>
         </nav>
-        <a
-          href="tel:02-375-8278"
+        <Link
+          href="/contact"
           className="hidden md:inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors"
         >
-          전화 예약
-        </a>
+          예약·오시는길
+        </Link>
       </div>
     </header>
   );
