@@ -53,12 +53,12 @@ export default function TreatmentPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-ink px-5 pt-20 pb-16">
+      <section className="bg-white px-5 pt-20 pb-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-6">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">
             Treatment
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal">
             진료과목
           </h1>
         </div>

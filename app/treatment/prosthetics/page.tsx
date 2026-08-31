@@ -33,15 +33,15 @@ export default function ProstheticsPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-ink px-5 pt-20 pb-16">
+      <section className="bg-white px-5 pt-20 pb-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-6">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">
             Treatment
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
             보철치료
           </h1>
-          <p className="text-gray-400 leading-relaxed max-w-lg">
+          <p className="text-charcoal-light leading-relaxed max-w-lg">
             잘 만든 보철은, 환자가 잊고 삽니다.<br />
             보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
           </p>

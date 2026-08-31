@@ -35,12 +35,12 @@ export default function ContactPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-ink px-5 pt-20 pb-16">
+      <section className="bg-white px-5 pt-20 pb-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-6">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">
             Contact
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal leading-tight">
             예약 · 오시는 길
           </h1>
         </div>

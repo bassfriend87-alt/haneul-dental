@@ -167,15 +167,15 @@ export default function FeesPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-ink px-5 pt-20 pb-16">
+      <section className="bg-white px-5 pt-20 pb-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-6">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">
             Fees
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
             비급여 수가표
           </h1>
-          <p className="text-gray-400 text-sm">
+          <p className="text-charcoal-light text-sm">
             아래 금액은 비급여 항목 기준이며, 환자 상태에 따라 달라질 수 있습니다.
           </p>
         </div>

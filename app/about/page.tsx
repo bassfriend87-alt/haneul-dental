@@ -55,7 +55,7 @@ export default function AboutPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-ink overflow-hidden">
+      <section className="bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto md:grid md:grid-cols-2 md:min-h-[560px]">
           {/* 이미지 — 좌 (모바일: 위) */}
           <div className="relative h-72 md:h-auto">
@@ -82,7 +82,7 @@ export default function AboutPage() {
                 </span>
               ))}
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-2">
+            <h1 className="text-5xl md:text-6xl font-bold text-charcoal mb-2">
               김준연
             </h1>
             <p className="text-charcoal-light mb-10">
@@ -90,7 +90,7 @@ export default function AboutPage() {
             </p>
             {/* pull-quote */}
             <blockquote className="border-l-2 border-primary pl-5">
-              <p className="text-xl md:text-2xl font-light text-white leading-relaxed">
+              <p className="text-xl md:text-2xl font-light text-charcoal leading-relaxed">
                 환자분이 이해하실 때까지,<br />
                 설명을 아끼지 않습니다
               </p>

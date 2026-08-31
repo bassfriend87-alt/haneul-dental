@@ -32,14 +32,14 @@ export default function AestheticPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-ink px-5 pt-20 pb-16">
+      <section className="bg-white px-5 pt-20 pb-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-6">Treatment</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">심미치료</h1>
-          <p className="text-gray-400 leading-relaxed max-w-lg">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">Treatment</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">심미치료</h1>
+          <p className="text-charcoal-light leading-relaxed max-w-lg">
             보철과 전문의가 직접 형태와 색상을 설계·제작합니다.
           </p>
-          <div className="mt-6 inline-block text-sm text-white/60 border border-white/20 rounded-full px-4 py-1.5">
+          <div className="mt-6 inline-block text-sm text-charcoal-light border border-gray-200 rounded-full px-4 py-1.5">
             현재 준비중입니다
           </div>
         </div>

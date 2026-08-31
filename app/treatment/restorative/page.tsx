@@ -32,11 +32,11 @@ export default function RestorativePage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-ink px-5 pt-20 pb-16">
+      <section className="bg-white px-5 pt-20 pb-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-6">Treatment</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">보존치료</h1>
-          <p className="text-gray-400 leading-relaxed max-w-lg">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">Treatment</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">보존치료</h1>
+          <p className="text-charcoal-light leading-relaxed max-w-lg">
             자연치아를 최대한 보존하는 방향으로 치료합니다.<br />
             충치 초기에 발견할수록 치아를 더 많이 지킬 수 있습니다.
           </p>

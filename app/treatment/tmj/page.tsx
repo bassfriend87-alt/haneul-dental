@@ -32,11 +32,11 @@ export default function TMJPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-ink px-5 pt-20 pb-16">
+      <section className="bg-white px-5 pt-20 pb-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-6">Treatment</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">턱관절치료</h1>
-          <p className="text-gray-400 leading-relaxed max-w-lg">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">Treatment</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">턱관절치료</h1>
+          <p className="text-charcoal-light leading-relaxed max-w-lg">
             턱 통증·소리·개구 제한 등 턱관절 증상을 치료합니다.<br />
             보존적 치료를 우선으로, 교합 문제와 구강 내 원인을 중심으로 접근합니다.
           </p>
