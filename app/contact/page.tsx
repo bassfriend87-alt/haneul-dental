@@ -93,13 +93,13 @@ export default function ContactPage() {
             {hours.map((h) => (
               <div
                 key={h.day}
-                className="flex items-baseline justify-between py-3.5 border-b border-gray-100 last:border-0"
+                className="flex items-start justify-between py-3.5 border-b border-gray-100 last:border-0"
               >
                 <span className="text-sm font-medium text-charcoal">{h.day}</span>
                 <div className="text-right">
                   <span className="text-sm text-charcoal">{h.time}</span>
                   {h.note && (
-                    <span className="ml-2 text-xs text-charcoal-light">{h.note}</span>
+                    <p className="text-xs text-charcoal-light mt-0.5">{h.note}</p>
                   )}
                 </div>
               </div>

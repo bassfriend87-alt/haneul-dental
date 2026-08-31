@@ -228,7 +228,7 @@ export default function HomePage() {
                 {hours.map((h) => (
                   <div
                     key={h.day}
-                    className="flex items-baseline justify-between py-3 border-b border-gray-100 last:border-0"
+                    className="flex items-start justify-between py-3 border-b border-gray-100 last:border-0"
                   >
                     <span className="text-sm font-medium text-charcoal">
                       {h.day}
@@ -236,9 +236,9 @@ export default function HomePage() {
                     <div className="text-right">
                       <span className="text-sm text-charcoal">{h.time}</span>
                       {h.note && (
-                        <span className="ml-2 text-xs text-charcoal-light">
+                        <p className="text-xs text-charcoal-light mt-0.5">
                           {h.note}
-                        </span>
+                        </p>
                       )}
                     </div>
                   </div>
