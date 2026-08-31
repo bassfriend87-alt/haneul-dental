@@ -183,10 +183,6 @@ export function ScheduleCalendar() {
           <span className="w-3.5 h-3.5 rounded-md bg-red-50 shrink-0" />
           휴진
         </span>
-        <span className="flex items-center gap-1.5">
-          <span className="text-blue-500 font-medium">정상진료</span>
-          공휴일 진료
-        </span>
       </div>
 
       {!dataAvailable && (
