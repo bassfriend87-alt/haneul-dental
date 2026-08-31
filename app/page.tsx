@@ -73,7 +73,7 @@ const values = [
 ];
 
 const hours = [
-  { day: "평일", time: "08:30 – 17:30", note: null },
+  { day: "평일", time: "08:30 – 17:30", note: "점심 12:30–13:30" },
   { day: "토요일", time: "08:30 – 14:00", note: null },
   { day: "화·목 야간", time: "18:00 – 20:30", note: "사전 예약제" },
   { day: "일·공휴일", time: "휴진", note: null },
