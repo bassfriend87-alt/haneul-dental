@@ -102,16 +102,13 @@ export function Header() {
             </div>
           </div>
           <Link href="/treatment/tmj" className="hover:text-primary transition-colors">턱관절</Link>
-          <Link href="/schedule" className="inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">진료일정</Link>
         </nav>
 
-        {/* 데스크탑 CTA */}
-        <Link
-          href="/contact"
-          className="hidden md:inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors"
-        >
-          예약·오시는 길
-        </Link>
+        {/* 데스크탑 CTA 버튼 그룹 */}
+        <div className="hidden md:flex items-center gap-2">
+          <Link href="/schedule" className="inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">진료일정</Link>
+          <Link href="/contact" className="inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">예약·오시는 길</Link>
+        </div>
 
         {/* 모바일 햄버거 버튼 */}
         <button
