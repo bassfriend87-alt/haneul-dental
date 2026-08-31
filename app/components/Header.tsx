@@ -15,13 +15,11 @@ export function Header() {
     document.body.style.position = "fixed";
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
 
     return () => {
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
-      document.body.style.overflow = "";
       window.scrollTo(0, scrollY);
     };
   }, [isOpen]);
@@ -126,7 +124,7 @@ export function Header() {
 
       {/* 모바일 드로어 — 우측 슬라이드 패널 */}
       <div
-        className={`md:hidden fixed top-16 right-0 bottom-0 w-72 bg-white z-50 overflow-y-auto px-5 py-4 shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`md:hidden fixed top-16 right-0 bottom-0 w-72 bg-white z-50 overflow-y-auto overscroll-y-contain px-5 py-4 shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex gap-2 mb-4">
           <Link href="/schedule" onClick={close} className="flex-1 flex items-center justify-center bg-primary text-white text-sm font-medium px-2 py-3 rounded-full hover:bg-primary-dark transition-colors whitespace-nowrap">
