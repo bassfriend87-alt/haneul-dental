@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ClinicStatus } from "./ClinicStatus";
@@ -7,7 +7,6 @@ import { ClinicStatus } from "./ClinicStatus";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -16,23 +15,14 @@ export function Header() {
     document.body.style.position = "fixed";
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = "100%";
-
-    // 인앱 브라우저(카카오 등) 배경 스크롤 차단
-    const preventBg = (e: TouchEvent) => e.preventDefault();
-    document.addEventListener("touchmove", preventBg, { passive: false });
-
-    // 메뉴 내부 스크롤은 허용
-    const allowMenu = (e: TouchEvent) => e.stopPropagation();
-    const menuEl = menuRef.current;
-    menuEl?.addEventListener("touchmove", allowMenu);
+    document.body.style.overflow = "hidden";
 
     return () => {
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
+      document.body.style.overflow = "";
       window.scrollTo(0, scrollY);
-      document.removeEventListener("touchmove", preventBg);
-      menuEl?.removeEventListener("touchmove", allowMenu);
     };
   }, [isOpen]);
 
@@ -136,7 +126,6 @@ export function Header() {
 
       {/* 모바일 드로어 — 우측 슬라이드 패널 */}
       <div
-        ref={menuRef}
         className={`md:hidden fixed top-16 right-0 bottom-0 w-72 bg-white z-50 overflow-y-auto px-5 py-4 shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <Link
