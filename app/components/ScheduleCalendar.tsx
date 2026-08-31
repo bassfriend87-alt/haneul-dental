@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { closedDates } from "@/lib/schema";
+import { closedDates, holidayLabels } from "@/lib/schema";
 
 const WEEK_DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -10,6 +10,14 @@ function isClosedDate(year: number, month: number, day: number) {
     closedDates[String(year)]?.[String(month + 1).padStart(2, "0")]?.includes(
       String(day).padStart(2, "0")
     ) ?? false
+  );
+}
+
+function getHolidayLabel(year: number, month: number, day: number): string | null {
+  return (
+    holidayLabels[String(year)]?.[String(month + 1).padStart(2, "0")]?.[
+      String(day).padStart(2, "0")
+    ] ?? null
   );
 }
 
@@ -101,9 +109,12 @@ export function ScheduleCalendar() {
           const cellBase =
             "relative aspect-square rounded-xl flex flex-col items-center justify-center text-sm font-medium select-none";
 
+          const holidayLabel = status === "closed"
+            ? getHolidayLabel(date.getFullYear(), date.getMonth(), date.getDate())
+            : null;
+
           let cellStyle = "";
           let numColor = "";
-          let showClosed = false;
 
           switch (status) {
             case "sunday":
@@ -113,7 +124,6 @@ export function ScheduleCalendar() {
             case "closed":
               cellStyle = "bg-red-50";
               numColor = "text-red-400";
-              showClosed = true;
               break;
             default:
               cellStyle = "bg-white border border-gray-100";
@@ -126,9 +136,9 @@ export function ScheduleCalendar() {
               className={`${cellBase} ${cellStyle} ${isToday ? "ring-2 ring-primary ring-offset-1 !border-transparent" : ""}`}
             >
               <span className={`${numColor} leading-none`}>{date.getDate()}</span>
-              {showClosed && (
+              {status === "closed" && (
                 <span className="text-[9px] text-red-400 font-normal mt-0.5 leading-none">
-                  휴진
+                  {holidayLabel ?? "휴진"}
                 </span>
               )}
             </div>

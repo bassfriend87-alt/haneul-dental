@@ -5,6 +5,14 @@
 // 1. 매월 업데이트: 휴진일 데이터
 // ─────────────────────────────────────────
 
+// 공휴일 이름 표시 (달력에서 "휴진" 대신 공휴일명 표시)
+// 형식: { "년": { "월(2자리)": { "일(2자리)": "공휴일명" } } }
+export const holidayLabels: Record<string, Record<string, Record<string, string>>> = {
+  "2026": {
+    "09": { "24": "추석연휴", "25": "추석연휴", "26": "추석연휴" },
+  }
+}
+
 export const closedDates: Record<string, Record<string, string[]>> = {
   "2026": {
     "05": ["05", "13", "14", "27", "28"],
