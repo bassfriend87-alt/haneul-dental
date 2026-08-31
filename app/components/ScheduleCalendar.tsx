@@ -5,6 +5,21 @@ import { closedDates, holidays } from "@/lib/schema";
 
 const WEEK_DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
+// month: 0-indexed
+function getSeasonTheme(month: number): { card: string; border: string; emoji?: string } {
+  if (month === 11)          // 12월 크리스마스
+    return { card: "bg-gradient-to-br from-red-50 via-white to-green-50", border: "border-green-100", emoji: "🎄" };
+  if (month === 0 || month === 1) // 1·2월 겨울
+    return { card: "bg-gradient-to-br from-blue-50 via-white to-slate-50", border: "border-blue-100", emoji: "❄️" };
+  if (month >= 2 && month <= 4)   // 봄
+    return { card: "bg-gradient-to-br from-rose-50 via-white to-emerald-50", border: "border-rose-100", emoji: "🌸" };
+  if (month >= 5 && month <= 7)   // 여름
+    return { card: "bg-gradient-to-br from-sky-50 via-white to-cyan-50", border: "border-sky-100", emoji: "☀️" };
+  if (month === 9)                // 10월 할로윈
+    return { card: "bg-gradient-to-br from-orange-100 via-amber-50 to-purple-50", border: "border-orange-200", emoji: "🎃" };
+  return { card: "bg-gradient-to-br from-amber-50 via-white to-orange-50", border: "border-amber-100", emoji: "🍂" }; // 가을
+}
+
 function isClosedDate(year: number, month: number, day: number) {
   return (
     closedDates[String(year)]?.[String(month + 1).padStart(2, "0")]?.includes(
@@ -73,9 +88,10 @@ export function ScheduleCalendar() {
 
   const days = buildDays(year, month);
   const dataAvailable = hasMonthData(year, month);
+  const theme = getSeasonTheme(month);
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 p-5 sm:p-8">
+    <div className={`rounded-2xl border p-5 sm:p-8 ${theme.card} ${theme.border}`}>
 
       {/* 월 네비게이션 */}
       <div className="flex items-center justify-between mb-7">
@@ -87,8 +103,9 @@ export function ScheduleCalendar() {
         >
           ‹
         </button>
-        <h2 className="text-lg font-bold text-charcoal">
+        <h2 className="text-lg font-bold text-charcoal flex items-center gap-2">
           {year}년 {month + 1}월
+          {theme.emoji && <span className="text-base">{theme.emoji}</span>}
         </h2>
         <button
           onClick={next}
