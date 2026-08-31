@@ -39,7 +39,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
-      <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
+      <div className="h-16 flex items-center px-5">
         <div className="flex items-center">
           <Link href="/" className="flex items-center" onClick={close}>
             <Image
@@ -54,7 +54,7 @@ export function Header() {
         </div>
 
         {/* 데스크탑 nav */}
-        <nav className="hidden md:flex items-center gap-5 text-sm text-charcoal-light">
+        <nav className="hidden md:flex items-center gap-5 text-sm text-charcoal-light mx-auto px-8">
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
           <span className="w-px h-4 bg-gray-200 self-center" />
           <Link href="/treatment/implant" className="hover:text-primary transition-colors">임플란트</Link>
