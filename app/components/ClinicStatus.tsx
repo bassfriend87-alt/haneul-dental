@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { closedDates } from "@/lib/schema";
 
 type Status = {
@@ -67,10 +68,13 @@ export function ClinicStatus() {
   if (!status) return null;
 
   return (
-    <span className="flex items-center gap-1.5 ml-3 text-xs text-charcoal-light whitespace-nowrap">
+    <Link
+      href="/schedule"
+      className="flex items-center gap-1.5 ml-3 text-xs text-charcoal-light whitespace-nowrap hover:text-primary transition-colors"
+    >
       <span className={`w-2 h-2 rounded-full flex-shrink-0 ${dotStyle[status.color]}`} />
       <span className="sm:hidden">{status.short}</span>
       <span className="hidden sm:inline">{status.label}</span>
-    </span>
+    </Link>
   );
 }
