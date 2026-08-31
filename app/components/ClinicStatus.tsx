@@ -55,6 +55,12 @@ const dotStyle: Record<Status["color"], string> = {
   red: "bg-red-400",
 };
 
+const pillStyle: Record<Status["color"], string> = {
+  green: "bg-green-50 text-green-700 border border-green-200 hover:bg-green-100",
+  yellow: "bg-yellow-50 text-yellow-700 border border-yellow-200 hover:bg-yellow-100",
+  red: "bg-red-50 text-red-600 border border-red-200 hover:bg-red-100",
+};
+
 export function ClinicStatus() {
   const [status, setStatus] = useState<Status | null>(null);
 
@@ -70,9 +76,9 @@ export function ClinicStatus() {
   return (
     <Link
       href="/schedule"
-      className="flex items-center gap-1.5 ml-3 text-xs text-charcoal-light whitespace-nowrap hover:text-primary transition-colors"
+      className={`flex items-center gap-1.5 ml-3 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${pillStyle[status.color]}`}
     >
-      <span className={`w-2 h-2 rounded-full flex-shrink-0 ${dotStyle[status.color]}`} />
+      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotStyle[status.color]}`} />
       <span className="sm:hidden">{status.short}</span>
       <span className="hidden sm:inline">{status.label}</span>
     </Link>
