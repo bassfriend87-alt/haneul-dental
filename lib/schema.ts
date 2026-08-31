@@ -20,10 +20,8 @@ export const holidays: Record<string, Record<string, Record<string, HolidayEntry
       "03": { name: "개천절", isHoliday: true, isOpen: true },
       "05": { name: "개천절(대체)", isHoliday: true, isOpen: true },
       "09": { name: "한글날", isHoliday: true },
-      "24": { name: "휴가" },
       "26": { name: "휴가" },
       "27": { name: "휴가" },
-      "28": { name: "휴가" },
     },
   }
 }
