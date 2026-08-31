@@ -55,7 +55,7 @@ export default function AboutPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="bg-white overflow-hidden">
+      <section className="bg-orange-50 overflow-hidden">
         <div className="max-w-5xl mx-auto md:grid md:grid-cols-2 md:min-h-[560px]">
           {/* 이미지 — 좌 (모바일: 위) */}
           <div className="relative h-72 md:h-auto">
