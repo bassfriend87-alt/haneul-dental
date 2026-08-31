@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 };
 
 const regularHours = [
-  { day: "평일 (월–금)", info: "08:30 – 17:30" },
-  { day: "화·목 야간", info: "18:00 – 20:30 · 사전 예약제" },
-  { day: "토요일", info: "08:30 – 14:00 · 격주 운영" },
-  { day: "점심시간", info: "12:30 – 13:30" },
-  { day: "일·공휴일", info: "휴진" },
+  { day: "평일", time: "08:30 – 17:30", note: "점심 12:30–13:30" },
+  { day: "토요일", time: "08:30 – 14:00", note: null },
+  { day: "화·목 야간", time: "18:00 – 20:30", note: "사전 예약제" },
+  { day: "일·공휴일", time: "휴진", note: null },
+  { day: "격주 수·토", time: "휴진", note: null },
 ];
 
 export default function SchedulePage() {
@@ -50,10 +50,15 @@ export default function SchedulePage() {
             {regularHours.map((h) => (
               <div
                 key={h.day}
-                className="flex items-baseline justify-between py-3 border-b border-gray-100 last:border-0 text-sm"
+                className="flex items-start justify-between py-3 border-b border-gray-100 last:border-0"
               >
-                <span className="font-medium text-charcoal">{h.day}</span>
-                <span className="text-charcoal-light">{h.info}</span>
+                <span className="text-sm font-medium text-charcoal">{h.day}</span>
+                <div className="text-right">
+                  <span className="text-sm text-charcoal">{h.time}</span>
+                  {h.note && (
+                    <p className="text-xs text-charcoal-light mt-0.5">{h.note}</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
