@@ -22,14 +22,9 @@ export default function SchedulePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-orange-50 px-5 pt-20 pb-16">
+      <section className="bg-orange-50 px-5 pt-10 pb-6">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">
-            Schedule
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-charcoal">
-            진료일정
-          </h1>
+          <h1 className="text-2xl font-bold text-charcoal">진료일정</h1>
         </div>
       </section>
 
