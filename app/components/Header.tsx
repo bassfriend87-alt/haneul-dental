@@ -39,7 +39,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
-      <div className="h-16 flex items-center px-5">
+      <div className="h-16 flex items-center justify-between px-5">
         <div className="flex items-center">
           <Link href="/" className="flex items-center" onClick={close}>
             <Image
