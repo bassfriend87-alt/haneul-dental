@@ -165,7 +165,7 @@ export function ScheduleCalendar() {
               {status === "open-holiday" && holiday && (
                 <>
                   <span className="text-[9px] text-red-400 leading-tight mt-0.5">{holiday.name}</span>
-                  <span className="absolute bottom-1 text-[8px] text-blue-500 leading-none">정상진료</span>
+                  <span className="absolute bottom-1 text-[10px] text-blue-500 leading-none">정상진료</span>
                 </>
               )}
             </div>
