@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { closedDates, holidayLabels } from "@/lib/schema";
+import { closedDates, holidays } from "@/lib/schema";
 
 const WEEK_DAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -13,9 +13,9 @@ function isClosedDate(year: number, month: number, day: number) {
   );
 }
 
-function getHolidayLabel(year: number, month: number, day: number): string | null {
+function getHoliday(year: number, month: number, day: number) {
   return (
-    holidayLabels[String(year)]?.[String(month + 1).padStart(2, "0")]?.[
+    holidays[String(year)]?.[String(month + 1).padStart(2, "0")]?.[
       String(day).padStart(2, "0")
     ] ?? null
   );
@@ -25,12 +25,14 @@ function hasMonthData(year: number, month: number) {
   return !!(closedDates[String(year)]?.[String(month + 1).padStart(2, "0")]);
 }
 
-type DayStatus = "outside" | "sunday" | "closed" | "open";
+type DayStatus = "outside" | "sunday" | "closed" | "open" | "open-holiday";
 
 function getDayStatus(date: Date, viewYear: number, viewMonth: number): DayStatus {
   if (date.getFullYear() !== viewYear || date.getMonth() !== viewMonth) return "outside";
   const dow = date.getDay();
   if (dow === 0) return "sunday";
+  const holiday = getHoliday(date.getFullYear(), date.getMonth(), date.getDate());
+  if (holiday?.isOpen) return "open-holiday";
   if (isClosedDate(date.getFullYear(), date.getMonth(), date.getDate())) return "closed";
   return "open";
 }
@@ -115,48 +117,56 @@ export function ScheduleCalendar() {
         {days.map((date, i) => {
           const status = getDayStatus(date, year, month);
           const isToday = date.toDateString() === today.toDateString();
+          const holiday = (status === "closed" || status === "open-holiday" || status === "open")
+            ? getHoliday(date.getFullYear(), date.getMonth(), date.getDate())
+            : null;
 
           if (status === "outside") return <div key={i} />;
 
-          const cellBase =
-            "relative aspect-square rounded-xl flex flex-col items-center justify-center text-sm font-medium select-none";
-
-          const holidayLabel = status === "closed"
-            ? getHolidayLabel(date.getFullYear(), date.getMonth(), date.getDate())
-            : null;
-
+          // 셀 배경
           let cellStyle = "";
-          let numColor = "";
+          if (status === "sunday") cellStyle = "bg-gray-50";
+          else if (status === "closed") cellStyle = "bg-red-50";
+          else cellStyle = "bg-white border border-gray-100";
 
-          switch (status) {
-            case "sunday":
-              cellStyle = "bg-gray-50";
-              numColor = "text-gray-300";
-              break;
-            case "closed":
-              cellStyle = "bg-red-50";
-              numColor = "text-red-400";
-              break;
-            default:
-              cellStyle = "bg-white border border-gray-100";
-              numColor = "text-charcoal";
-          }
+          // 날짜 숫자 색상
+          let numColor = "";
+          if (status === "sunday") numColor = "text-gray-300";
+          else if (status === "closed") numColor = holiday?.isHoliday ? "text-red-500" : "text-red-400";
+          else if (status === "open-holiday") numColor = "text-red-500";
+          else numColor = "text-charcoal";
+
+          // 하단 레이블
+          const closedLabel = status === "closed" ? (holiday?.name ?? "휴진") : null;
 
           return (
             <div
               key={i}
-              className={`${cellBase} ${cellStyle} ${isToday ? "ring-2 ring-primary ring-offset-1 !border-transparent" : ""}`}
+              className={`relative aspect-square rounded-xl flex items-center justify-center text-sm font-medium select-none ${cellStyle} ${isToday ? "ring-2 ring-primary ring-offset-1 !border-transparent" : ""}`}
             >
+              {/* 오늘 */}
               {isToday && (
                 <span className="absolute top-1 text-[8px] text-primary font-semibold leading-none">
                   오늘
                 </span>
               )}
+
+              {/* 날짜 숫자 */}
               <span className={`${numColor} leading-none`}>{date.getDate()}</span>
-              {status === "closed" && (
-                <span className="text-[9px] text-red-400 font-normal mt-0.5 leading-none">
-                  {holidayLabel ?? "휴진"}
+
+              {/* 하단: 휴진/공휴일명 */}
+              {closedLabel && (
+                <span className="absolute bottom-1 text-[9px] text-red-400 font-normal leading-none">
+                  {closedLabel}
                 </span>
+              )}
+
+              {/* 하단: 정상진료 공휴일 (이름 + 파랑 텍스트) */}
+              {status === "open-holiday" && holiday && (
+                <div className="absolute bottom-0.5 flex flex-col items-center">
+                  <span className="text-[8px] text-red-400 leading-tight">{holiday.name}</span>
+                  <span className="text-[8px] text-blue-500 leading-tight">정상진료</span>
+                </div>
               )}
             </div>
           );
@@ -172,6 +182,10 @@ export function ScheduleCalendar() {
         <span className="flex items-center gap-1.5">
           <span className="w-3.5 h-3.5 rounded-md bg-red-50 shrink-0" />
           휴진
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="text-blue-500 font-medium">정상진료</span>
+          공휴일 진료
         </span>
       </div>
 
