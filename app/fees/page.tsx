@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "비급여 수가표",
@@ -182,7 +182,7 @@ export default function FeesPage() {
       </section>
 
       {/* ── 수가 목록 ── */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto space-y-12">
           {sections.map((section) => (
             <div key={section.title}>
@@ -219,7 +219,7 @@ export default function FeesPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-primary px-5 py-16">
+      <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
           <p className="text-white/70 text-sm mb-8">

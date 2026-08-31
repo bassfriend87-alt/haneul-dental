@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { tmjFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
@@ -44,7 +44,7 @@ export default function TMJPage() {
       </section>
 
       {/* ── 치료 안내 ── */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">교합안정장치·턱관절 치료</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -57,7 +57,7 @@ export default function TMJPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-primary px-5 py-16">
+      <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
           <p className="text-white/70 text-sm mb-8">턱 증상이 가볍더라도 방치하면 진행될 수 있습니다.</p>

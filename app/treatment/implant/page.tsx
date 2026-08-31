@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { implantFAQs } from "@/data/faqs";
@@ -45,7 +45,7 @@ export default function ImplantPage() {
       </section>
 
       {/* ── 임플란트란 ── */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">임플란트란</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -58,7 +58,7 @@ export default function ImplantPage() {
       </section>
 
       {/* ── 치료 과정 ── */}
-      <section className="bg-surface px-5 py-16">
+      <section className="bg-surface px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">치료 과정</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -70,7 +70,7 @@ export default function ImplantPage() {
       </section>
 
       {/* ── 무절개·즉시·가이드 ── */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">
             무절개·즉시·가이드 임플란트
@@ -84,7 +84,7 @@ export default function ImplantPage() {
       </section>
 
       {/* ── 비용·보험 ── */}
-      <section className="bg-surface px-5 py-16">
+      <section className="bg-surface px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">비용·보험</h2>
           <FAQSection faqs={implantFAQs.slice(14)} />
@@ -107,7 +107,7 @@ export default function ImplantPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-primary px-5 py-16">
+      <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">임플란트 상담 예약</h2>
           <p className="text-white/70 text-sm mb-8">보철과 전문의가 직접 상담합니다.</p>

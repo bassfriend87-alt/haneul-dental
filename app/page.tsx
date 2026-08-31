@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { dentistSchema, getSpecialHours } from "@/lib/schema";
 
@@ -96,7 +96,7 @@ export default function HomePage() {
       <main>
 
         {/* ── Hero ── */}
-        <section className="bg-ink px-5 py-28 md:py-36">
+        <section className="bg-ink px-5 py-14 md:py-36">
           <div className="max-w-3xl mx-auto">
             <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
               Sangam Haneul Dental &middot; 보철과 전문의
@@ -127,7 +127,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Values ── */}
-        <section className="bg-white px-5 py-20">
+        <section className="bg-white px-5 py-10 md:py-20">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-charcoal mb-14 text-center">
               진료 철학
@@ -149,7 +149,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Services ── */}
-        <section className="bg-surface px-5 py-20">
+        <section className="bg-surface px-5 py-10 md:py-20">
           <div className="max-w-5xl mx-auto">
             <p className="text-xs text-charcoal-light tracking-widest uppercase mb-4">
               진료과목
@@ -184,7 +184,7 @@ export default function HomePage() {
 
 
         {/* ── CTA ── */}
-        <section className="bg-primary px-5 py-20">
+        <section className="bg-primary px-5 py-10 md:py-20">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-3">진료 예약</h2>
             <p className="text-white/70 text-sm mb-10">
@@ -218,7 +218,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Hours + Location ── */}
-        <section className="bg-surface px-5 py-20">
+        <section className="bg-surface px-5 py-10 md:py-20">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14">
             <div>
               <p className="text-xs text-charcoal-light tracking-widest uppercase mb-7">

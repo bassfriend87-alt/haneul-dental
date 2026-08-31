@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -65,7 +65,7 @@ export default function TreatmentPage() {
       </section>
 
       {/* ── 진료과목 목록 ── */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-5">
           {treatments.map((t) => (
             <Link
@@ -86,7 +86,7 @@ export default function TreatmentPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-primary px-5 py-16">
+      <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
           <p className="text-white/70 text-sm mb-8">

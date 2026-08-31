@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Image from "next/image";
 import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
 import { dentistSchema } from "@/lib/schema";
@@ -100,7 +100,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 차별점 3카드 ── */}
-      <section className="bg-surface px-5 py-20">
+      <section className="bg-surface px-5 py-10 md:py-20">
         <div className="max-w-5xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-12 text-center">
             왜 한 사람이 끝까지 책임지는가
@@ -118,7 +118,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Philosophy ── */}
-      <section className="relative bg-ink px-5 py-28 overflow-hidden">
+      <section className="relative bg-ink px-5 py-12 md:py-28 overflow-hidden">
         {/* 배경 사진 — 은은하게 */}
         <Image
           src={doctorConsultTalking}
@@ -157,7 +157,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 학력 및 경력 — 세로 타임라인 ── */}
-      <section className="bg-surface px-5 py-20">
+      <section className="bg-surface px-5 py-10 md:py-20">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-12">
             학력 및 경력
@@ -178,7 +178,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 학회 활동 — 칩 ── */}
-      <section className="bg-white px-5 py-20">
+      <section className="bg-white px-5 py-10 md:py-20">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-10">
             학회 활동
@@ -197,7 +197,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-primary px-5 py-16">
+      <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
           <p className="text-white/70 text-sm mb-8">

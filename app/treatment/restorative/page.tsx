@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { restorativeFAQs, cavityFAQs, rootCanalFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
@@ -44,7 +44,7 @@ export default function RestorativePage() {
       </section>
 
       {/* ── 충치치료 ── */}
-      <section id="cavity" className="bg-white px-5 py-16 scroll-mt-16">
+      <section id="cavity" className="bg-white px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">충치치료</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -56,7 +56,7 @@ export default function RestorativePage() {
       </section>
 
       {/* ── 신경치료 ── */}
-      <section id="root-canal" className="bg-surface px-5 py-16 scroll-mt-16">
+      <section id="root-canal" className="bg-surface px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">신경치료</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -68,7 +68,7 @@ export default function RestorativePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-primary px-5 py-16">
+      <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
           <p className="text-white/70 text-sm mb-8">불편한 증상이 있다면 조기에 내원하시는 것을 권장합니다.</p>

@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { dentistSchema, getSpecialHours } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 예약 방법 ── */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-8">
             예약 방법
@@ -84,7 +84,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 진료시간 ── */}
-      <section className="bg-surface px-5 py-16">
+      <section className="bg-surface px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-8">
             진료시간
@@ -112,7 +112,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 오시는 길 ── */}
-      <section className="bg-white px-5 py-16">
+      <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-8">
             오시는 길

@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { periodontalFAQs, scalingFAQs, gumTreatmentFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
@@ -44,7 +44,7 @@ export default function PeriodontalPage() {
       </section>
 
       {/* ── 스케일링 ── */}
-      <section id="scaling" className="bg-white px-5 py-16 scroll-mt-16">
+      <section id="scaling" className="bg-white px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">스케일링</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -56,7 +56,7 @@ export default function PeriodontalPage() {
       </section>
 
       {/* ── 잇몸치료 ── */}
-      <section id="gum-treatment" className="bg-surface px-5 py-16 scroll-mt-16">
+      <section id="gum-treatment" className="bg-surface px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">잇몸치료</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -68,7 +68,7 @@ export default function PeriodontalPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-primary px-5 py-16">
+      <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
           <p className="text-white/70 text-sm mb-8">잇몸이 붓거나 피가 나면 조기에 내원하시는 것을 권장합니다.</p>

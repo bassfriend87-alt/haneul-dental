@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { prostheticsFAQs } from "@/data/faqs";
@@ -49,7 +49,7 @@ export default function ProstheticsPage() {
       </section>
 
       {/* ── 크라운 ── */}
-      <section id="crown" className="bg-white px-5 py-16 scroll-mt-16">
+      <section id="crown" className="bg-white px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">크라운</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -62,7 +62,7 @@ export default function ProstheticsPage() {
       </section>
 
       {/* ── 브릿지 ── */}
-      <section id="bridge" className="bg-surface px-5 py-16 scroll-mt-16">
+      <section id="bridge" className="bg-surface px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">브릿지</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -75,7 +75,7 @@ export default function ProstheticsPage() {
       </section>
 
       {/* ── 틀니 ── */}
-      <section id="denture" className="bg-white px-5 py-16 scroll-mt-16">
+      <section id="denture" className="bg-white px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-4">틀니</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
@@ -87,7 +87,7 @@ export default function ProstheticsPage() {
       </section>
 
       {/* ── 자주 묻는 질문 ── */}
-      <section className="bg-surface px-5 py-16">
+      <section className="bg-surface px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-charcoal mb-8">자주 묻는 질문</h2>
           <FAQSection faqs={prostheticsFAQs.slice(12)} />
@@ -112,7 +112,7 @@ export default function ProstheticsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-primary px-5 py-16">
+      <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">보철 상담 예약</h2>
           <p className="text-white/70 text-sm mb-8">
