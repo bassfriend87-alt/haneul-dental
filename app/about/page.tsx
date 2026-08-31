@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
 import { dentistSchema } from "@/lib/schema";
+import doctorStandWhite from "@/public/images/doctor-profile-stand-white.jpg";
+import doctorConsultTalking from "@/public/images/doctor-consult-talking.jpg";
 
 export const metadata: Metadata = {
   title: "원장 소개 — 치과보철과·통합치의학과 전문의 김준연",
@@ -58,11 +60,13 @@ export default function AboutPage() {
           {/* 이미지 — 좌 (모바일: 위) */}
           <div className="relative h-72 md:h-auto">
             <Image
-              src="/images/doctor-profile-stand-white.jpg"
+              src={doctorStandWhite}
               alt="김준연 대표원장"
               fill
               className="object-cover object-top"
               priority
+              placeholder="blur"
+              sizes="(min-width: 768px) 50vw, 100vw"
             />
           </div>
           {/* 텍스트 — 우 (모바일: 아래) */}
@@ -117,10 +121,12 @@ export default function AboutPage() {
       <section className="relative bg-ink px-5 py-28 overflow-hidden">
         {/* 배경 사진 — 은은하게 */}
         <Image
-          src="/images/doctor-consult-talking.jpg"
+          src={doctorConsultTalking}
           alt=""
           fill
           className="object-cover opacity-20"
+          placeholder="blur"
+          sizes="100vw"
         />
         <div className="relative max-w-3xl mx-auto">
           <p className="text-xs text-gray-500 tracking-widest uppercase mb-10 text-center">
