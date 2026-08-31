@@ -56,7 +56,6 @@ export function Header() {
         {/* 데스크탑 nav */}
         <nav className="hidden md:flex gap-5 text-sm text-charcoal-light">
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
-          <Link href="/schedule" className="hover:text-primary transition-colors">진료일정</Link>
           <span className="w-px h-4 bg-gray-200 self-center" />
           <Link href="/treatment/implant" className="hover:text-primary transition-colors">임플란트</Link>
           <div className="relative group">
@@ -103,6 +102,8 @@ export function Header() {
             </div>
           </div>
           <Link href="/treatment/tmj" className="hover:text-primary transition-colors">턱관절</Link>
+          <span className="w-px h-4 bg-gray-200 self-center" />
+          <Link href="/schedule" className="hover:text-primary transition-colors">진료일정</Link>
         </nav>
 
         {/* 데스크탑 CTA */}
@@ -144,9 +145,6 @@ export function Header() {
           <Link href="/about" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
             원장 소개
           </Link>
-          <Link href="/schedule" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
-            진료일정
-          </Link>
           <div className="border-b border-gray-100 py-3">
             <Link href="/treatment/implant" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
               임플란트
@@ -176,6 +174,9 @@ export function Header() {
           </div>
           <Link href="/treatment/tmj" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
             턱관절
+          </Link>
+          <Link href="/schedule" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
+            진료일정
           </Link>
         </div>
       )}
