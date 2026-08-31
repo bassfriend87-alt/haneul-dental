@@ -47,14 +47,24 @@ function buildDays(year: number, month: number): Date[] {
 
 export function ScheduleCalendar() {
   const today = new Date();
-  const [year, setYear] = useState(today.getFullYear());
-  const [month, setMonth] = useState(today.getMonth());
+  const minYear = today.getFullYear();
+  const minMonth = today.getMonth();
+  const maxMonth = minMonth === 11 ? 0 : minMonth + 1;
+  const maxYear = minMonth === 11 ? minYear + 1 : minYear;
+
+  const [year, setYear] = useState(minYear);
+  const [month, setMonth] = useState(minMonth);
+
+  const isMin = year === minYear && month === minMonth;
+  const isMax = year === maxYear && month === maxMonth;
 
   const prev = () => {
+    if (isMin) return;
     if (month === 0) { setYear(y => y - 1); setMonth(11); }
     else setMonth(m => m - 1);
   };
   const next = () => {
+    if (isMax) return;
     if (month === 11) { setYear(y => y + 1); setMonth(0); }
     else setMonth(m => m + 1);
   };
@@ -70,7 +80,8 @@ export function ScheduleCalendar() {
         <button
           onClick={prev}
           aria-label="이전 달"
-          className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-lg text-charcoal-light hover:border-primary hover:text-primary transition-colors"
+          disabled={isMin}
+          className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-lg transition-colors disabled:opacity-20 disabled:cursor-not-allowed text-charcoal-light hover:border-primary hover:text-primary"
         >
           ‹
         </button>
@@ -80,7 +91,8 @@ export function ScheduleCalendar() {
         <button
           onClick={next}
           aria-label="다음 달"
-          className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-lg text-charcoal-light hover:border-primary hover:text-primary transition-colors"
+          disabled={isMax}
+          className="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 text-lg transition-colors disabled:opacity-20 disabled:cursor-not-allowed text-charcoal-light hover:border-primary hover:text-primary"
         >
           ›
         </button>
