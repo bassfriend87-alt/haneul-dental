@@ -142,7 +142,7 @@ export function ScheduleCalendar() {
           return (
             <div
               key={i}
-              className={`relative aspect-square rounded-xl flex items-center justify-center text-sm font-medium select-none ${cellStyle} ${isToday ? "ring-2 ring-primary ring-offset-1 !border-transparent" : ""}`}
+              className={`relative aspect-square rounded-xl flex flex-col items-center justify-center text-sm font-medium select-none ${cellStyle} ${isToday ? "ring-2 ring-primary ring-offset-1 !border-transparent" : ""}`}
             >
               {/* 오늘 */}
               {isToday && (
@@ -154,19 +154,19 @@ export function ScheduleCalendar() {
               {/* 날짜 숫자 */}
               <span className={`${numColor} leading-none`}>{date.getDate()}</span>
 
-              {/* 하단: 휴진/공휴일명 */}
+              {/* 휴진/공휴일명 */}
               {closedLabel && (
-                <span className="absolute bottom-1 text-[9px] text-red-400 font-normal leading-none">
+                <span className="text-[9px] text-red-400 font-normal mt-0.5 leading-none">
                   {closedLabel}
                 </span>
               )}
 
-              {/* 하단: 정상진료 공휴일 (이름 + 파랑 텍스트) */}
+              {/* 정상진료 공휴일: 이름 + 파랑 텍스트 */}
               {status === "open-holiday" && holiday && (
-                <div className="absolute bottom-0.5 flex flex-col items-center">
-                  <span className="text-[8px] text-red-400 leading-tight">{holiday.name}</span>
+                <>
+                  <span className="text-[8px] text-red-400 leading-tight mt-0.5">{holiday.name}</span>
                   <span className="text-[8px] text-blue-500 leading-tight">정상진료</span>
-                </div>
+                </>
               )}
             </div>
           );
