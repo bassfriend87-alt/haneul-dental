@@ -17,14 +17,13 @@ function hasMonthData(year: number, month: number) {
   return !!(closedDates[String(year)]?.[String(month + 1).padStart(2, "0")]);
 }
 
-type DayStatus = "outside" | "sunday" | "closed" | "night" | "open";
+type DayStatus = "outside" | "sunday" | "closed" | "open";
 
 function getDayStatus(date: Date, viewYear: number, viewMonth: number): DayStatus {
   if (date.getFullYear() !== viewYear || date.getMonth() !== viewMonth) return "outside";
   const dow = date.getDay();
   if (dow === 0) return "sunday";
   if (isClosedDate(date.getFullYear(), date.getMonth(), date.getDate())) return "closed";
-  if (dow === 2 || dow === 4) return "night";
   return "open";
 }
 
@@ -104,7 +103,6 @@ export function ScheduleCalendar() {
 
           let cellStyle = "";
           let numColor = "";
-          let showDot = false;
           let showClosed = false;
 
           switch (status) {
@@ -116,11 +114,6 @@ export function ScheduleCalendar() {
               cellStyle = "bg-red-50";
               numColor = "text-red-400";
               showClosed = true;
-              break;
-            case "night":
-              cellStyle = "bg-white border border-gray-100";
-              numColor = "text-charcoal";
-              showDot = true;
               break;
             default:
               cellStyle = "bg-white border border-gray-100";
@@ -138,9 +131,6 @@ export function ScheduleCalendar() {
                   휴진
                 </span>
               )}
-              {showDot && (
-                <span className="absolute bottom-1.5 w-1.5 h-1.5 rounded-full bg-primary" />
-              )}
             </div>
           );
         })}
@@ -151,12 +141,6 @@ export function ScheduleCalendar() {
         <span className="flex items-center gap-1.5">
           <span className="w-3.5 h-3.5 rounded-md bg-white border border-gray-200 shrink-0" />
           진료일
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="relative w-3.5 h-3.5 rounded-md bg-white border border-gray-200 shrink-0">
-            <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-primary" />
-          </span>
-          야간진료 (화·목 18:00–20:30)
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-3.5 h-3.5 rounded-md bg-red-50 shrink-0" />
