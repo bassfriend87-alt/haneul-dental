@@ -5,12 +5,26 @@
 // 1. 매월 업데이트: 휴진일 데이터
 // ─────────────────────────────────────────
 
-// 공휴일 이름 표시 (달력에서 "휴진" 대신 공휴일명 표시)
-// 형식: { "년": { "월(2자리)": { "일(2자리)": "공휴일명" } } }
-export const holidayLabels: Record<string, Record<string, Record<string, string>>> = {
+// 특이 날짜 정보
+// isHoliday: 법정공휴일 여부 (날짜 텍스트 빨강 + 이름 표시)
+// isOpen: 공휴일이지만 정상진료 (파랑 "정상진료" 표시)
+type HolidayEntry = { name: string; isHoliday?: boolean; isOpen?: boolean };
+export const holidays: Record<string, Record<string, Record<string, HolidayEntry>>> = {
   "2026": {
-    "09": { "24": "추석연휴", "25": "추석연휴", "26": "추석연휴" },
-    "10": { "09": "한글날", "24": "휴가", "26": "휴가", "27": "휴가", "28": "휴가" },
+    "09": {
+      "24": { name: "추석연휴", isHoliday: true },
+      "25": { name: "추석연휴", isHoliday: true },
+      "26": { name: "추석연휴", isHoliday: true },
+    },
+    "10": {
+      "03": { name: "개천절", isHoliday: true, isOpen: true },
+      "05": { name: "개천절(대체)", isHoliday: true, isOpen: true },
+      "09": { name: "한글날", isHoliday: true },
+      "24": { name: "휴가" },
+      "26": { name: "휴가" },
+      "27": { name: "휴가" },
+      "28": { name: "휴가" },
+    },
   }
 }
 
