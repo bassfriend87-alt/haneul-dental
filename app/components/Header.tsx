@@ -128,16 +128,14 @@ export function Header() {
       <div
         className={`md:hidden fixed top-16 right-0 bottom-0 w-72 bg-white z-50 overflow-y-auto px-5 py-4 shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <Link href="/schedule" onClick={close} className="mb-2 flex items-center justify-center bg-primary text-white text-sm font-medium px-4 py-3 rounded-full hover:bg-primary-dark transition-colors">
-          진료일정
-        </Link>
-        <Link
-          href="/contact"
-          onClick={close}
-          className="mb-4 flex items-center justify-center bg-primary text-white text-sm font-medium px-4 py-3 rounded-full hover:bg-primary-dark transition-colors"
-        >
-          예약·오시는 길
-        </Link>
+        <div className="flex gap-2 mb-4">
+          <Link href="/schedule" onClick={close} className="flex-1 flex items-center justify-center bg-primary text-white text-sm font-medium px-3 py-3 rounded-full hover:bg-primary-dark transition-colors">
+            진료일정
+          </Link>
+          <Link href="/contact" onClick={close} className="flex-1 flex items-center justify-center bg-primary text-white text-sm font-medium px-3 py-3 rounded-full hover:bg-primary-dark transition-colors">
+            예약·오시는 길
+          </Link>
+        </div>
         <Link href="/about" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
           원장 소개
         </Link>
