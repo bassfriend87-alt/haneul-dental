@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ClinicStatus } from "./ClinicStatus";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,15 +40,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center" onClick={close}>
-          <Image
-            src="/images/logo-color.png"
-            alt="상암하늘치과의원"
-            width={197}
-            height={32}
-            priority
-          />
-        </Link>
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center" onClick={close}>
+            <Image
+              src="/images/logo-color.png"
+              alt="상암하늘치과의원"
+              width={197}
+              height={32}
+              priority
+            />
+          </Link>
+          <ClinicStatus />
+        </div>
 
         {/* 데스크탑 nav */}
         <nav className="hidden md:flex gap-5 text-sm text-charcoal-light">

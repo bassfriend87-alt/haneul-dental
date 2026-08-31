@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { dentistSchema, getSpecialHours } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -97,45 +96,32 @@ export default function HomePage() {
       <main>
 
         {/* ── Hero ── */}
-        <section className="bg-ink overflow-hidden">
-          <div className="max-w-5xl mx-auto md:grid md:grid-cols-2 md:min-h-[680px]">
-            {/* 텍스트 */}
-            <div className="px-5 pt-20 pb-12 md:py-28 flex flex-col justify-center">
-              <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
-                Sangam Haneul Dental &middot; 보철과 전문의
-              </p>
-              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                잘 만든 보철은,<br />
-                환자가 잊고 삽니다
-              </h1>
-              <p className="text-base text-gray-400 leading-relaxed mb-10">
-                치료 전, 환자가 충분히 이해하고 선택할 수 있도록 안내합니다.<br />
-                보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="tel:02-375-8278"
-                  className="inline-flex items-center justify-center bg-primary text-white font-medium px-6 py-3.5 rounded-full hover:bg-primary-dark transition-colors"
-                >
-                  전화 예약 &middot; 02-375-8278
-                </a>
-                <Link
-                  href="/treatment"
-                  className="inline-flex items-center justify-center border border-white/30 text-white font-medium px-6 py-3.5 rounded-full hover:bg-white/10 transition-colors"
-                >
-                  진료과목 보기
-                </Link>
-              </div>
-            </div>
-            {/* 이미지 */}
-            <div className="relative aspect-[64/85] md:aspect-auto">
-              <Image
-                src="/images/doctor-profile-desk-gray.jpg"
-                alt="김준연 대표원장"
-                fill
-                className="object-cover object-top"
-                priority
-              />
+        <section className="bg-ink px-5 py-28 md:py-36">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs text-gray-500 tracking-widest uppercase mb-8">
+              Sangam Haneul Dental &middot; 보철과 전문의
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+              잘 만든 보철은,<br />
+              환자가 잊고 삽니다
+            </h1>
+            <p className="text-base text-gray-400 leading-relaxed mb-10 max-w-xl">
+              치료 전, 환자가 충분히 이해하고 선택할 수 있도록 안내합니다.<br />
+              보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="tel:02-375-8278"
+                className="inline-flex items-center justify-center bg-primary text-white font-medium px-6 py-3.5 rounded-full hover:bg-primary-dark transition-colors"
+              >
+                전화 예약 &middot; 02-375-8278
+              </a>
+              <Link
+                href="/treatment"
+                className="inline-flex items-center justify-center border border-white/30 text-white font-medium px-6 py-3.5 rounded-full hover:bg-white/10 transition-colors"
+              >
+                진료과목 보기
+              </Link>
             </div>
           </div>
         </section>
