@@ -128,56 +128,63 @@ export function Header() {
         </button>
       </div>
 
-      {/* 모바일 메뉴 — fixed 오버레이 */}
-      {isOpen && (
-        <div ref={menuRef} className="md:hidden fixed inset-0 top-16 bg-white z-40 overflow-y-auto px-5 py-4">
-          <Link
-            href="/contact"
-            onClick={close}
-            className="mb-4 flex items-center justify-center bg-primary text-white text-sm font-medium px-4 py-3 rounded-full hover:bg-primary-dark transition-colors"
-          >
-            예약·오시는 길
+      {/* 모바일 드로어 — 백드롭 */}
+      <div
+        className={`md:hidden fixed inset-0 top-16 bg-black/30 z-40 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        onClick={close}
+      />
+
+      {/* 모바일 드로어 — 우측 슬라이드 패널 */}
+      <div
+        ref={menuRef}
+        className={`md:hidden fixed top-16 right-0 bottom-0 w-72 bg-white z-50 overflow-y-auto px-5 py-4 shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
+        <Link
+          href="/contact"
+          onClick={close}
+          className="mb-4 flex items-center justify-center bg-primary text-white text-sm font-medium px-4 py-3 rounded-full hover:bg-primary-dark transition-colors"
+        >
+          예약·오시는 길
+        </Link>
+        <Link href="/about" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
+          원장 소개
+        </Link>
+        <div className="border-b border-gray-100 py-3">
+          <Link href="/treatment/implant" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
+            임플란트
           </Link>
-          <Link href="/about" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
-            원장 소개
-          </Link>
-          <div className="border-b border-gray-100 py-3">
-            <Link href="/treatment/implant" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
-              임플란트
-            </Link>
-          </div>
-          <div className="border-b border-gray-100 py-3">
-            <Link href="/treatment/prosthetics" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
-              보철치료
-            </Link>
-            <Link href="/treatment/prosthetics#crown" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">크라운</Link>
-            <Link href="/treatment/prosthetics#bridge" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">브릿지</Link>
-            <Link href="/treatment/prosthetics#denture" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">틀니</Link>
-          </div>
-          <div className="border-b border-gray-100 py-3">
-            <Link href="/treatment/restorative" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
-              보존치료
-            </Link>
-            <Link href="/treatment/restorative#cavity" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">충치치료</Link>
-            <Link href="/treatment/restorative#root-canal" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">신경치료</Link>
-          </div>
-          <div className="border-b border-gray-100 py-3">
-            <Link href="/treatment/periodontal" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
-              치주치료
-            </Link>
-            <Link href="/treatment/periodontal#scaling" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">스케일링</Link>
-            <Link href="/treatment/periodontal#gum-treatment" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">잇몸치료</Link>
-          </div>
-          <Link href="/treatment/tmj" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
-            턱관절
-          </Link>
-          <div className="pt-3">
-            <Link href="/schedule" onClick={close} className="flex items-center justify-center bg-primary text-white text-sm font-medium px-4 py-3 rounded-full hover:bg-primary-dark transition-colors">
-              진료일정
-            </Link>
-          </div>
         </div>
-      )}
+        <div className="border-b border-gray-100 py-3">
+          <Link href="/treatment/prosthetics" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
+            보철치료
+          </Link>
+          <Link href="/treatment/prosthetics#crown" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">크라운</Link>
+          <Link href="/treatment/prosthetics#bridge" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">브릿지</Link>
+          <Link href="/treatment/prosthetics#denture" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">틀니</Link>
+        </div>
+        <div className="border-b border-gray-100 py-3">
+          <Link href="/treatment/restorative" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
+            보존치료
+          </Link>
+          <Link href="/treatment/restorative#cavity" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">충치치료</Link>
+          <Link href="/treatment/restorative#root-canal" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">신경치료</Link>
+        </div>
+        <div className="border-b border-gray-100 py-3">
+          <Link href="/treatment/periodontal" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
+            치주치료
+          </Link>
+          <Link href="/treatment/periodontal#scaling" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">스케일링</Link>
+          <Link href="/treatment/periodontal#gum-treatment" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">잇몸치료</Link>
+        </div>
+        <Link href="/treatment/tmj" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
+          턱관절
+        </Link>
+        <div className="pt-3">
+          <Link href="/schedule" onClick={close} className="flex items-center justify-center bg-primary text-white text-sm font-medium px-4 py-3 rounded-full hover:bg-primary-dark transition-colors">
+            진료일정
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }
