@@ -125,13 +125,12 @@ export function ScheduleCalendar() {
 
           // 셀 배경
           let cellStyle = "";
-          if (status === "sunday") cellStyle = "bg-gray-50";
-          else if (status === "closed") cellStyle = "bg-red-50";
+          if (status === "sunday" || status === "closed") cellStyle = "bg-red-50";
           else cellStyle = "bg-white border border-gray-100";
 
           // 날짜 숫자 색상
           let numColor = "";
-          if (status === "sunday") numColor = "text-gray-300";
+          if (status === "sunday") numColor = "text-red-400";
           else if (status === "closed") numColor = holiday?.isHoliday ? "text-red-500" : "text-red-400";
           else if (status === "open-holiday") numColor = "text-red-500";
           else numColor = "text-charcoal";
