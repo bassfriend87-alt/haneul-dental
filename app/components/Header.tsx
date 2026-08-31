@@ -56,6 +56,7 @@ export function Header() {
         {/* 데스크탑 nav */}
         <nav className="hidden md:flex gap-5 text-sm text-charcoal-light">
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
+          <Link href="/schedule" className="hover:text-primary transition-colors">진료일정</Link>
           <span className="w-px h-4 bg-gray-200 self-center" />
           <Link href="/treatment/implant" className="hover:text-primary transition-colors">임플란트</Link>
           <div className="relative group">
@@ -142,6 +143,9 @@ export function Header() {
           </Link>
           <Link href="/about" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
             원장 소개
+          </Link>
+          <Link href="/schedule" onClick={close} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
+            진료일정
           </Link>
           <div className="border-b border-gray-100 py-3">
             <Link href="/treatment/implant" onClick={close} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">

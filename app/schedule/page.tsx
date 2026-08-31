@@ -1,0 +1,67 @@
+import { Metadata } from "next";
+import { ScheduleCalendar } from "@/app/components/ScheduleCalendar";
+
+export const metadata: Metadata = {
+  title: "진료일정",
+  description:
+    "상암하늘치과의원 월별 진료일정. 격주 휴진일 및 화·목 야간진료 일정을 달력으로 확인하세요.",
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr"}/schedule`,
+  },
+};
+
+const regularHours = [
+  { day: "평일 (월–금)", info: "08:30 – 17:30" },
+  { day: "화·목 야간", info: "18:00 – 20:30 · 사전 예약제" },
+  { day: "토요일", info: "08:30 – 14:00 · 격주 운영" },
+  { day: "점심시간", info: "12:30 – 13:30" },
+  { day: "일·공휴일", info: "휴진" },
+];
+
+export default function SchedulePage() {
+  return (
+    <>
+      {/* ── Hero ── */}
+      <section className="bg-orange-50 px-5 pt-20 pb-16">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">
+            Schedule
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal">
+            진료일정
+          </h1>
+        </div>
+      </section>
+
+      {/* ── 달력 ── */}
+      <section className="bg-surface px-5 py-16">
+        <div className="max-w-2xl mx-auto">
+          <ScheduleCalendar />
+        </div>
+      </section>
+
+      {/* ── 기본 진료시간 ── */}
+      <section className="bg-white px-5 py-16">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-8">
+            기본 진료시간
+          </p>
+          <div className="space-y-1">
+            {regularHours.map((h) => (
+              <div
+                key={h.day}
+                className="flex items-baseline justify-between py-3 border-b border-gray-100 last:border-0 text-sm"
+              >
+                <span className="font-medium text-charcoal">{h.day}</span>
+                <span className="text-charcoal-light">{h.info}</span>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-xs text-charcoal-light leading-relaxed">
+            수요일·토요일은 격주로 휴진합니다. 방문 전 위 달력에서 날짜를 확인해 주세요.
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}

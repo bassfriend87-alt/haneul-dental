@@ -66,6 +66,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7
     },
-    // /schedule 은 Phase 2 — 준비 후 추가
+    {
+      url: `${baseUrl}/schedule`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7
+    },
   ]
 }
