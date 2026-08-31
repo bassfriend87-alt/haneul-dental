@@ -54,7 +54,7 @@ export function Header() {
         </div>
 
         {/* 데스크탑 nav */}
-        <nav className="hidden md:flex gap-5 text-sm text-charcoal-light">
+        <nav className="hidden md:flex items-center gap-5 text-sm text-charcoal-light">
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
           <span className="w-px h-4 bg-gray-200 self-center" />
           <Link href="/treatment/implant" className="hover:text-primary transition-colors">임플란트</Link>
