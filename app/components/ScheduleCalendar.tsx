@@ -164,7 +164,7 @@ export function ScheduleCalendar() {
               {/* 정상진료 공휴일: 공휴일명은 날짜 아래, 정상진료는 셀 하단 고정 */}
               {status === "open-holiday" && holiday && (
                 <>
-                  <span className="text-[8px] text-red-400 leading-tight mt-0.5">{holiday.name}</span>
+                  <span className="text-[9px] text-red-400 leading-tight mt-0.5">{holiday.name}</span>
                   <span className="absolute bottom-1 text-[8px] text-blue-500 leading-none">정상진료</span>
                 </>
               )}
