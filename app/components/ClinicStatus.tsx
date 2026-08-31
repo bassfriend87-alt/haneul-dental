@@ -76,7 +76,7 @@ export function ClinicStatus() {
   return (
     <Link
       href="/schedule"
-      className={`hidden sm:flex items-center gap-1.5 ml-3 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${pillStyle[status.color]}`}
+      className={`flex items-center gap-1.5 ml-3 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${pillStyle[status.color]}`}
     >
       <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotStyle[status.color]}`} />
       <span className="sm:hidden">{status.short}</span>
