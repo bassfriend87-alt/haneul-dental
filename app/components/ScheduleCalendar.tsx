@@ -135,6 +135,11 @@ export function ScheduleCalendar() {
               key={i}
               className={`${cellBase} ${cellStyle} ${isToday ? "ring-2 ring-primary ring-offset-1 !border-transparent" : ""}`}
             >
+              {isToday && (
+                <span className="absolute top-1 text-[8px] text-primary font-semibold leading-none">
+                  오늘
+                </span>
+              )}
               <span className={`${numColor} leading-none`}>{date.getDate()}</span>
               {status === "closed" && (
                 <span className="text-[9px] text-red-400 font-normal mt-0.5 leading-none">
