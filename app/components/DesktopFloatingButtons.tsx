@@ -47,7 +47,7 @@ export function DesktopFloatingButtons() {
       <a
         href="tel:02-375-8278"
         className="group relative w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform"
-        style={{ backgroundColor: "#2563EB" }}
+        style={{ backgroundColor: "#1E3A5F" }}
         title="전화 예약"
       >
         <PhoneIcon />

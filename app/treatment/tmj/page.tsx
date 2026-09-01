@@ -62,7 +62,7 @@ export default function TMJPage() {
           <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
           <p className="text-white/70 text-sm mb-8">턱 증상이 가볍더라도 방치하면 진행될 수 있습니다.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:02-375-8278" className="inline-flex items-center justify-center bg-blue-600 text-white font-bold px-7 py-3.5 rounded-full hover:bg-blue-700 transition-colors">
+            <a href="tel:02-375-8278" className="inline-flex items-center justify-center btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors">
               전화 예약 &middot; 02-375-8278
             </a>
             <a href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full" style={{ backgroundColor: "#03C75A", color: "#ffffff" }}>
