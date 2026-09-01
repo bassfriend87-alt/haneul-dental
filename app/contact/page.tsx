@@ -47,50 +47,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── 예약 방법 ── */}
-      <section className="bg-primary px-5 py-8 md:py-16">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-sm text-white tracking-widest uppercase mb-8">예약 방법</p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="tel:02-375-8278"
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold text-white"
-              style={{ backgroundColor: "#1E3A5F" }}
-            >
-              <span className="flex items-center gap-2">
-                <PhoneIcon className="w-5 h-5 shrink-0" />
-                <span className="text-base">전화 예약</span>
-              </span>
-              <span className="text-sm font-normal opacity-90">02-375-8278</span>
-            </a>
-            <a
-              href={NAVER_BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold text-white"
-              style={{ backgroundColor: "#03C75A" }}
-            >
-              <span className="flex items-center gap-2">
-                <NaverIcon className="w-5 h-5 shrink-0" />
-                <span className="text-base">네이버 예약</span>
-              </span>
-              <span className="text-sm font-normal opacity-90">바로 예약하기</span>
-            </a>
-            <button
-              disabled
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold cursor-not-allowed opacity-60"
-              style={{ backgroundColor: "#FEE500", color: "#191919" }}
-            >
-              <span className="flex items-center gap-2">
-                <KakaoIcon className="w-5 h-5 shrink-0" />
-                <span className="text-base">카카오톡</span>
-              </span>
-              <span className="text-sm font-normal">준비중</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* ── 오시는 길 ── */}
       <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
@@ -169,6 +125,50 @@ export default function ContactPage() {
           <p className="text-xs text-charcoal-light mt-2 leading-relaxed">
             야간 진료(화·목)는 사전 예약제로 운영됩니다. 야간 진료 당일 예약을 원하시면 전화 문의 부탁드립니다.
           </p>
+        </div>
+      </section>
+
+      {/* ── 예약 방법 ── */}
+      <section className="bg-primary px-5 py-8 md:py-16">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-sm text-white tracking-widest uppercase mb-8">예약 방법</p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="tel:02-375-8278"
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold text-white"
+              style={{ backgroundColor: "#1E3A5F" }}
+            >
+              <span className="flex items-center gap-2">
+                <PhoneIcon className="w-5 h-5 shrink-0" />
+                <span className="text-base">전화 예약</span>
+              </span>
+              <span className="text-sm font-normal opacity-90">02-375-8278</span>
+            </a>
+            <a
+              href={NAVER_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold text-white"
+              style={{ backgroundColor: "#03C75A" }}
+            >
+              <span className="flex items-center gap-2">
+                <NaverIcon className="w-5 h-5 shrink-0" />
+                <span className="text-base">네이버 예약</span>
+              </span>
+              <span className="text-sm font-normal opacity-90">바로 예약하기</span>
+            </a>
+            <button
+              disabled
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold cursor-not-allowed opacity-60"
+              style={{ backgroundColor: "#FEE500", color: "#191919" }}
+            >
+              <span className="flex items-center gap-2">
+                <KakaoIcon className="w-5 h-5 shrink-0" />
+                <span className="text-base">카카오톡</span>
+              </span>
+              <span className="text-sm font-normal">준비중</span>
+            </button>
+          </div>
         </div>
       </section>
     </>
