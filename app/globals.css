@@ -33,3 +33,10 @@ a, button {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
+
+.btn-deep-navy {
+  background-color: #1E3A5F;
+}
+.btn-deep-navy:hover {
+  background-color: #162D4A;
+}
