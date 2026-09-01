@@ -152,14 +152,12 @@ export default function HomePage() {
         {/* ── Services ── */}
         <section className="bg-surface px-5 py-10 md:py-20">
           <div className="max-w-5xl mx-auto">
-            <p className="text-xs text-charcoal-light tracking-widest uppercase mb-4">
+            <h2 className="text-3xl font-bold text-charcoal mb-3">
               진료과목
-            </p>
-            <h2 className="text-3xl font-bold text-charcoal mb-12">
-              필요한 치료를{" "}
-              <br className="md:hidden" />
-              적합한 방법으로
             </h2>
+            <p className="text-charcoal-light mb-12">
+              필요한 치료를 적합한 방법으로
+            </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {services.map((s) => (
                 <Link
