@@ -43,8 +43,8 @@ export default function SchedulePage() {
       {/* ── 기본 진료시간 ── */}
       <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-2xl mx-auto">
-          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-8">
-            기본 진료시간
+          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-8">
+            진료시간
           </p>
           <div className="space-y-1">
             {regularHours.map((h) => (
