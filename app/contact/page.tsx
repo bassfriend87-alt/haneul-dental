@@ -50,7 +50,7 @@ export default function ContactPage() {
       {/* ── 예약 방법 ── */}
       <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-white text-center mb-8">예약 방법</h2>
+          <p className="text-sm text-white tracking-widest uppercase mb-8">예약 방법</p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="tel:02-375-8278"
