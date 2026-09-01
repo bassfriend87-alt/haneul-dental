@@ -110,12 +110,12 @@ export default function HomePage() {
               보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="tel:02-375-8278"
+              <Link
+                href="/contact"
                 className="inline-flex items-center justify-center bg-primary text-white font-medium px-6 py-3.5 rounded-full hover:bg-primary-dark transition-colors"
               >
                 상담 예약
-              </a>
+              </Link>
               <Link
                 href="/treatment"
                 className="inline-flex items-center justify-center border border-white/30 text-white font-medium px-6 py-3.5 rounded-full hover:bg-white/10 transition-colors"
