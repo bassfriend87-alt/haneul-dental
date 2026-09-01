@@ -112,9 +112,9 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="tel:02-375-8278"
-                className="inline-flex items-center justify-center bg-blue-600 text-white font-medium px-6 py-3.5 rounded-full hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center bg-primary text-white font-medium px-6 py-3.5 rounded-full hover:bg-primary-dark transition-colors"
               >
-                전화 예약 &middot; 02-375-8278
+                상담 예약
               </a>
               <Link
                 href="/treatment"
