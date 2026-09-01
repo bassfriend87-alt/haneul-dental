@@ -103,7 +103,7 @@ export default function ContactPage() {
             {hours.map((h) => (
               <div
                 key={h.day}
-                className="flex items-start justify-between py-3.5 border-b border-gray-100 last:border-0"
+                className="flex items-center justify-between py-3.5 border-b border-gray-100 last:border-0"
               >
                 <span className="text-sm font-medium text-charcoal">{h.day}</span>
                 <div className="text-right">
