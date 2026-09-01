@@ -50,7 +50,7 @@ export default function ContactPage() {
       {/* ── 예약 방법 ── */}
       <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-8">
+          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-8">
             예약 방법
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -96,7 +96,7 @@ export default function ContactPage() {
       {/* ── 진료시간 ── */}
       <section className="bg-surface px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-8">
+          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-8">
             진료시간
           </p>
           <div className="space-y-1">
@@ -124,7 +124,7 @@ export default function ContactPage() {
       {/* ── 오시는 길 ── */}
       <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-8">
+          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-8">
             오시는 길
           </p>
           <address className="not-italic space-y-2 mb-8">
