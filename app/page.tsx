@@ -114,7 +114,7 @@ export default function HomePage() {
                 href="/contact"
                 className="inline-flex items-center justify-center bg-primary text-white font-medium px-6 py-3.5 rounded-full hover:bg-primary-dark transition-colors"
               >
-                상담 예약
+                상담 예약하기
               </Link>
               <Link
                 href="/treatment"
