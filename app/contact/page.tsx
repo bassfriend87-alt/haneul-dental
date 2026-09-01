@@ -97,37 +97,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── 진료시간 ── */}
-      <section className="bg-surface px-5 py-8 md:py-16">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-8">
-            진료시간
-          </p>
-          <div className="space-y-1">
-            {hours.map((h) => (
-              <div
-                key={h.day}
-                className="flex items-center justify-between py-3.5 border-b border-gray-100 last:border-0"
-              >
-                <span className="text-sm font-medium text-charcoal">{h.day}</span>
-                <div className="text-right">
-                  <span className="text-sm text-charcoal">{h.time}</span>
-                  {h.note && (
-                    <p className="text-xs text-charcoal-light mt-0.5">{h.note}</p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="text-xs text-charcoal-light mt-6 leading-relaxed">
-            수요일·토요일은 격주 휴진이니 방문 전 일정을 확인해 주세요(매월 2, 4주 토요일 휴무 기준).
-          </p>
-          <p className="text-xs text-charcoal-light mt-2 leading-relaxed">
-            야간 진료(화·목)는 사전 예약제로 운영됩니다. 야간 진료 당일 예약을 원하시면 전화 문의 부탁드립니다.
-          </p>
-        </div>
-      </section>
-
       {/* ── 예약 방법 ── */}
       <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto">
@@ -169,6 +138,37 @@ export default function ContactPage() {
               <span className="text-sm font-normal">준비중</span>
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* ── 진료시간 ── */}
+      <section className="bg-surface px-5 py-8 md:py-16">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-8">
+            진료시간
+          </p>
+          <div className="space-y-1">
+            {hours.map((h) => (
+              <div
+                key={h.day}
+                className="flex items-center justify-between py-3.5 border-b border-gray-100 last:border-0"
+              >
+                <span className="text-sm font-medium text-charcoal">{h.day}</span>
+                <div className="text-right">
+                  <span className="text-sm text-charcoal">{h.time}</span>
+                  {h.note && (
+                    <p className="text-xs text-charcoal-light mt-0.5">{h.note}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-charcoal-light mt-6 leading-relaxed">
+            수요일·토요일은 격주 휴진이니 방문 전 일정을 확인해 주세요(매월 2, 4주 토요일 휴무 기준).
+          </p>
+          <p className="text-xs text-charcoal-light mt-2 leading-relaxed">
+            야간 진료(화·목)는 사전 예약제로 운영됩니다. 야간 진료 당일 예약을 원하시면 전화 문의 부탁드립니다.
+          </p>
         </div>
       </section>
     </>
