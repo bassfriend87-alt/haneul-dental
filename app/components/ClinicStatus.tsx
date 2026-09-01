@@ -61,11 +61,42 @@ const pillStyle: Record<Status["color"], string> = {
   red: "bg-red-50 text-red-600 border border-red-200 hover:bg-red-100",
 };
 
+const OVERRIDE_KEY = "clinicOverride";
+
+function getOverriddenStatus(): Status | null {
+  try {
+    const stored = localStorage.getItem(OVERRIDE_KEY);
+    if (!stored) return null;
+    const { date } = JSON.parse(stored);
+    if (date !== new Date().toDateString()) {
+      localStorage.removeItem(OVERRIDE_KEY);
+      return null;
+    }
+    return { color: "red", label: "진료종료", short: "진료종료" };
+  } catch {
+    return null;
+  }
+}
+
 export function ClinicStatus() {
   const [status, setStatus] = useState<Status | null>(null);
 
   useEffect(() => {
-    const update = () => setStatus(getStatus(new Date()));
+    // URL 파라미터로 오버라이드 설정/해제
+    const params = new URLSearchParams(window.location.search);
+    const override = params.get("override");
+    try {
+      if (override === "closed") {
+        localStorage.setItem(OVERRIDE_KEY, JSON.stringify({ date: new Date().toDateString() }));
+      } else if (override === "reset") {
+        localStorage.removeItem(OVERRIDE_KEY);
+      }
+    } catch {}
+
+    const update = () => {
+      const overridden = getOverriddenStatus();
+      setStatus(overridden ?? getStatus(new Date()));
+    };
     update();
     const id = setInterval(update, 60_000);
     return () => clearInterval(id);
