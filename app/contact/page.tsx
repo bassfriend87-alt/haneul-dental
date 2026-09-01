@@ -1,4 +1,4 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import { dentistSchema, getSpecialHours } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -55,7 +55,7 @@ export default function ContactPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="tel:02-375-8278"
-              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-2xl font-bold text-white"
+              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-full font-bold text-white"
               style={{ backgroundColor: "#2563EB" }}
             >
               <span className="text-base">전화 예약</span>
@@ -65,7 +65,7 @@ export default function ContactPage() {
               href={NAVER_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-2xl font-bold text-white"
+              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-full font-bold text-white"
               style={{ backgroundColor: "#03C75A" }}
             >
               <span className="text-base">네이버 예약</span>
@@ -73,7 +73,7 @@ export default function ContactPage() {
             </a>
             <button
               disabled
-              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-2xl font-bold cursor-not-allowed opacity-60"
+              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-full font-bold cursor-not-allowed opacity-60"
               style={{ backgroundColor: "#FEE500", color: "#191919" }}
             >
               <span className="text-base">카카오톡</span>
