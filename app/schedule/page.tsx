@@ -35,14 +35,14 @@ export default function SchedulePage() {
       </section>
 
       {/* ── 달력 ── */}
-      <section className="bg-surface px-5 py-8 md:py-16">
+      <section className="bg-white px-5 py-8 md:py-16">
         <div className="max-w-2xl mx-auto">
           <ScheduleCalendar />
         </div>
       </section>
 
       {/* ── 기본 진료시간 ── */}
-      <section className="bg-white px-5 py-8 md:py-16">
+      <section className="bg-surface px-5 py-8 md:py-16">
         <div className="max-w-2xl mx-auto">
           <p className="text-sm text-charcoal-light tracking-widest uppercase mb-8">
             진료시간
