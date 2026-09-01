@@ -153,7 +153,7 @@ export default function HomePage() {
         <section className="bg-surface px-5 py-10 md:py-20">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-charcoal mb-3">
-              진료과목
+              진료 과목
             </h2>
             <p className="text-charcoal-light mb-12">
               필요한 치료를 적합한 방법으로
