@@ -243,12 +243,6 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-6 text-xs text-charcoal-light leading-relaxed">
-                수요일·토요일은 격주 휴진이니 방문 전 일정을 확인해 주세요(매월 2, 4주 토요일 휴무 기준).
-              </p>
-              <p className="mt-2 text-xs text-charcoal-light leading-relaxed">
-                야간 진료(화·목)는 사전 예약제로 운영됩니다. 야간 진료 당일 예약을 원하시면 전화 문의 부탁드립니다.
-              </p>
             </div>
             <div>
               <p className="text-sm text-charcoal-light tracking-widest uppercase mb-7">
