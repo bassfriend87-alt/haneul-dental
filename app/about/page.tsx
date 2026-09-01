@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
-import { dentistSchema } from "@/lib/schema";
 import { PhoneIcon } from "@/app/components/icons";
+import { dentistSchema } from "@/lib/schema";
 import doctorStandWhite from "@/public/images/doctor-profile-stand-white.jpg";
 import doctorConsultTalking from "@/public/images/doctor-consult-talking.jpg";
 

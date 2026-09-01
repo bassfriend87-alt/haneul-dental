@@ -168,7 +168,7 @@ export default function FeesPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-orange-50 px-5 pt-20 pb-16">
+      <section className="bg-orange-50 px-5 py-8">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">
             Fees
