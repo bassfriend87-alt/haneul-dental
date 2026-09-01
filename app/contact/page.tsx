@@ -56,7 +56,7 @@ export default function ContactPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="tel:02-375-8278"
-              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-full font-bold text-white"
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold text-white"
               style={{ backgroundColor: "#1E3A5F" }}
             >
               <span className="flex items-center gap-2">
@@ -69,7 +69,7 @@ export default function ContactPage() {
               href={NAVER_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-full font-bold text-white"
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold text-white"
               style={{ backgroundColor: "#03C75A" }}
             >
               <span className="flex items-center gap-2">
@@ -80,7 +80,7 @@ export default function ContactPage() {
             </a>
             <button
               disabled
-              className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-full font-bold cursor-not-allowed opacity-60"
+              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold cursor-not-allowed opacity-60"
               style={{ backgroundColor: "#FEE500", color: "#191919" }}
             >
               <span className="flex items-center gap-2">
