@@ -105,7 +105,7 @@ export function ScheduleCalendar() {
         </button>
         <h2 className="text-lg font-bold text-charcoal flex items-center gap-2">
           {year}년 {month + 1}월
-          {theme.emoji && <span className="text-base">{theme.emoji}</span>}
+          {theme.emoji && <span className="text-2xl">{theme.emoji}</span>}
         </h2>
         <button
           onClick={next}
