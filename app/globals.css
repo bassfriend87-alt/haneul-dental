@@ -27,3 +27,9 @@ body {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
+
+/* 브라우저 기본 탭 하이라이트 제거 (JS로 대체) */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}

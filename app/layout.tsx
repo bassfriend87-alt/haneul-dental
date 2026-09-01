@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { MobileBottomBar } from "./components/MobileBottomBar";
 import { DesktopFloatingButtons } from "./components/DesktopFloatingButtons";
+import { TapFix } from "./components/TapFix";
 
 const notoKR = Noto_Sans_KR({
   weight: ["300", "400", "500", "700"],
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${notoKR.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
+        <TapFix />
         <Header />
         <div className="flex-1 pb-14 md:pb-0">{children}</div>
         <Footer />
