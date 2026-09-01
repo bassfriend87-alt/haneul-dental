@@ -1,5 +1,6 @@
 ﻿import { Metadata } from "next";
 import { ScheduleCalendar } from "@/app/components/ScheduleCalendar";
+import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 export const metadata: Metadata = {
   title: "진료일정",
@@ -68,6 +69,32 @@ export default function SchedulePage() {
           <p className="mt-2 text-xs text-charcoal-light leading-relaxed">
             야간 진료(화·목)는 사전 예약제로 운영됩니다. 야간 진료 당일 예약을 원하시면 전화 문의 부탁드립니다.
           </p>
+        </div>
+      </section>
+      {/* ── CTA ── */}
+      <section className="bg-primary px-5 py-8 md:py-16">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
+          <p className="text-white/70 text-sm mb-8">
+            전화 또는 네이버 예약으로 방문 일정을 잡으실 수 있습니다.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="tel:02-375-8278"
+              className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+            >
+              <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
+            </a>
+            <a
+              href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full"
+              style={{ backgroundColor: "#03C75A", color: "#ffffff" }}
+            >
+              <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
+            </a>
+          </div>
         </div>
       </section>
     </>
