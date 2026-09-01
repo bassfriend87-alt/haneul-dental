@@ -103,7 +103,7 @@ export default function AboutPage() {
       {/* ── 차별점 3카드 ── */}
       <section className="bg-surface px-5 py-10 md:py-20">
         <div className="max-w-5xl mx-auto">
-          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-12 text-center">
+          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-12 text-center">
             왜 한 사람이 끝까지 책임지는가
           </p>
           <div className="grid md:grid-cols-3 gap-12">
@@ -130,7 +130,7 @@ export default function AboutPage() {
           sizes="100vw"
         />
         <div className="relative max-w-3xl mx-auto">
-          <p className="text-xs text-gray-500 tracking-widest uppercase mb-10 text-center">
+          <p className="text-sm text-gray-500 tracking-widest uppercase mb-10 text-center">
             진료 철학
           </p>
           <blockquote className="text-3xl md:text-4xl font-light text-white leading-relaxed mb-14 text-center">
@@ -160,7 +160,7 @@ export default function AboutPage() {
       {/* ── 학력 및 경력 — 세로 타임라인 ── */}
       <section className="bg-surface px-5 py-10 md:py-20">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-12">
+          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-12">
             학력 및 경력
           </p>
           <div className="relative">
@@ -181,7 +181,7 @@ export default function AboutPage() {
       {/* ── 학회 활동 — 칩 ── */}
       <section className="bg-white px-5 py-10 md:py-20">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs text-charcoal-light tracking-widest uppercase mb-10">
+          <p className="text-sm text-charcoal-light tracking-widest uppercase mb-10">
             학회 활동
           </p>
           <div className="flex flex-wrap gap-3">
