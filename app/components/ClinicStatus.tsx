@@ -38,7 +38,7 @@ function getStatus(now: Date): Status {
   if (totalMin >= toMin(8, 30) && totalMin < toMin(12, 30))
     return { color: "green", label: "진료중 · 12:30까지", short: "진료중" };
   if (totalMin >= toMin(12, 30) && totalMin < toMin(13, 30))
-    return { color: "yellow", label: "점심시간 · 13:30부터", short: "점심시간" };
+    return { color: "yellow", label: "점심시간 · 13:30까지", short: "점심시간" };
   if (totalMin >= toMin(13, 30) && totalMin < toMin(17, 30))
     return { color: "green", label: "진료중 · 17:30까지", short: "진료중" };
   if (isTueThu && totalMin >= toMin(17, 30) && totalMin < toMin(18, 0))
