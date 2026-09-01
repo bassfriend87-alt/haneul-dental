@@ -41,7 +41,7 @@ export default function ContactPage() {
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">
             Contact
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-charcoal leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal">
             예약 · 오시는 길
           </h1>
         </div>
