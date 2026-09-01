@@ -1,13 +1,13 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 import { periodontalFAQs, scalingFAQs, gumTreatmentFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
 
 export const metadata: Metadata = {
-  title: "상암동 스케일링·잇몸치료",
+  title: "?곸븫???ㅼ??쇰쭅쨌?뉖じ移섎즺",
   description:
-    "정기적인 스케일링과 치주치료로 잇몸 건강을 관리합니다. 스케일링·잇몸치료 상담은 상암하늘치과로.",
+    "?뺢린?곸씤 ?ㅼ??쇰쭅怨?移섏＜移섎즺濡??뉖じ 嫄닿컯??愿由ы빀?덈떎. ?ㅼ??쇰쭅쨌?뉖じ移섎즺 ?곷떞? ?곸븫?섎뒛移섍낵濡?",
   robots: { index: true, follow: true },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr"}/treatment/periodontal`,
@@ -32,53 +32,53 @@ export default function PeriodontalPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* ── Hero ── */}
-      <section className="bg-orange-50 px-5 pt-20 pb-16">
+      {/* ?? Hero ?? */}
+      <section className="bg-orange-50 px-5 py-16">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">Treatment</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">치주치료</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">移섏＜移섎즺</h1>
           <p className="text-charcoal-light leading-relaxed max-w-lg">
-            정기적인 스케일링과 치주치료로 잇몸 건강을 관리합니다.<br />
-            치주질환은 조기 발견과 꾸준한 관리가 핵심입니다.
+            ?뺢린?곸씤 ?ㅼ??쇰쭅怨?移섏＜移섎즺濡??뉖じ 嫄닿컯??愿由ы빀?덈떎.<br />
+            移섏＜吏덊솚? 議곌린 諛쒓껄怨?袁몄???愿由ш? ?듭떖?낅땲??
           </p>
         </div>
       </section>
 
-      {/* ── 스케일링 ── */}
+      {/* ?? ?ㅼ??쇰쭅 ?? */}
       <section id="scaling" className="bg-white px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-charcoal mb-4">스케일링</h2>
+          <h2 className="text-2xl font-bold text-charcoal mb-4">?ㅼ??쇰쭅</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
-            치아 표면의 치석과 세균막을 제거하는 기본 치료입니다.
-            만 19세 이상은 연 1회 건강보험이 적용됩니다.
+            移섏븘 ?쒕㈃??移섏꽍怨??멸퇏留됱쓣 ?쒓굅?섎뒗 湲곕낯 移섎즺?낅땲??
+            留?19???댁긽? ??1??嫄닿컯蹂댄뿕???곸슜?⑸땲??
           </p>
           <FAQSection faqs={scalingFAQs} />
         </div>
       </section>
 
-      {/* ── 잇몸치료 ── */}
+      {/* ?? ?뉖じ移섎즺 ?? */}
       <section id="gum-treatment" className="bg-surface px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-charcoal mb-4">잇몸치료</h2>
+          <h2 className="text-2xl font-bold text-charcoal mb-4">?뉖じ移섎즺</h2>
           <p className="text-sm text-charcoal-light leading-relaxed mb-8">
-            스케일링만으로 해결이 어려운 깊은 치주낭은 치근활택술(잇몸치료)로 관리합니다.
-            치주질환은 조기 발견과 꾸준한 유지 치료가 핵심입니다.
+            ?ㅼ??쇰쭅留뚯쑝濡??닿껐???대젮??源딆? 移섏＜??? 移섍렐?쒗깮???뉖じ移섎즺)濡?愿由ы빀?덈떎.
+            移섏＜吏덊솚? 議곌린 諛쒓껄怨?袁몄????좎? 移섎즺媛 ?듭떖?낅땲??
           </p>
           <FAQSection faqs={gumTreatmentFAQs} />
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* ?? CTA ?? */}
       <section className="bg-primary px-5 py-8 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
-          <p className="text-white/70 text-sm mb-8">잇몸이 붓거나 피가 나면 조기에 내원하시는 것을 권장합니다.</p>
+          <h2 className="text-2xl font-bold text-white mb-3">吏꾨즺 ?덉빟</h2>
+          <p className="text-white/70 text-sm mb-8">?뉖じ??遺볤굅???쇨? ?섎㈃ 議곌린???댁썝?섏떆??寃껋쓣 沅뚯옣?⑸땲??</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="tel:02-375-8278" className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors">
-              <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
+              <PhoneIcon className="w-4 h-4 shrink-0" />?꾪솕 ?덉빟 &middot; 02-375-8278
             </a>
             <a href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full" style={{ backgroundColor: "#03C75A", color: "#ffffff" }}>
-              <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
+              <NaverIcon className="w-4 h-4 shrink-0" />?ㅼ씠踰??덉빟
             </a>
           </div>
         </div>
@@ -86,3 +86,4 @@ export default function PeriodontalPage() {
     </>
   );
 }
+
