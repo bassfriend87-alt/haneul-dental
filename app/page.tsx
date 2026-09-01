@@ -222,7 +222,7 @@ export default function HomePage() {
         <section className="bg-surface px-5 py-10 md:py-20">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-14">
             <div>
-              <p className="text-xs text-charcoal-light tracking-widest uppercase mb-7">
+              <p className="text-sm text-charcoal-light tracking-widest uppercase mb-7">
                 진료시간
               </p>
               <div className="space-y-1">
@@ -247,7 +247,7 @@ export default function HomePage() {
               </div>
             </div>
             <div>
-              <p className="text-xs text-charcoal-light tracking-widest uppercase mb-7">
+              <p className="text-sm text-charcoal-light tracking-widest uppercase mb-7">
                 오시는 길
               </p>
               <address className="not-italic space-y-2">
