@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { aestheticFAQs } from "@/data/faqs";
+import { PhoneIcon } from "@/app/components/icons";
 import { FAQSection } from "@/app/components/FAQSection";
 
 export const metadata: Metadata = {
@@ -58,8 +59,8 @@ export default function AestheticPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
           <p className="text-white/70 text-sm mb-8">궁금한 점은 전화로 문의해 주세요.</p>
-          <a href="tel:02-375-8278" className="inline-flex items-center justify-center btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors">
-            전화 예약 &middot; 02-375-8278
+          <a href="tel:02-375-8278" className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors">
+            <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
           </a>
         </div>
       </section>

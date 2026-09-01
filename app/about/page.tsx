@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
 import { dentistSchema } from "@/lib/schema";
+import { PhoneIcon } from "@/app/components/icons";
 import doctorStandWhite from "@/public/images/doctor-profile-stand-white.jpg";
 import doctorConsultTalking from "@/public/images/doctor-consult-talking.jpg";
 
@@ -205,9 +206,9 @@ export default function AboutPage() {
           </p>
           <a
             href="tel:02-375-8278"
-            className="inline-flex items-center justify-center btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+            className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
           >
-            전화 예약 &middot; 02-375-8278
+            <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
           </a>
         </div>
       </section>

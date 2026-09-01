@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { implantFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
@@ -112,11 +113,11 @@ export default function ImplantPage() {
           <h2 className="text-2xl font-bold text-white mb-3">임플란트 상담 예약</h2>
           <p className="text-white/70 text-sm mb-8">보철과 전문의가 직접 상담합니다.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:02-375-8278" className="inline-flex items-center justify-center btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors">
-              전화 예약 &middot; 02-375-8278
+            <a href="tel:02-375-8278" className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors">
+              <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
             </a>
-            <a href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full" style={{ backgroundColor: "#03C75A", color: "#ffffff" }}>
-              네이버 예약
+            <a href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full" style={{ backgroundColor: "#03C75A", color: "#ffffff" }}>
+              <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
             </a>
           </div>
         </div>

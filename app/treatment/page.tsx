@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 export const metadata: Metadata = {
   title: "진료과목",
@@ -95,18 +96,18 @@ export default function TreatmentPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="tel:02-375-8278"
-              className="inline-flex items-center justify-center btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+              className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
             >
-              전화 예약 &middot; 02-375-8278
+              <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
             </a>
             <a
               href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full"
+              className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full"
               style={{ backgroundColor: "#03C75A", color: "#ffffff" }}
             >
-              네이버 예약
+              <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
             </a>
           </div>
         </div>
