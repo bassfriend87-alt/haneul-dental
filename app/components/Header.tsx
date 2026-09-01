@@ -19,7 +19,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
-      <div className="max-w-screen-xl mx-auto w-full h-16 flex items-center justify-between px-5">
+      <div className="max-w-screen-xl mx-auto w-full h-16 flex items-center px-5">
         <div className="flex items-center">
           <Link href="/" className="flex items-center" onClick={close}>
             <Image
@@ -34,7 +34,7 @@ export function Header() {
         </div>
 
         {/* 데스크탑 nav */}
-        <nav className="hidden md:flex items-center gap-5 text-sm text-charcoal-light mx-auto px-8">
+        <nav className="hidden md:flex items-center gap-5 text-sm text-charcoal-light ml-8">
           <Link href="/about" className="hover:text-primary transition-colors">원장 소개</Link>
           <span className="w-px h-4 bg-gray-200 self-center" />
           <Link href="/treatment/implant" className="hover:text-primary transition-colors">임플란트</Link>
@@ -85,14 +85,14 @@ export function Header() {
         </nav>
 
         {/* 데스크탑 CTA 버튼 그룹 */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2 ml-auto">
           <Link href="/schedule" className="inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">진료일정</Link>
           <Link href="/contact" className="inline-flex items-center bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">예약·오시는 길</Link>
         </div>
 
         {/* 모바일 햄버거 버튼 */}
         <button
-          className="md:hidden p-2 text-charcoal"
+          className="md:hidden ml-auto p-2 text-charcoal"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="메뉴"
         >
