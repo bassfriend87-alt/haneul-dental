@@ -3,7 +3,7 @@ export function MobileBottomBar() {
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-gray-100 flex h-14">
       <a
         href="tel:02-375-8278"
-        className="flex-1 flex items-center justify-center text-xs font-bold bg-primary text-white"
+        className="flex-1 flex items-center justify-center text-xs font-bold bg-blue-600 text-white"
       >
         전화 예약
       </a>

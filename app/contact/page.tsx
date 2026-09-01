@@ -56,7 +56,7 @@ export default function ContactPage() {
             <a
               href="tel:02-375-8278"
               className="flex-1 flex flex-col items-center justify-center gap-1.5 py-6 rounded-2xl font-bold text-white"
-              style={{ backgroundColor: "#F5890A" }}
+              style={{ backgroundColor: "#2563EB" }}
             >
               <span className="text-base">전화 예약</span>
               <span className="text-sm font-normal opacity-90">02-375-8278</span>

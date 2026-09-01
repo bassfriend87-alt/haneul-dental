@@ -1,4 +1,4 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import Image from "next/image";
 import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
 import { dentistSchema } from "@/lib/schema";
@@ -205,7 +205,7 @@ export default function AboutPage() {
           </p>
           <a
             href="tel:02-375-8278"
-            className="inline-flex items-center justify-center bg-white text-primary font-bold px-7 py-3.5 rounded-full hover:bg-orange-50 transition-colors"
+            className="inline-flex items-center justify-center bg-white text-blue-600 font-bold px-7 py-3.5 rounded-full hover:bg-blue-50 transition-colors"
           >
             전화 예약 &middot; 02-375-8278
           </a>

@@ -1,4 +1,4 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -95,7 +95,7 @@ export default function TreatmentPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="tel:02-375-8278"
-              className="inline-flex items-center justify-center bg-white text-primary font-bold px-7 py-3.5 rounded-full hover:bg-orange-50 transition-colors"
+              className="inline-flex items-center justify-center bg-white text-blue-600 font-bold px-7 py-3.5 rounded-full hover:bg-blue-50 transition-colors"
             >
               전화 예약 &middot; 02-375-8278
             </a>
