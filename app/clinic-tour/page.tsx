@@ -10,7 +10,7 @@ import imgReceptionTreatmentView from "@/public/photo/clinic-reception-treatment
 import imgWaitingWide from "@/public/photo/clinic-waiting-wide.jpg";
 import imgWallMotto from "@/public/photo/clinic-wall-motto.jpg";
 import imgWallDoctorPanel from "@/public/photo/clinic-wall-doctor-panel.jpg";
-import imgConsultationRoom from "@/public/photo/clinic-consultation-room.jpg";
+import imgConsultationBlind from "@/public/photo/clinic-consultation-blind.jpg";
 import imgTreatmentRoomWide from "@/public/photo/clinic-treatment-room-wide.jpg";
 import imgTreatmentChairFront from "@/public/photo/clinic-treatment-chair-front.jpg";
 import imgTreatmentChairOrange from "@/public/photo/clinic-treatment-chair-orange.jpg";
@@ -204,8 +204,8 @@ export default function ClinicTourPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
                 <Image
-                  src={imgConsultationRoom}
-                  alt="상담실 전경"
+                  src={imgConsultationBlind}
+                  alt="상담실"
                   fill
                   className="object-cover"
                   placeholder="blur"
