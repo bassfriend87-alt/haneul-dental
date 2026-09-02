@@ -85,7 +85,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── 오시는 길 ── */}
-      <section id="location" className="bg-white px-5 py-8 md:py-16">
+      <section id="location" className="bg-white px-5 py-8 md:py-16 scroll-mt-16">
         <div className="max-w-3xl mx-auto">
           <p className="text-sm text-charcoal-light tracking-widest uppercase mb-8">
             오시는 길
