@@ -49,12 +49,12 @@ function getStatus(now: Date, eveningResult: EveningResult): Status {
   // 17:30 이후 화·목: 야간 예약 결과에 따라 분기
   if (isTueThu) {
     if (eveningResult === "error")
-      return { color: "yellow", label: "야간진료 문의", short: "야간진료 문의" };
+      return { color: "yellow", label: "야간진료 문의하기", short: "야간진료문의" };
     if (eveningResult === "no_booking")
       return { color: "red", label: "진료종료", short: "진료종료" };
     // has_booking 또는 null(확인 중): 시간 기반 표시
     if (totalMin < toMin(18, 0))
-      return { color: "yellow", label: "야간진료 준비중 · 18:00부터", short: "준비중" };
+      return { color: "yellow", label: "야간진료 준비중 · 18:00부터", short: "야간준비중" };
     if (totalMin < toMin(20, 30))
       return { color: "green", label: "야간진료중 · 20:30까지", short: "야간진료중" };
     return { color: "red", label: "진료종료", short: "진료종료" };
