@@ -252,7 +252,7 @@ export function Header() {
           수가표
         </Link>
         <a href="https://blog.haneuldental.co.kr" target="_blank" rel="noopener noreferrer" className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
-          상암하늘치과의원 공식 블로그
+          공식 블로그
         </a>
       </div>
     </header>
