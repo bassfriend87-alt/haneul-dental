@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { dentistSchema, getSpecialHours } from "@/lib/schema";
-import { PhoneIcon, NaverIcon, KakaoIcon } from "./components/icons";
+import { PhoneIcon, NaverIcon } from "./components/icons";
+// import { KakaoIcon } from "./components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
   title: "상암동 보철치과 크라운·임플란트·틀니 | 상암하늘치과의원",
@@ -183,16 +184,16 @@ export default function HomePage() {
 
 
         {/* ── CTA ── */}
-        <section className="bg-primary px-5 py-10 md:py-20">
+        <section className="bg-primary px-5 py-8 md:py-16">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-3">진료 예약</h2>
-            <p className="text-white/70 text-sm mb-10">
+            <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
+            <p className="text-white/70 text-sm mb-8">
               전화 또는 네이버 예약으로 방문 일정을 잡으실 수 있습니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href="tel:02-375-8278"
-                className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full transition-colors text-white btn-deep-navy"
+                className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
               >
                 <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
               </a>
@@ -205,6 +206,7 @@ export default function HomePage() {
               >
                 <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
               </a>
+              {/* 카카오톡 채널 연동 시 활성화
               <button
                 disabled
                 className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full cursor-not-allowed"
@@ -212,6 +214,7 @@ export default function HomePage() {
               >
                 <KakaoIcon className="w-4 h-4 shrink-0" />카카오톡 (준비중)
               </button>
+              */}
             </div>
           </div>
         </section>
