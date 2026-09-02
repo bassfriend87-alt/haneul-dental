@@ -65,7 +65,6 @@ export function Header() {
         {/* 데스크탑 nav */}
         <nav className="hidden md:flex items-center gap-5 text-sm text-charcoal-light ml-8">
           <Link href="/about" onClick={handleLink("/about")} className="hover:text-primary transition-colors">원장 소개</Link>
-          <span className="w-px h-4 bg-gray-200 self-center" />
           {/* 진료 과목 드롭다운 */}
           <div className="relative group">
             <Link href="/treatment" onClick={handleLink("/treatment")} className="hover:text-primary transition-colors flex items-center gap-0.5">
@@ -99,7 +98,6 @@ export function Header() {
               </div>
             </div>
           </div>
-          <span className="w-px h-4 bg-gray-200 self-center" />
           <Link href="/fees" onClick={handleLink("/fees")} className="hover:text-primary transition-colors">수가표</Link>
         </nav>
 
