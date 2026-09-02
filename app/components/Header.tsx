@@ -65,7 +65,7 @@ export function Header() {
         {/* 데스크탑 nav */}
         <nav className="hidden md:flex items-center gap-5 text-sm text-charcoal-light ml-8">
           <Link href="/about" onClick={handleLink("/about")} className="hover:text-primary transition-colors">원장 소개</Link>
-          <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-primary transition-colors cursor-not-allowed opacity-60">치과 둘러보기</a>
+          <Link href="/clinic-tour" onClick={handleLink("/clinic-tour")} className="hover:text-primary transition-colors">치과 둘러보기</Link>
           <span className="w-px h-4 bg-gray-200 self-center" />
           {/* 진료 과목 드롭다운 */}
           <div className="relative group">
@@ -158,9 +158,9 @@ export function Header() {
         <Link href="/about" onClick={handleLink("/about")} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
           원장 소개
         </Link>
-        <a href="#" onClick={(e) => e.preventDefault()} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 opacity-60 cursor-not-allowed">
+        <Link href="/clinic-tour" onClick={handleLink("/clinic-tour")} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
           치과 둘러보기
-        </a>
+        </Link>
         {/* 진료 과목 — 1단계 아코디언 */}
         <div className="border-b border-gray-100">
           <div className="flex items-center py-3">
