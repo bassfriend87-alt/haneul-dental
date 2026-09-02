@@ -27,6 +27,8 @@ function getStatus(now: Date): Status {
 
   // 토요일: 08:30~14:00, 점심 없음
   if (dow === 6) {
+    if (totalMin < toMin(8, 30))
+      return { color: "yellow", label: "진료 전 · 08:30부터", short: "진료 전" };
     if (totalMin >= toMin(8, 30) && totalMin < toMin(14, 0))
       return { color: "green", label: "진료중 · 14:00까지", short: "진료중" };
     return { color: "red", label: "진료종료", short: "진료종료" };
@@ -35,6 +37,8 @@ function getStatus(now: Date): Status {
   // 평일
   const isTueThu = dow === 2 || dow === 4;
 
+  if (totalMin < toMin(8, 30))
+    return { color: "yellow", label: "진료 전 · 08:30부터", short: "진료 전" };
   if (totalMin >= toMin(8, 30) && totalMin < toMin(12, 30))
     return { color: "green", label: "진료중 · 12:30까지", short: "진료중" };
   if (totalMin >= toMin(12, 30) && totalMin < toMin(13, 30))
