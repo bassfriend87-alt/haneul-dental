@@ -8,8 +8,12 @@ import { ClinicStatus } from "./ClinicStatus";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
-  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
-  const toggleAccordion = (key: string) => setOpenAccordion(prev => prev === key ? null : key);
+  const [openAccordions, setOpenAccordions] = useState<Set<string>>(new Set());
+  const toggleAccordion = (key: string) => setOpenAccordions(prev => {
+    const next = new Set(prev);
+    next.has(key) ? next.delete(key) : next.add(key);
+    return next;
+  });
   const pathname = usePathname();
 
   const handleLink = (href: string) => (e: React.MouseEvent) => {
@@ -172,12 +176,12 @@ export function Header() {
               보철치료
             </Link>
             <button onClick={() => toggleAccordion("prosthetics")} className="p-1 text-charcoal-light hover:text-primary transition-colors" aria-label="보철치료 세부항목">
-              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordion === "prosthetics" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordions.has("prosthetics") ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
           </div>
-          {openAccordion === "prosthetics" && (
+          {openAccordions.has("prosthetics") && (
             <div className="mt-2">
               <Link href="/treatment/prosthetics#crown" onClick={handleAnchorLink("/treatment/prosthetics#crown")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">크라운</Link>
               <Link href="/treatment/prosthetics#bridge" onClick={handleAnchorLink("/treatment/prosthetics#bridge")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">브릿지</Link>
@@ -191,12 +195,12 @@ export function Header() {
               보존치료
             </Link>
             <button onClick={() => toggleAccordion("restorative")} className="p-1 text-charcoal-light hover:text-primary transition-colors" aria-label="보존치료 세부항목">
-              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordion === "restorative" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordions.has("restorative") ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
           </div>
-          {openAccordion === "restorative" && (
+          {openAccordions.has("restorative") && (
             <div className="mt-2">
               <Link href="/treatment/restorative#cavity" onClick={handleAnchorLink("/treatment/restorative#cavity")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">충치치료</Link>
               <Link href="/treatment/restorative#root-canal" onClick={handleAnchorLink("/treatment/restorative#root-canal")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">신경치료</Link>
@@ -209,12 +213,12 @@ export function Header() {
               치주치료
             </Link>
             <button onClick={() => toggleAccordion("periodontal")} className="p-1 text-charcoal-light hover:text-primary transition-colors" aria-label="치주치료 세부항목">
-              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordion === "periodontal" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordions.has("periodontal") ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
           </div>
-          {openAccordion === "periodontal" && (
+          {openAccordions.has("periodontal") && (
             <div className="mt-2">
               <Link href="/treatment/periodontal#scaling" onClick={handleAnchorLink("/treatment/periodontal#scaling")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">스케일링</Link>
               <Link href="/treatment/periodontal#gum-treatment" onClick={handleAnchorLink("/treatment/periodontal#gum-treatment")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">잇몸치료</Link>
