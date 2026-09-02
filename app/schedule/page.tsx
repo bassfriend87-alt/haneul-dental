@@ -1,5 +1,6 @@
 ﻿import { Metadata } from "next";
 import { ScheduleCalendar } from "@/app/components/ScheduleCalendar";
+import { ScrollToTop } from "@/app/components/ScrollToTop";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
@@ -23,6 +24,7 @@ const regularHours = [
 export default function SchedulePage() {
   return (
     <>
+      <ScrollToTop />
       {/* ── Hero ── */}
       <section className="bg-orange-50 px-5 py-8">
         <div className="max-w-3xl mx-auto">
