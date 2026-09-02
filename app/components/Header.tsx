@@ -111,6 +111,8 @@ export function Header() {
             </div>
           </div>
           <Link href="/treatment/tmj" onClick={handleLink("/treatment/tmj")} className="hover:text-primary transition-colors">턱관절</Link>
+          <span className="w-px h-4 bg-gray-200 self-center" />
+          <Link href="/fees" onClick={handleLink("/fees")} className="hover:text-primary transition-colors">수가표</Link>
         </nav>
 
         {/* 데스크탑 CTA 버튼 그룹 */}
@@ -253,6 +255,9 @@ export function Header() {
             </div>
           )}
         </div>
+        <Link href="/fees" onClick={handleLink("/fees")} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
+          수가표
+        </Link>
       </div>
     </header>
   );
