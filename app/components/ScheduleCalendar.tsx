@@ -167,28 +167,26 @@ export function ScheduleCalendar() {
                 </span>
               )}
 
-              {/* 날짜 숫자 — 항상 셀 정중앙 */}
-              <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none ${numColor}`}>
-                {date.getDate()}
-              </span>
-
-              {/* 휴진/공휴일명 */}
-              {closedLabel && (
-                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] text-red-400 font-normal leading-none whitespace-nowrap">
-                  {closedLabel}
-                </span>
-              )}
-
-              {/* 정상진료 공휴일 */}
-              {status === "open-holiday" && holiday && (
-                <>
-                  <span className="hidden sm:block absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] text-red-400 leading-none whitespace-nowrap">
+              {/* 날짜 숫자 + 공휴일명/휴진 중앙 그룹 */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                <span className={`leading-none ${numColor}`}>{date.getDate()}</span>
+                {closedLabel && (
+                  <span className="text-[9px] text-red-400 font-normal leading-tight mt-0.5 whitespace-nowrap">
+                    {closedLabel}
+                  </span>
+                )}
+                {status === "open-holiday" && holiday && (
+                  <span className="hidden sm:block text-[9px] text-red-400 leading-tight mt-0.5 whitespace-nowrap">
                     {holiday.name}
                   </span>
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[9px] text-blue-500 leading-none whitespace-nowrap">
-                    정상진료
-                  </span>
-                </>
+                )}
+              </div>
+
+              {/* 정상진료 */}
+              {status === "open-holiday" && holiday && (
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[9px] text-blue-500 leading-none whitespace-nowrap">
+                  정상진료
+                </span>
               )}
             </div>
           );
