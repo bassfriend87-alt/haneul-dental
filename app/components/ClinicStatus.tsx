@@ -69,7 +69,33 @@ export function ClinicStatus() {
   const [status, setStatus] = useState<Status | null>(null);
 
   useEffect(() => {
-    const update = () => setStatus(getStatus(new Date()));
+    const update = async () => {
+      const now = new Date();
+      const computed = getStatus(now);
+
+      const dow = now.getDay();
+      const totalMin = now.getHours() * 60 + now.getMinutes();
+      const isEveningWindow =
+        (dow === 2 || dow === 4) &&
+        totalMin >= 18 * 60 &&
+        totalMin < 20 * 60 + 30;
+
+      if (isEveningWindow) {
+        try {
+          const res = await fetch("/api/evening-status");
+          const { hasBooking } = await res.json();
+          if (!hasBooking) {
+            setStatus({ color: "red", label: "진료종료", short: "진료종료" });
+            return;
+          }
+        } catch {
+          // 실패 시 시간 기반 상태로 fallback
+        }
+      }
+
+      setStatus(computed);
+    };
+
     update();
     const id = setInterval(update, 60_000);
     return () => clearInterval(id);
