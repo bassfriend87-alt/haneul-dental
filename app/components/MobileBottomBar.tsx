@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PhoneIcon, NaverIcon, KakaoIcon, CalendarIcon } from "./icons";
+import { PhoneIcon, NaverIcon, CalendarIcon, MapPinIcon } from "./icons";
 
 const NAVER_BOOKING_URL =
   "https://booking.naver.com/booking/13/bizes/1555012/items/7265789";
@@ -35,18 +35,6 @@ export function MobileBottomBar() {
 
         <div className="w-px bg-gray-100 my-3" />
 
-        {/* 카카오톡 */}
-        <button
-          disabled
-          className="flex-1 flex flex-col items-center justify-center gap-1 opacity-35 cursor-not-allowed"
-          style={{ color: "#7A6000" }}
-        >
-          <KakaoIcon className="w-[22px] h-[22px]" />
-          <span className="text-[10px] font-semibold tracking-tight">카카오톡</span>
-        </button>
-
-        <div className="w-px bg-gray-100 my-3" />
-
         {/* 진료일정 */}
         <Link
           href="/schedule"
@@ -55,6 +43,18 @@ export function MobileBottomBar() {
         >
           <CalendarIcon className="w-[22px] h-[22px]" />
           <span className="text-[10px] font-semibold tracking-tight">진료일정</span>
+        </Link>
+
+        <div className="w-px bg-gray-100 my-3" />
+
+        {/* 오시는 길 */}
+        <Link
+          href="/contact"
+          className="flex-1 flex flex-col items-center justify-center gap-1"
+          style={{ color: "#1E3A5F" }}
+        >
+          <MapPinIcon className="w-[22px] h-[22px]" />
+          <span className="text-[10px] font-semibold tracking-tight">오시는 길</span>
         </Link>
 
       </div>
