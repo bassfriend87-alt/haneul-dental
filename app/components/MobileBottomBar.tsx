@@ -62,7 +62,7 @@ export function MobileBottomBar() {
 
         {/* 오시는 길 */}
         <Link
-          href="/contact#location"
+          href="/contact"
           onClick={handleLink("/contact")}
           className="flex-1 flex flex-col items-center justify-center gap-1"
           style={{ color: "#1E3A5F" }}
