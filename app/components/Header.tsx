@@ -2,11 +2,22 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ClinicStatus } from "./ClinicStatus";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
+  const pathname = usePathname();
+
+  const handleLink = (href: string) => (e: React.MouseEvent) => {
+    const targetPath = href.split("#")[0];
+    if (pathname === targetPath) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      close();
+    }
+  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -21,7 +32,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
       <div className="max-w-screen-xl mx-auto w-full h-16 flex items-center px-5">
         <div className="flex items-center">
-          <Link href="/" className="flex items-center" onClick={close}>
+          <Link href="/" className="flex items-center" onClick={handleLink("/")}>
             <Image
               src="/images/logo-color.png"
               alt="상암하늘치과의원"
@@ -86,11 +97,11 @@ export function Header() {
 
         {/* 데스크탑 CTA 버튼 그룹 */}
         <div className="hidden md:flex items-center gap-2 ml-auto">
-          <Link href="/schedule" className="inline-flex items-center gap-1.5 bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">
+          <Link href="/schedule" onClick={handleLink("/schedule")} className="inline-flex items-center gap-1.5 bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 shrink-0"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
             진료일정
           </Link>
-          <Link href="/contact#location" className="inline-flex items-center gap-1.5 bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">
+          <Link href="/contact#location" onClick={handleLink("/contact")} className="inline-flex items-center gap-1.5 bg-primary text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-primary-dark transition-colors">
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             오시는 길
           </Link>
@@ -125,11 +136,11 @@ export function Header() {
         className={`md:hidden fixed top-16 right-0 bottom-0 w-72 bg-white z-50 overflow-y-auto overscroll-y-contain touch-pan-y px-5 py-4 pb-10 shadow-2xl transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex gap-2 mb-4">
-          <Link href="/schedule" onClick={close} className="flex-1 flex items-center justify-center gap-1.5 bg-primary text-white text-sm font-medium px-2 py-3 rounded-full hover:bg-primary-dark transition-colors whitespace-nowrap">
+          <Link href="/schedule" onClick={handleLink("/schedule")} className="flex-1 flex items-center justify-center gap-1.5 bg-primary text-white text-sm font-medium px-2 py-3 rounded-full hover:bg-primary-dark transition-colors whitespace-nowrap">
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 shrink-0"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
             진료일정
           </Link>
-          <Link href="/contact#location" onClick={close} className="flex-1 flex items-center justify-center gap-1.5 bg-primary text-white text-sm font-medium px-2 py-3 rounded-full hover:bg-primary-dark transition-colors whitespace-nowrap">
+          <Link href="/contact#location" onClick={handleLink("/contact")} className="flex-1 flex items-center justify-center gap-1.5 bg-primary text-white text-sm font-medium px-2 py-3 rounded-full hover:bg-primary-dark transition-colors whitespace-nowrap">
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             오시는 길
           </Link>
