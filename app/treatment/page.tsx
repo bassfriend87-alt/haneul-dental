@@ -14,16 +14,16 @@ export const metadata: Metadata = {
 
 const treatments = [
   {
-    name: "보철치료",
-    desc: "크라운·브릿지·틀니",
-    sub: "보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.",
-    href: "/treatment/prosthetics",
-  },
-  {
     name: "임플란트",
     desc: "식립부터 보철까지 일관 치료",
     sub: "보철과 전문의가 식립부터 크라운까지 직접 담당합니다.",
     href: "/treatment/implant",
+  },
+  {
+    name: "보철치료",
+    desc: "크라운·브릿지·틀니",
+    sub: "보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.",
+    href: "/treatment/prosthetics",
   },
   // { name: "심미치료", desc: "라미네이트", sub: "현재 준비중입니다.", href: "/treatment/aesthetic" }, // 준비 완료 시 활성화
   {
@@ -56,7 +56,7 @@ export default function TreatmentPage() {
             Treatment
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal">
-            진료과목
+            진료 과목
           </h1>
         </div>
       </section>
