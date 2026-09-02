@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
-import { PhoneIcon } from "@/app/components/icons";
+import { PhoneIcon, NaverIcon } from "@/app/components/icons";
+// import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 import { dentistSchema } from "@/lib/schema";
 import doctorStandWhite from "@/public/images/doctor-profile-stand-white.jpg";
 import doctorConsultTalking from "@/public/images/doctor-consult-talking.jpg";
@@ -204,12 +205,32 @@ export default function AboutPage() {
           <p className="text-white/70 text-sm mb-8">
             궁금한 점은 전화로 문의하시거나 방문 예약을 잡아주세요.
           </p>
-          <a
-            href="tel:02-375-8278"
-            className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
-          >
-            <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="tel:02-375-8278"
+              className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
+            >
+              <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
+            </a>
+            <a
+              href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full"
+              style={{ backgroundColor: "#03C75A", color: "#ffffff" }}
+            >
+              <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
+            </a>
+            {/* 카카오톡 채널 연동 시 활성화
+            <button
+              disabled
+              className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full cursor-not-allowed"
+              style={{ backgroundColor: '#FEE500', color: '#191919' }}
+            >
+              <KakaoIcon className="w-4 h-4 shrink-0" />카카오톡 (준비중)
+            </button>
+            */}
+          </div>
         </div>
       </section>
     </>
