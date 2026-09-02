@@ -104,8 +104,8 @@ export default function HomePage() {
               Sangam Haneul Dental &middot; 보철과 전문의
             </p>
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-              잘 만든 보철은,<br />
-              환자가 잊고 삽니다
+              잘 만든 보철은<br />
+              환자가 잊고 삽니다.
             </h1>
             <p className="text-base text-gray-400 leading-relaxed mb-10 max-w-xl">
               치료 전, 환자가 충분히 이해하고 선택할 수 있도록 안내합니다.<br />
