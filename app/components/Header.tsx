@@ -170,16 +170,16 @@ export function Header() {
         </Link>
         {/* 진료 과목 — 1단계 아코디언 */}
         <div className="border-b border-gray-100">
-          <button
-            onClick={() => setOpenTreatment(prev => !prev)}
-            className="w-full flex items-center py-3 text-sm font-medium text-charcoal hover:text-primary transition-colors"
-            aria-label="진료 과목"
-          >
-            <span>진료 과목</span>
-            <svg className={`w-4 h-4 ml-auto transition-transform duration-200 ${openTreatment ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+          <div className="flex items-center py-3">
+            <Link href="/treatment" onClick={handleLink("/treatment")} className="text-sm font-medium text-charcoal hover:text-primary transition-colors">
+              진료 과목
+            </Link>
+            <button onClick={() => setOpenTreatment(prev => !prev)} className="flex-1 flex justify-end items-center pl-2 py-1 text-charcoal-light hover:text-primary transition-colors" aria-label="진료 과목 펼치기">
+              <svg className={`w-4 h-4 transition-transform duration-200 ${openTreatment ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
           {openTreatment && (
             <div className="pb-2 pl-3 border-l-2 border-gray-100 ml-1 mb-2">
               {/* 임플란트 */}
