@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function Footer() {
+export function Footer({ className = "" }: { className?: string }) {
   return (
-    <footer className="bg-charcoal text-gray-400 px-5 py-10">
+    <footer className={`bg-charcoal text-gray-400 px-5 py-10 ${className}`}>
       <div className="max-w-5xl mx-auto">
         <Image
           src="/images/logo-white.png"
