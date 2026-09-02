@@ -19,6 +19,17 @@ export function Header() {
     }
   };
 
+  const handleAnchorLink = (href: string) => (e: React.MouseEvent) => {
+    const [path, hash] = href.split("#");
+    if (pathname === path && hash) {
+      e.preventDefault();
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      close();
+    } else {
+      close();
+    }
+  };
+
   useEffect(() => {
     if (!isOpen) return;
     document.documentElement.style.overflow = "hidden";
@@ -58,9 +69,9 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-150 z-50">
               <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-1 w-24">
-                <Link href="/treatment/prosthetics#crown" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">크라운</Link>
-                <Link href="/treatment/prosthetics#bridge" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">브릿지</Link>
-                <Link href="/treatment/prosthetics#denture" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">틀니</Link>
+                <Link href="/treatment/prosthetics#crown" onClick={handleAnchorLink("/treatment/prosthetics#crown")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">크라운</Link>
+                <Link href="/treatment/prosthetics#bridge" onClick={handleAnchorLink("/treatment/prosthetics#bridge")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">브릿지</Link>
+                <Link href="/treatment/prosthetics#denture" onClick={handleAnchorLink("/treatment/prosthetics#denture")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">틀니</Link>
               </div>
             </div>
           </div>
@@ -73,8 +84,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-150 z-50">
               <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-1 w-24">
-                <Link href="/treatment/restorative#cavity" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">충치치료</Link>
-                <Link href="/treatment/restorative#root-canal" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">신경치료</Link>
+                <Link href="/treatment/restorative#cavity" onClick={handleAnchorLink("/treatment/restorative#cavity")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">충치치료</Link>
+                <Link href="/treatment/restorative#root-canal" onClick={handleAnchorLink("/treatment/restorative#root-canal")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">신경치료</Link>
               </div>
             </div>
           </div>
@@ -87,8 +98,8 @@ export function Header() {
             </Link>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-150 z-50">
               <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-1 w-24">
-                <Link href="/treatment/periodontal#scaling" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">스케일링</Link>
-                <Link href="/treatment/periodontal#gum-treatment" className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">잇몸치료</Link>
+                <Link href="/treatment/periodontal#scaling" onClick={handleAnchorLink("/treatment/periodontal#scaling")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">스케일링</Link>
+                <Link href="/treatment/periodontal#gum-treatment" onClick={handleAnchorLink("/treatment/periodontal#gum-treatment")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">잇몸치료</Link>
               </div>
             </div>
           </div>
@@ -157,23 +168,23 @@ export function Header() {
           <Link href="/treatment/prosthetics" onClick={handleLink("/treatment/prosthetics")} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
             보철치료
           </Link>
-          <Link href="/treatment/prosthetics#crown" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">크라운</Link>
-          <Link href="/treatment/prosthetics#bridge" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">브릿지</Link>
-          <Link href="/treatment/prosthetics#denture" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">틀니</Link>
+          <Link href="/treatment/prosthetics#crown" onClick={handleAnchorLink("/treatment/prosthetics#crown")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">크라운</Link>
+          <Link href="/treatment/prosthetics#bridge" onClick={handleAnchorLink("/treatment/prosthetics#bridge")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">브릿지</Link>
+          <Link href="/treatment/prosthetics#denture" onClick={handleAnchorLink("/treatment/prosthetics#denture")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">틀니</Link>
         </div>
         <div className="border-b border-gray-100 py-3">
           <Link href="/treatment/restorative" onClick={handleLink("/treatment/restorative")} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
             보존치료
           </Link>
-          <Link href="/treatment/restorative#cavity" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">충치치료</Link>
-          <Link href="/treatment/restorative#root-canal" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">신경치료</Link>
+          <Link href="/treatment/restorative#cavity" onClick={handleAnchorLink("/treatment/restorative#cavity")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">충치치료</Link>
+          <Link href="/treatment/restorative#root-canal" onClick={handleAnchorLink("/treatment/restorative#root-canal")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">신경치료</Link>
         </div>
         <div className="border-b border-gray-100 py-3">
           <Link href="/treatment/periodontal" onClick={handleLink("/treatment/periodontal")} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
             치주치료
           </Link>
-          <Link href="/treatment/periodontal#scaling" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">스케일링</Link>
-          <Link href="/treatment/periodontal#gum-treatment" onClick={close} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">잇몸치료</Link>
+          <Link href="/treatment/periodontal#scaling" onClick={handleAnchorLink("/treatment/periodontal#scaling")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">스케일링</Link>
+          <Link href="/treatment/periodontal#gum-treatment" onClick={handleAnchorLink("/treatment/periodontal#gum-treatment")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">잇몸치료</Link>
         </div>
         <Link href="/treatment/tmj" onClick={handleLink("/treatment/tmj")} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
           턱관절
