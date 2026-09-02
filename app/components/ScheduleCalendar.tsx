@@ -158,30 +158,36 @@ export function ScheduleCalendar() {
           return (
             <div
               key={i}
-              className={`relative aspect-square rounded-xl flex flex-col items-center justify-center text-sm font-medium select-none ${cellStyle} ${isToday ? "ring-2 ring-primary ring-offset-1 !border-transparent" : ""}`}
+              className={`relative aspect-square rounded-xl text-sm font-medium select-none ${cellStyle} ${isToday ? "ring-2 ring-primary ring-offset-1 !border-transparent" : ""}`}
             >
               {/* 오늘 */}
               {isToday && (
-                <span className="absolute top-1 text-[8px] text-primary font-semibold leading-none">
+                <span className="absolute top-1 left-1/2 -translate-x-1/2 text-[8px] text-primary font-semibold leading-none">
                   오늘
                 </span>
               )}
 
-              {/* 날짜 숫자 */}
-              <span className={`${numColor} leading-none`}>{date.getDate()}</span>
+              {/* 날짜 숫자 — 항상 셀 정중앙 */}
+              <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none ${numColor}`}>
+                {date.getDate()}
+              </span>
 
               {/* 휴진/공휴일명 */}
               {closedLabel && (
-                <span className="text-[9px] text-red-400 font-normal mt-0.5 leading-none">
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[9px] text-red-400 font-normal leading-none whitespace-nowrap">
                   {closedLabel}
                 </span>
               )}
 
-              {/* 정상진료 공휴일: 공휴일명은 날짜 아래, 정상진료는 셀 하단 고정 */}
+              {/* 정상진료 공휴일 */}
               {status === "open-holiday" && holiday && (
                 <>
-                  <span className="hidden sm:block text-[9px] text-red-400 leading-tight mt-0.5">{holiday.name}</span>
-                  <span className="absolute bottom-1 text-[10px] text-blue-500 leading-none">정상진료</span>
+                  <span className="hidden sm:block absolute bottom-4 left-1/2 -translate-x-1/2 text-[9px] text-red-400 leading-none whitespace-nowrap">
+                    {holiday.name}
+                  </span>
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[9px] text-blue-500 leading-none whitespace-nowrap">
+                    정상진료
+                  </span>
                 </>
               )}
             </div>
