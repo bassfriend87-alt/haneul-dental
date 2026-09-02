@@ -33,12 +33,13 @@ const services = [
     href: "/treatment/prosthetics",
     tag: null,
   },
-  {
-    name: "심미치료",
-    desc: "라미네이트 (준비중)",
-    href: "/treatment/aesthetic",
-    tag: null,
-  },
+  // 심미치료 — 준비중, 비공개
+  // {
+  //   name: "심미치료",
+  //   desc: "라미네이트 (준비중)",
+  //   href: "/treatment/aesthetic",
+  //   tag: null,
+  // },
   {
     name: "보존치료",
     desc: "충치·신경치료",
@@ -153,12 +154,9 @@ export default function HomePage() {
         {/* ── Services ── */}
         <section className="bg-surface px-5 py-10 md:py-20">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-charcoal mb-3">
+            <h2 className="text-3xl font-bold text-charcoal mb-12">
               진료 과목
             </h2>
-            <p className="text-charcoal-light mb-12">
-              필요한 치료를 적합한 방법으로
-            </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {services.map((s) => (
                 <Link
