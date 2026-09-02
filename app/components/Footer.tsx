@@ -15,7 +15,7 @@ export function Footer({ className = "" }: { className?: string }) {
         <p className="text-sm mt-1">
           평일 08:30–17:30 &middot; 토 08:30–14:00 &middot; 화,목 야간(사전예약제) 18:00–20:30
         </p>
-        <p className="text-xs mt-6 text-gray-500">
+        <p className="text-xs mt-6 text-gray-400">
           &copy; 2025 상암하늘치과의원. All rights reserved.
         </p>
       </div>
