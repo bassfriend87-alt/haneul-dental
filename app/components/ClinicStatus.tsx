@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { closedDates } from "@/lib/schema";
 
@@ -10,13 +10,15 @@ type Status = {
   short: string;
 };
 
+type EveningResult = "has_booking" | "no_booking" | "error" | null;
+
 const toMin = (h: number, m: number) => h * 60 + m;
 
-function getStatus(now: Date): Status {
+function getStatus(now: Date, eveningResult: EveningResult): Status {
   const year = String(now.getFullYear());
   const month = String(now.getMonth() + 1).padStart(2, "0");
   const day = String(now.getDate()).padStart(2, "0");
-  const dow = now.getDay(); // 0=일, 1=월 ... 6=토
+  const dow = now.getDay();
   const totalMin = now.getHours() * 60 + now.getMinutes();
 
   const isClosed =
@@ -25,30 +27,38 @@ function getStatus(now: Date): Status {
 
   if (isClosed) return { color: "red", label: "오늘 휴진", short: "오늘 휴진" };
 
-  // 토요일: 08:30~14:00, 점심 없음
   if (dow === 6) {
     if (totalMin < toMin(8, 30))
       return { color: "yellow", label: "진료전 · 08:30부터", short: "진료전" };
-    if (totalMin >= toMin(8, 30) && totalMin < toMin(14, 0))
+    if (totalMin < toMin(14, 0))
       return { color: "green", label: "진료중 · 14:00까지", short: "진료중" };
     return { color: "red", label: "진료종료", short: "진료종료" };
   }
 
-  // 평일
   const isTueThu = dow === 2 || dow === 4;
 
   if (totalMin < toMin(8, 30))
     return { color: "yellow", label: "진료전 · 08:30부터", short: "진료전" };
-  if (totalMin >= toMin(8, 30) && totalMin < toMin(12, 30))
+  if (totalMin < toMin(12, 30))
     return { color: "green", label: "진료중 · 12:30까지", short: "진료중" };
-  if (totalMin >= toMin(12, 30) && totalMin < toMin(13, 30))
+  if (totalMin < toMin(13, 30))
     return { color: "yellow", label: "점심시간 · 13:30까지", short: "점심시간" };
-  if (totalMin >= toMin(13, 30) && totalMin < toMin(17, 30))
+  if (totalMin < toMin(17, 30))
     return { color: "green", label: "진료중 · 17:30까지", short: "진료중" };
-  if (isTueThu && totalMin >= toMin(17, 30) && totalMin < toMin(18, 0))
-    return { color: "yellow", label: "야간진료 준비중 · 18:00부터", short: "준비중" };
-  if (isTueThu && totalMin >= toMin(18, 0) && totalMin < toMin(20, 30))
-    return { color: "green", label: "야간진료중 · 20:30까지", short: "야간진료중" };
+
+  // 17:30 이후 화·목: 야간 예약 결과에 따라 분기
+  if (isTueThu) {
+    if (eveningResult === "error")
+      return { color: "yellow", label: "야간진료 문의", short: "야간진료 문의" };
+    if (eveningResult === "no_booking")
+      return { color: "red", label: "진료종료", short: "진료종료" };
+    // has_booking 또는 null(확인 중): 시간 기반 표시
+    if (totalMin < toMin(18, 0))
+      return { color: "yellow", label: "야간진료 준비중 · 18:00부터", short: "준비중" };
+    if (totalMin < toMin(20, 30))
+      return { color: "green", label: "야간진료중 · 20:30까지", short: "야간진료중" };
+    return { color: "red", label: "진료종료", short: "진료종료" };
+  }
 
   return { color: "red", label: "진료종료", short: "진료종료" };
 }
@@ -67,33 +77,34 @@ const pillStyle: Record<Status["color"], string> = {
 
 export function ClinicStatus() {
   const [status, setStatus] = useState<Status | null>(null);
+  const eveningResultRef = useRef<EveningResult>(null);
+  const eveningCheckedRef = useRef<string | null>(null);
 
   useEffect(() => {
     const update = async () => {
       const now = new Date();
-      const computed = getStatus(now);
-
       const dow = now.getDay();
       const totalMin = now.getHours() * 60 + now.getMinutes();
-      const isEveningWindow =
-        (dow === 2 || dow === 4) &&
-        totalMin >= 18 * 60 &&
-        totalMin < 20 * 60 + 30;
+      const isTueThu = dow === 2 || dow === 4;
 
-      if (isEveningWindow) {
-        try {
-          const res = await fetch("/api/evening-status");
-          const { hasBooking } = await res.json();
-          if (!hasBooking) {
-            setStatus({ color: "red", label: "진료종료", short: "진료종료" });
-            return;
+      // 화·목 17:00 이후, 오늘 처음 한 번만 API 조회
+      if (isTueThu && totalMin >= 17 * 60) {
+        const kst = new Date(now.getTime() + 9 * 3600 * 1000);
+        const todayStr = kst.toISOString().slice(0, 10);
+
+        if (eveningCheckedRef.current !== todayStr) {
+          eveningCheckedRef.current = todayStr;
+          try {
+            const res = await fetch("/api/evening-status");
+            const { hasBooking } = await res.json();
+            eveningResultRef.current = hasBooking ? "has_booking" : "no_booking";
+          } catch {
+            eveningResultRef.current = "error";
           }
-        } catch {
-          // 실패 시 시간 기반 상태로 fallback
         }
       }
 
-      setStatus(computed);
+      setStatus(getStatus(new Date(), eveningResultRef.current));
     };
 
     update();
