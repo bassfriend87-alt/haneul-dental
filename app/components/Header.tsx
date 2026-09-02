@@ -8,6 +8,8 @@ import { ClinicStatus } from "./ClinicStatus";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const toggleAccordion = (key: string) => setOpenAccordion(prev => prev === key ? null : key);
   const pathname = usePathname();
 
   const handleLink = (href: string) => (e: React.MouseEvent) => {
@@ -165,26 +167,59 @@ export function Header() {
           </Link>
         </div>
         <div className="border-b border-gray-100 py-3">
-          <Link href="/treatment/prosthetics" onClick={handleLink("/treatment/prosthetics")} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
-            보철치료
-          </Link>
-          <Link href="/treatment/prosthetics#crown" onClick={handleAnchorLink("/treatment/prosthetics#crown")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">크라운</Link>
-          <Link href="/treatment/prosthetics#bridge" onClick={handleAnchorLink("/treatment/prosthetics#bridge")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">브릿지</Link>
-          <Link href="/treatment/prosthetics#denture" onClick={handleAnchorLink("/treatment/prosthetics#denture")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">틀니</Link>
+          <div className="flex items-center justify-between mb-0">
+            <Link href="/treatment/prosthetics" onClick={handleLink("/treatment/prosthetics")} className="text-sm font-medium text-charcoal hover:text-primary transition-colors">
+              보철치료
+            </Link>
+            <button onClick={() => toggleAccordion("prosthetics")} className="p-1 text-charcoal-light hover:text-primary transition-colors" aria-label="보철치료 세부항목">
+              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordion === "prosthetics" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          {openAccordion === "prosthetics" && (
+            <div className="mt-2">
+              <Link href="/treatment/prosthetics#crown" onClick={handleAnchorLink("/treatment/prosthetics#crown")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">크라운</Link>
+              <Link href="/treatment/prosthetics#bridge" onClick={handleAnchorLink("/treatment/prosthetics#bridge")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">브릿지</Link>
+              <Link href="/treatment/prosthetics#denture" onClick={handleAnchorLink("/treatment/prosthetics#denture")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">틀니</Link>
+            </div>
+          )}
         </div>
         <div className="border-b border-gray-100 py-3">
-          <Link href="/treatment/restorative" onClick={handleLink("/treatment/restorative")} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
-            보존치료
-          </Link>
-          <Link href="/treatment/restorative#cavity" onClick={handleAnchorLink("/treatment/restorative#cavity")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">충치치료</Link>
-          <Link href="/treatment/restorative#root-canal" onClick={handleAnchorLink("/treatment/restorative#root-canal")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">신경치료</Link>
+          <div className="flex items-center justify-between mb-0">
+            <Link href="/treatment/restorative" onClick={handleLink("/treatment/restorative")} className="text-sm font-medium text-charcoal hover:text-primary transition-colors">
+              보존치료
+            </Link>
+            <button onClick={() => toggleAccordion("restorative")} className="p-1 text-charcoal-light hover:text-primary transition-colors" aria-label="보존치료 세부항목">
+              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordion === "restorative" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          {openAccordion === "restorative" && (
+            <div className="mt-2">
+              <Link href="/treatment/restorative#cavity" onClick={handleAnchorLink("/treatment/restorative#cavity")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">충치치료</Link>
+              <Link href="/treatment/restorative#root-canal" onClick={handleAnchorLink("/treatment/restorative#root-canal")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">신경치료</Link>
+            </div>
+          )}
         </div>
         <div className="border-b border-gray-100 py-3">
-          <Link href="/treatment/periodontal" onClick={handleLink("/treatment/periodontal")} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors mb-2">
-            치주치료
-          </Link>
-          <Link href="/treatment/periodontal#scaling" onClick={handleAnchorLink("/treatment/periodontal#scaling")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">스케일링</Link>
-          <Link href="/treatment/periodontal#gum-treatment" onClick={handleAnchorLink("/treatment/periodontal#gum-treatment")} className="block text-sm text-charcoal-light pl-4 py-1 hover:text-primary transition-colors">잇몸치료</Link>
+          <div className="flex items-center justify-between mb-0">
+            <Link href="/treatment/periodontal" onClick={handleLink("/treatment/periodontal")} className="text-sm font-medium text-charcoal hover:text-primary transition-colors">
+              치주치료
+            </Link>
+            <button onClick={() => toggleAccordion("periodontal")} className="p-1 text-charcoal-light hover:text-primary transition-colors" aria-label="치주치료 세부항목">
+              <svg className={`w-4 h-4 transition-transform duration-200 ${openAccordion === "periodontal" ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          {openAccordion === "periodontal" && (
+            <div className="mt-2">
+              <Link href="/treatment/periodontal#scaling" onClick={handleAnchorLink("/treatment/periodontal#scaling")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">스케일링</Link>
+              <Link href="/treatment/periodontal#gum-treatment" onClick={handleAnchorLink("/treatment/periodontal#gum-treatment")} className="block text-sm text-charcoal-light pl-4 py-1.5 hover:text-primary transition-colors">잇몸치료</Link>
+            </div>
+          )}
         </div>
         <Link href="/treatment/tmj" onClick={handleLink("/treatment/tmj")} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
           턱관절
