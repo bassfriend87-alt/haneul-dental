@@ -22,8 +22,8 @@ export function Header() {
     if (pathname === targetPath) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-      close();
     }
+    close();
   };
 
   const handleAnchorLink = (href: string) => (e: React.MouseEvent) => {
