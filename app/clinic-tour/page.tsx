@@ -11,14 +11,12 @@ import imgWaitingWide from "@/public/photo/clinic-waiting-wide.jpg";
 import imgWallMotto from "@/public/photo/clinic-wall-motto.jpg";
 import imgWallDoctorPanel from "@/public/photo/clinic-wall-doctor-panel.jpg";
 import imgConsultationRoom from "@/public/photo/clinic-consultation-room.jpg";
-import imgConsultationBlind from "@/public/photo/clinic-consultation-blind.jpg";
 import imgTreatmentRoomWide from "@/public/photo/clinic-treatment-room-wide.jpg";
 import imgTreatmentChairFront from "@/public/photo/clinic-treatment-chair-front.jpg";
 import imgTreatmentChairOrange from "@/public/photo/clinic-treatment-chair-orange.jpg";
 import imgTreatmentGlassMotto from "@/public/photo/clinic-treatment-glass-motto.jpg";
 import imgXrayRoom from "@/public/photo/clinic-xray-room.jpg";
 import imgSterilizationSink from "@/public/photo/clinic-sterilization-sink.jpg";
-import imgDoctorConsultSmile from "@/public/photo/doctor-consult-smile.jpg";
 import imgDoctorConsultMonitor from "@/public/photo/doctor-consult-monitor.jpg";
 import imgDoctorTreatmentPatientSide from "@/public/photo/doctor-treatment-patient-side.jpg";
 import imgDoctorTreatmentHands from "@/public/photo/doctor-treatment-hands.jpg";
@@ -216,8 +214,8 @@ export default function ClinicTourPage() {
               </div>
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
                 <Image
-                  src={imgConsultationBlind}
-                  alt="상담실"
+                  src={imgDoctorConsultMonitor}
+                  alt="모니터로 상담 중"
                   fill
                   className="object-cover"
                   placeholder="blur"
@@ -314,26 +312,6 @@ export default function ClinicTourPage() {
             <p className="text-xs text-charcoal-light tracking-widest uppercase mb-1">Doctor at Work</p>
             <h2 className="text-xl font-bold text-charcoal mb-8">진료 모습</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
-                <Image
-                  src={imgDoctorConsultSmile}
-                  alt="상담 중인 원장"
-                  fill
-                  className="object-cover"
-                  placeholder="blur"
-                  sizes="(max-width: 640px) 100vw, 512px"
-                />
-              </div>
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
-                <Image
-                  src={imgDoctorConsultMonitor}
-                  alt="모니터로 상담 중"
-                  fill
-                  className="object-cover"
-                  placeholder="blur"
-                  sizes="(max-width: 640px) 100vw, 512px"
-                />
-              </div>
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
                 <Image
                   src={imgDoctorTreatmentPatientSide}
