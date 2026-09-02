@@ -3,6 +3,7 @@ import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
 import { periodontalFAQs, scalingFAQs, gumTreatmentFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
+// import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
   title: "상암동 스케일링·잇몸치료",
@@ -80,6 +81,15 @@ export default function PeriodontalPage() {
             <a href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full" style={{ backgroundColor: "#03C75A", color: "#ffffff" }}>
               <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
             </a>
+            {/* 카카오톡 채널 연동 시 활성화
+            <button
+              disabled
+              className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full cursor-not-allowed"
+              style={{ backgroundColor: '#FEE500', color: '#191919' }}
+            >
+              <KakaoIcon className="w-4 h-4 shrink-0" />카카오톡 (준비중)
+            </button>
+            */}
           </div>
         </div>
       </section>

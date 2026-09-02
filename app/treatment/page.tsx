@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
+// import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
   title: "진료과목",
@@ -109,6 +110,15 @@ export default function TreatmentPage() {
             >
               <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
             </a>
+            {/* 카카오톡 채널 연동 시 활성화
+            <button
+              disabled
+              className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full cursor-not-allowed"
+              style={{ backgroundColor: '#FEE500', color: '#191919' }}
+            >
+              <KakaoIcon className="w-4 h-4 shrink-0" />카카오톡 (준비중)
+            </button>
+            */}
           </div>
         </div>
       </section>
