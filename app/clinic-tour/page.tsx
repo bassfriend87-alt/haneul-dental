@@ -16,7 +16,7 @@ import imgTreatmentChairFront from "@/public/photo/clinic-treatment-chair-front.
 import imgTreatmentChairOrange from "@/public/photo/clinic-treatment-chair-orange.jpg";
 import imgTreatmentGlassMotto from "@/public/photo/clinic-treatment-glass-motto.jpg";
 import imgXrayRoom from "@/public/photo/clinic-xray-room.jpg";
-import imgSterilizationSink from "@/public/photo/clinic-sterilization-sink.jpg";
+import imgPowderRoom from "@/public/photo/clinic-powder-room.jpg";
 import imgDoctorConsultMonitor from "@/public/photo/doctor-consult-monitor.jpg";
 import imgDoctorTreatmentPatientSide from "@/public/photo/doctor-treatment-patient-side.jpg";
 import imgDoctorTreatmentHands from "@/public/photo/doctor-treatment-hands.jpg";
@@ -294,8 +294,8 @@ export default function ClinicTourPage() {
               </div>
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
                 <Image
-                  src={imgSterilizationSink}
-                  alt="소독·멸균 공간"
+                  src={imgPowderRoom}
+                  alt="파우더 룸"
                   fill
                   className="object-cover"
                   placeholder="blur"
