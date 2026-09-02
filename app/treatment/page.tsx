@@ -25,12 +25,7 @@ const treatments = [
     sub: "보철과 전문의가 식립부터 크라운까지 직접 담당합니다.",
     href: "/treatment/implant",
   },
-  {
-    name: "심미치료",
-    desc: "라미네이트",
-    sub: "현재 준비중입니다.",
-    href: "/treatment/aesthetic",
-  },
+  // { name: "심미치료", desc: "라미네이트", sub: "현재 준비중입니다.", href: "/treatment/aesthetic" }, // 준비 완료 시 활성화
   {
     name: "보존치료",
     desc: "충치·신경치료",
