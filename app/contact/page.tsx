@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { dentistSchema, getSpecialHours } from "@/lib/schema";
-import { PhoneIcon, NaverIcon, KakaoIcon } from "@/app/components/icons";
+import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 export const metadata: Metadata = {
   title: "예약·오시는 길",
@@ -130,44 +130,27 @@ export default function ContactPage() {
 
       {/* ── 예약 방법 ── */}
       <section className="bg-primary px-5 py-8 md:py-16">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-sm text-white tracking-widest uppercase mb-8">예약 방법</p>
-          <div className="flex flex-col sm:flex-row gap-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-white mb-3">진료 예약</h2>
+          <p className="text-white/70 text-sm mb-8">
+            전화 또는 네이버 예약으로 방문 일정을 잡으실 수 있습니다.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="tel:02-375-8278"
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold text-white"
-              style={{ backgroundColor: "#1E3A5F" }}
+              className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
             >
-              <span className="flex items-center gap-2">
-                <PhoneIcon className="w-5 h-5 shrink-0" />
-                <span className="text-base">전화 예약</span>
-              </span>
-              <span className="text-sm font-normal opacity-90">02-375-8278</span>
+              <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
             </a>
             <a
               href={NAVER_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold text-white"
-              style={{ backgroundColor: "#03C75A" }}
+              className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full"
+              style={{ backgroundColor: "#03C75A", color: "#ffffff" }}
             >
-              <span className="flex items-center gap-2">
-                <NaverIcon className="w-5 h-5 shrink-0" />
-                <span className="text-base">네이버 예약</span>
-              </span>
-              <span className="text-sm font-normal opacity-90">바로 예약하기</span>
+              <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
             </a>
-            <button
-              disabled
-              className="flex-1 flex flex-col items-center justify-center gap-1 py-4 rounded-full font-bold cursor-not-allowed opacity-60"
-              style={{ backgroundColor: "#FEE500", color: "#191919" }}
-            >
-              <span className="flex items-center gap-2">
-                <KakaoIcon className="w-5 h-5 shrink-0" />
-                <span className="text-base">카카오톡</span>
-              </span>
-              <span className="text-sm font-normal">준비중</span>
-            </button>
           </div>
         </div>
       </section>
