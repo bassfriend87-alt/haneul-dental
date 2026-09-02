@@ -8,7 +8,7 @@ import { ClinicStatus } from "./ClinicStatus";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
-  const [openTreatment, setOpenTreatment] = useState(false);
+  const [openTreatment, setOpenTreatment] = useState(true);
   const [openAccordions, setOpenAccordions] = useState<Set<string>>(new Set());
   const toggleAccordion = (key: string) => setOpenAccordions(prev => {
     const next = new Set(prev);
