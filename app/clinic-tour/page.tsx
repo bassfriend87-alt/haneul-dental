@@ -36,7 +36,7 @@ const navItems = [
   { id: "waiting", label: "대기실" },
   { id: "consultation", label: "상담실" },
   { id: "treatment", label: "진료실" },
-  { id: "sterilization", label: "소독·X-ray실" },
+  { id: "sterilization", label: "X-ray실·파우더 룸" },
   { id: "doctor", label: "진료 모습" },
 ];
 
@@ -279,8 +279,8 @@ export default function ClinicTourPage() {
         {/* 소독·X-ray실 */}
         <section id="sterilization" className="px-5 py-12 md:py-16 border-b border-gray-50">
           <div className="max-w-5xl mx-auto">
-            <p className="text-xs text-charcoal-light tracking-widest uppercase mb-1">Sterilization &amp; X-ray</p>
-            <h2 className="text-xl font-bold text-charcoal mb-8">소독·X-ray실</h2>
+            <p className="text-xs text-charcoal-light tracking-widest uppercase mb-1">X-ray &amp; Powder Room</p>
+            <h2 className="text-xl font-bold text-charcoal mb-8">X-ray실·파우더 룸</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
                 <Image
