@@ -162,7 +162,7 @@ export function ScheduleCalendar() {
             >
               {/* 오늘 */}
               {isToday && (
-                <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[8px] text-primary font-semibold leading-none">
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[17px] text-[8px] text-primary font-semibold leading-none">
                   오늘
                 </span>
               )}
