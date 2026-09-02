@@ -95,7 +95,7 @@ export function Header() {
                   <Link href="/treatment/periodontal#gum-treatment" onClick={handleAnchorLink("/treatment/periodontal#gum-treatment")} className="block px-4 py-1.5 text-xs text-charcoal-light hover:text-primary hover:bg-gray-50 transition-colors pl-7">잇몸치료</Link>
                 </div>
                 <div className="border-t border-gray-50 mt-1 pt-1">
-                  <Link href="/treatment/tmj" onClick={handleLink("/treatment/tmj")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">턱관절</Link>
+                  <Link href="/treatment/tmj" onClick={handleLink("/treatment/tmj")} className="block px-4 py-2 text-sm text-charcoal hover:text-primary hover:bg-gray-50 transition-colors">턱관절치료</Link>
                 </div>
               </div>
             </div>
@@ -242,7 +242,7 @@ export function Header() {
               {/* 턱관절 */}
               <div className="py-2">
                 <Link href="/treatment/tmj" onClick={handleLink("/treatment/tmj")} className="block text-sm font-medium text-charcoal hover:text-primary transition-colors">
-                  턱관절
+                  턱관절치료
                 </Link>
               </div>
             </div>
