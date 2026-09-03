@@ -68,12 +68,20 @@ export async function GET() {
       return min >= 18 * 60 && min < 20 * 60 + 30;
     });
 
-    // 18:00~20:30 슬롯 중 영업일이면서 예약 불가(막힌 슬롯)가 하나라도 있으면 야간 진료 중
-    const hasBooking = eveningSlots.some(
+    const blockedSlots = eveningSlots.filter(
       (slot) => slot.isUnitBusinessDay && !slot.isUnitSaleDay
     );
 
-    return NextResponse.json({ hasBooking });
+    const hasBooking = blockedSlots.length > 0;
+
+    // 마지막 막힌 슬롯의 시작 시간 (예: "19:00") — 클라이언트에서 +30분을 진료종료 시각으로 사용
+    let lastSlotTime: string | null = null;
+    if (hasBooking) {
+      const last = blockedSlots[blockedSlots.length - 1];
+      lastSlotTime = last.unitStartTime.split(" ")[1].slice(0, 5); // "HH:MM"
+    }
+
+    return NextResponse.json({ hasBooking, lastSlotTime });
   } catch {
     return NextResponse.json({ hasBooking: false, error: true }, { status: 500 });
   }

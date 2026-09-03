@@ -14,7 +14,7 @@ type EveningResult = "has_booking" | "no_booking" | "error" | null;
 
 const toMin = (h: number, m: number) => h * 60 + m;
 
-function getStatus(now: Date, eveningResult: EveningResult): Status {
+function getStatus(now: Date, eveningResult: EveningResult, eveningEndMin: number = 20 * 60 + 30): Status {
   const year = String(now.getFullYear());
   const month = String(now.getMonth() + 1).padStart(2, "0");
   const day = String(now.getDate()).padStart(2, "0");
@@ -55,8 +55,12 @@ function getStatus(now: Date, eveningResult: EveningResult): Status {
     // has_booking 또는 null(확인 중): 시간 기반 표시
     if (totalMin < toMin(18, 0))
       return { color: "yellow", label: "야간진료 준비중 · 18:00부터", short: "야간준비중" };
-    if (totalMin < toMin(20, 30))
-      return { color: "green", label: "야간진료중 · 20:30까지", short: "야간진료중" };
+    if (totalMin < eveningEndMin) {
+      const endH = Math.floor(eveningEndMin / 60);
+      const endM = eveningEndMin % 60;
+      const endLabel = `${endH}:${String(endM).padStart(2, "0")}`;
+      return { color: "green", label: `야간진료중 · ${endLabel}까지`, short: "야간진료중" };
+    }
     return { color: "red", label: "진료종료", short: "진료종료" };
   }
 
@@ -78,6 +82,7 @@ const pillStyle: Record<Status["color"], string> = {
 export function ClinicStatus() {
   const [status, setStatus] = useState<Status | null>(null);
   const eveningResultRef = useRef<EveningResult>(null);
+  const eveningEndMinRef = useRef<number>(20 * 60 + 30);
   const eveningCheckedRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -99,8 +104,12 @@ export function ClinicStatus() {
             if (!res.ok) {
               eveningResultRef.current = "error";
             } else {
-              const { hasBooking } = await res.json();
+              const { hasBooking, lastSlotTime } = await res.json();
               eveningResultRef.current = hasBooking ? "has_booking" : "no_booking";
+              if (hasBooking && lastSlotTime) {
+                const [h, m] = lastSlotTime.split(":").map(Number);
+                eveningEndMinRef.current = h * 60 + m + 30;
+              }
             }
           } catch {
             eveningResultRef.current = "error";
@@ -108,7 +117,7 @@ export function ClinicStatus() {
         }
       }
 
-      setStatus(getStatus(new Date(), eveningResultRef.current));
+      setStatus(getStatus(new Date(), eveningResultRef.current, eveningEndMinRef.current));
     };
 
     update();
