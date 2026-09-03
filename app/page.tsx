@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "상암하늘치과의원",
-    description: "상암동 치과보철과 전문의 진료, 크라운·임플란트·틀니. 평일 8시 30분 진료 시작.",
+    description: "상암동 치과보철과 전문의 진료.",
     locale: "ko_KR",
     type: "website",
   },
