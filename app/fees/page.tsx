@@ -132,7 +132,6 @@ const sections: FeeSection[] = [
       {
         items: [
           { name: "불소 도포", price: "30,000원" },
-          { name: "실란트", price: "30,000원" },
           { name: "유치 레진", price: "50,000원" },
           { name: "SS 크라운", price: "100,000원" },
           { name: "공간유지장치", price: "150,000원" },
