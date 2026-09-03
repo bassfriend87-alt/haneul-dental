@@ -199,7 +199,7 @@ export default function FeesPage() {
               {section.categories.map((cat, ci) => (
                 <div key={ci} className="mb-4">
                   {cat.label && (
-                    <p className="text-xs text-charcoal-light mb-2 mt-4">
+                    <p className="text-xs text-primary font-medium mb-2 mt-4">
                       {cat.label}
                     </p>
                   )}
