@@ -174,7 +174,7 @@ export default function FeesPage() {
             Fees
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            비급여 수가표
+            진료비 안내
           </h1>
           <p className="text-charcoal-light text-sm">
             아래 금액은 비급여 항목 기준이며, 환자 상태에 따라 달라질 수 있습니다.

@@ -43,7 +43,7 @@ export default function ContactPage() {
             Contact
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal">
-            예약·오시는 길 안내
+            오시는 길·예약 문의
           </h1>
         </div>
       </section>

@@ -32,7 +32,7 @@ export default function SchedulePage() {
             Schedule
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal">
-            진료일정 안내
+            진료시간·휴진 안내
           </h1>
         </div>
       </section>
