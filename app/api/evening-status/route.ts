@@ -7,6 +7,10 @@ const QUERY = `query hourlySchedule($scheduleParams: ScheduleParams) {
         unitStartTime
         unitBookingCount
         occupiedBookingCount
+        unitTotalCount
+        unitAvailableCount
+        isBlocked
+        status
       }
     }
   }
