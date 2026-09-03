@@ -69,7 +69,7 @@ export async function GET() {
       );
     });
 
-    return NextResponse.json({ hasBooking });
+    return NextResponse.json({ hasBooking, _debug: slots });
   } catch {
     return NextResponse.json({ hasBooking: false, error: true }, { status: 500 });
   }
