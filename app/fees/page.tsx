@@ -193,13 +193,13 @@ export default function FeesPage() {
         <div className="max-w-3xl mx-auto space-y-12">
           {sections.map((section) => (
             <div key={section.title}>
-              <h2 className="text-xs text-orange-500 tracking-widest uppercase mb-5 pb-3 border-b border-orange-200">
+              <h2 className="text-xs text-primary tracking-widest uppercase mb-5 pb-3 border-b border-orange-200">
                 {section.title}
               </h2>
               {section.categories.map((cat, ci) => (
                 <div key={ci} className="mb-4">
                   {cat.label && (
-                    <p className="text-xs text-primary font-medium mb-2 mt-4">
+                    <p className="text-xs text-[#1E3A5F] font-medium mb-2 mt-4">
                       {cat.label}
                     </p>
                   )}
