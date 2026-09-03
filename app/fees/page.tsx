@@ -29,13 +29,18 @@ interface FeeSection {
 
 const sections: FeeSection[] = [
   {
-    title: "예방 & 기본 치료",
+    title: "스케일링",
     categories: [
       {
         items: [
-          { name: "스케일링 — 치석 제거 (전악)", price: "60,000원" },
+          { name: "치석 제거 (전악)", price: "60,000원" },
         ],
       },
+    ],
+  },
+  {
+    title: "충치 치료",
+    categories: [
       {
         label: "광중합 레진",
         items: [
@@ -49,11 +54,6 @@ const sections: FeeSection[] = [
           { name: "앞니 벌어짐 (Diastema) — 치아당", price: "150,000원" },
         ],
       },
-    ],
-  },
-  {
-    title: "인레이 & 크라운",
-    categories: [
       {
         label: "인레이",
         items: [
@@ -61,6 +61,11 @@ const sections: FeeSection[] = [
           { name: "골드", price: "450,000원" },
         ],
       },
+    ],
+  },
+  {
+    title: "크라운",
+    categories: [
       {
         label: "포스트 / 코어",
         items: [
@@ -158,6 +163,7 @@ const sections: FeeSection[] = [
           { name: "진료기록사본 (6매 이상)", price: "2,000원" },
           { name: "향후치료비 추정서 (천만원 미만)", price: "50,000원" },
           { name: "향후치료비 추정서 (천만원 이상)", price: "100,000원" },
+          { name: "진료기록이식 (USB 제공)", price: "10,000원" },
         ],
       },
     ],
@@ -187,7 +193,7 @@ export default function FeesPage() {
         <div className="max-w-3xl mx-auto space-y-12">
           {sections.map((section) => (
             <div key={section.title}>
-              <h2 className="text-xs text-charcoal-light tracking-widest uppercase mb-5 pb-3 border-b border-gray-100">
+              <h2 className="text-xs text-orange-500 tracking-widest uppercase mb-5 pb-3 border-b border-orange-200">
                 {section.title}
               </h2>
               {section.categories.map((cat, ci) => (
