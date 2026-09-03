@@ -19,14 +19,6 @@ function PhoneIcon() {
   );
 }
 
-function KakaoIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-      <path d="M12 3C6.48 3 2 6.69 2 11.22c0 2.97 1.82 5.57 4.59 7.07L5.5 21.5l4.46-2.36c.66.09 1.35.14 2.04.14 5.52 0 10-3.69 10-8.22C22 6.69 17.52 3 12 3z" />
-    </svg>
-  );
-}
-
 export function DesktopFloatingButtons() {
   return (
     <div className="hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col gap-3">
@@ -71,18 +63,6 @@ export function DesktopFloatingButtons() {
         </span>
       </a>
 
-      {/* 카카오톡 (준비중) */}
-      <button
-        disabled
-        className="group relative w-12 h-12 rounded-full flex items-center justify-center shadow-lg cursor-not-allowed opacity-80"
-        style={{ backgroundColor: "#FEE500", color: "#191919" }}
-        title="카카오톡 (준비중)"
-      >
-        <KakaoIcon />
-        <span className="pointer-events-none absolute right-14 bg-ink text-white text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-          카카오톡 (준비중)
-        </span>
-      </button>
     </div>
   );
 }
