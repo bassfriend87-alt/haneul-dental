@@ -206,7 +206,7 @@ export default function FeesPage() {
                   {cat.items.map((item) => (
                     <div
                       key={item.name}
-                      className={`flex items-baseline justify-between py-2.5 ${
+                      className={`flex items-baseline justify-between py-2.5 ${cat.label ? "pl-3" : ""} ${
                         item.highlight ? "font-medium" : ""
                       }`}
                     >
