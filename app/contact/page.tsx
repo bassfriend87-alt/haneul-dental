@@ -123,7 +123,7 @@ export default function ContactPage() {
               네이버 지도에서 찾기 →
             </a>
             <a
-              href="https://maps.google.com/?q=37.5801378,126.8835080"
+              href="https://www.google.com/maps/search/상암하늘치과의원/@37.5801378,126.8835080,17z"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 border border-gray-200 text-charcoal text-sm font-medium px-5 py-3 rounded-full hover:border-charcoal transition-colors"
