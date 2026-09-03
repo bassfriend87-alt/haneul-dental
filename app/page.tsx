@@ -7,14 +7,14 @@ import { PhoneIcon, NaverIcon } from "./components/icons";
 export const metadata: Metadata = {
   title: { absolute: "상암동 보철 전문의 크라운·임플란트·틀니 | 상암하늘치과의원" },
   description:
-    "보철과 전문의가 직접 진단부터 제작·관리까지. 크라운, 브릿지, 임플란트, 틀니. 화·목 야간진료. 상암동.",
+    "상암동 치과보철과 전문의 진료, 크라운·임플란트·틀니. 평일 8시 30분 진료 시작.",
   alternates: {
     canonical:
       process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr",
   },
   openGraph: {
     title: "상암하늘치과의원",
-    description: "보철과 전문의가 직접 진단부터 제작·관리까지.",
+    description: "상암동 치과보철과 전문의 진료, 크라운·임플란트·틀니. 평일 8시 30분 진료 시작.",
     locale: "ko_KR",
     type: "website",
   },
