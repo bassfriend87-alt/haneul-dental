@@ -48,7 +48,7 @@ export async function GET() {
       }
     );
 
-    if (!res.ok) return NextResponse.json({ hasBooking: false });
+    if (!res.ok) return NextResponse.json({ hasBooking: false, error: true }, { status: 502 });
 
     const json = await res.json();
     const slots: {
@@ -71,6 +71,6 @@ export async function GET() {
 
     return NextResponse.json({ hasBooking });
   } catch {
-    return NextResponse.json({ hasBooking: false });
+    return NextResponse.json({ hasBooking: false, error: true }, { status: 500 });
   }
 }

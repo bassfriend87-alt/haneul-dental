@@ -96,8 +96,12 @@ export function ClinicStatus() {
           eveningCheckedRef.current = todayStr;
           try {
             const res = await fetch("/api/evening-status");
-            const { hasBooking } = await res.json();
-            eveningResultRef.current = hasBooking ? "has_booking" : "no_booking";
+            if (!res.ok) {
+              eveningResultRef.current = "error";
+            } else {
+              const { hasBooking } = await res.json();
+              eveningResultRef.current = hasBooking ? "has_booking" : "no_booking";
+            }
           } catch {
             eveningResultRef.current = "error";
           }
