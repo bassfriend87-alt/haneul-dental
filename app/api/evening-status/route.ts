@@ -68,8 +68,10 @@ export async function GET() {
       return min >= 18 * 60 && min < 20 * 60 + 30;
     });
 
-    // 18:00~20:30 슬롯 중 하나라도 영업 시간(isUnitBusinessDay)이면 야간 진료 중
-    const hasBooking = eveningSlots.some((slot) => slot.isUnitBusinessDay);
+    // 18:00~20:30 슬롯 중 영업일이면서 예약 불가(막힌 슬롯)가 하나라도 있으면 야간 진료 중
+    const hasBooking = eveningSlots.some(
+      (slot) => slot.isUnitBusinessDay && !slot.isUnitSaleDay
+    );
 
     return NextResponse.json({ hasBooking, _debug: eveningSlots });
   } catch {
