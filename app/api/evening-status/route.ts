@@ -7,10 +7,8 @@ const QUERY = `query hourlySchedule($scheduleParams: ScheduleParams) {
         unitStartTime
         unitBookingCount
         occupiedBookingCount
-        unitTotalCount
-        unitAvailableCount
-        isBlocked
-        status
+        isUnitBusinessDay
+        isUnitSaleDay
       }
     }
   }
@@ -59,21 +57,21 @@ export async function GET() {
       unitStartTime: string;
       unitBookingCount: number;
       occupiedBookingCount: number;
+      isUnitBusinessDay: boolean;
+      isUnitSaleDay: boolean;
     }[] = json?.data?.schedule?.bizItemSchedule?.hourly ?? [];
 
-    // 18:00~20:30 슬롯 중 예약이 하나라도 있는지 확인
-    const hasBooking = slots.some((slot) => {
-      const timePart = slot.unitStartTime.split(" ")[1]; // "18:00:00"
+    const eveningSlots = slots.filter((slot) => {
+      const timePart = slot.unitStartTime.split(" ")[1];
       const [h, m] = timePart.split(":").map(Number);
       const min = h * 60 + m;
-      return (
-        min >= 18 * 60 &&
-        min < 20 * 60 + 30 &&
-        (slot.unitBookingCount > 0 || slot.occupiedBookingCount > 0)
-      );
+      return min >= 18 * 60 && min < 20 * 60 + 30;
     });
 
-    return NextResponse.json({ hasBooking, _debug: slots });
+    // 18:00~20:30 슬롯 중 하나라도 영업 시간(isUnitBusinessDay)이면 야간 진료 중
+    const hasBooking = eveningSlots.some((slot) => slot.isUnitBusinessDay);
+
+    return NextResponse.json({ hasBooking, _debug: eveningSlots });
   } catch {
     return NextResponse.json({ hasBooking: false, error: true }, { status: 500 });
   }
