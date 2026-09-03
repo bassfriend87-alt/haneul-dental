@@ -5,7 +5,7 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
-  title: "진료일정",
+  title: "진료시간·휴진 안내",
   description:
     "상암하늘치과의원 월별 진료일정. 격주 휴진일 및 화·목 야간진료 일정을 달력으로 확인하세요.",
   alternates: {

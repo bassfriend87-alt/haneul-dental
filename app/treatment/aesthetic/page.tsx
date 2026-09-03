@@ -6,7 +6,7 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
-  title: "상암동 라미네이트 심미치료",
+  title: "상암동 심미치료 라미네이트·미백",
   description:
     "보철과 전문의가 직접 설계·제작하는 라미네이트. 치아 형태와 색상 개선 상담은 상암하늘치과로.",
   robots: { index: false, follow: false },

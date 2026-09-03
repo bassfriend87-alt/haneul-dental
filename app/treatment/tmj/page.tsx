@@ -6,7 +6,7 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
-  title: "상암동 턱관절치료",
+  title: "상암동 턱관절치료(TMJ)",
   description:
     "턱 통증·소리·개구 제한 등 턱관절 증상을 치료합니다. 교합안정장치·턱관절치료 상담은 상암하늘치과로.",
   robots: { index: true, follow: true },

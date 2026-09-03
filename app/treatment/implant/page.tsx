@@ -7,7 +7,7 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
-  title: "상암동 임플란트",
+  title: "상암동 임플란트 식립·보철",
   description:
     "보철과 전문의가 식립부터 크라운까지 직접 담당합니다. 무절개·즉시·뼈이식·가이드 임플란트 상담은 상암하늘치과로.",
   robots: { index: true, follow: true },

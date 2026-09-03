@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 export const metadata: Metadata = {
-  title: "비급여 수가표",
+  title: "진료비 안내",
   description:
-    "크라운·임플란트·틀니 등 비급여 진료비 안내. 상암하늘치과의원.",
+    "크라운·임플란트·틀니·스케일링 등 치료별 진료비를 미리 확인하세요. 상암하늘치과의원 비급여 수가표.",
   robots: { index: true, follow: true },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr"}/fees`,

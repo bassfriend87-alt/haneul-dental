@@ -22,7 +22,7 @@ import imgDoctorTreatmentPatientSide from "@/public/photo/doctor-treatment-patie
 import imgDoctorTreatmentHands from "@/public/photo/doctor-treatment-hands.jpg";
 
 export const metadata: Metadata = {
-  title: "치과 둘러보기 | 상암하늘치과의원",
+  title: { absolute: "치과 둘러보기 | 상암하늘치과의원" },
   description:
     "상암하늘치과의원 내부 공간을 사진으로 살펴보세요. 입구, 접수, 대기실, 상담실, 진료실을 미리 확인할 수 있습니다.",
   alternates: {

@@ -4,7 +4,7 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
-  title: "예약·오시는 길",
+  title: "오시는 길·예약 문의",
   description:
     "상암하늘치과의원 예약 안내. 전화 02-375-8278. 서울 마포구 상암동. 화·목 야간진료.",
   alternates: {

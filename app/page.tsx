@@ -5,7 +5,7 @@ import { PhoneIcon, NaverIcon } from "./components/icons";
 // import { KakaoIcon } from "./components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
-  title: "상암동 보철치과 크라운·임플란트·틀니 | 상암하늘치과의원",
+  title: { absolute: "상암동 보철 전문의 크라운·임플란트·틀니 | 상암하늘치과의원" },
   description:
     "보철과 전문의가 직접 진단부터 제작·관리까지. 크라운, 브릿지, 임플란트, 틀니. 화·목 야간진료. 상암동.",
   alternates: {
