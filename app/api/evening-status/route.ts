@@ -73,7 +73,7 @@ export async function GET() {
       (slot) => slot.isUnitBusinessDay && !slot.isUnitSaleDay
     );
 
-    return NextResponse.json({ hasBooking, _debug: eveningSlots });
+    return NextResponse.json({ hasBooking });
   } catch {
     return NextResponse.json({ hasBooking: false, error: true }, { status: 500 });
   }
