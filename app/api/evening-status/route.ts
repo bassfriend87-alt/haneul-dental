@@ -18,7 +18,7 @@ export async function GET() {
   try {
     const now = new Date();
     const kst = new Date(now.getTime() + 9 * 3600 * 1000);
-    const dateStr = "2026-09-15"; // TODO: 테스트 후 제거 — kst.toISOString().slice(0, 10)
+    const dateStr = kst.toISOString().slice(0, 10);
 
     const res = await fetch(
       "https://booking.naver.com/graphql?opName=hourlySchedule",
@@ -73,7 +73,7 @@ export async function GET() {
       (slot) => slot.isUnitBusinessDay && !slot.isUnitSaleDay
     );
 
-    return NextResponse.json({ hasBooking, _debug: eveningSlots });
+    return NextResponse.json({ hasBooking });
   } catch {
     return NextResponse.json({ hasBooking: false, error: true }, { status: 500 });
   }
