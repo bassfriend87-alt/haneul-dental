@@ -7,7 +7,7 @@ import { PhoneIcon, NaverIcon } from "./components/icons";
 export const metadata: Metadata = {
   title: { absolute: "상암동 보철 전문의 크라운·임플란트·틀니 | 상암하늘치과의원" },
   description:
-    "상암동 치과보철과 전문의 진료, 크라운·임플란트·틀니. 8시 30분 진료 시작.",
+    "상암동 치과보철과 전문의 진료. 크라운·임플란트·틀니. 오전 8시 30분 진료 시작.",
   alternates: {
     canonical:
       process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr",
