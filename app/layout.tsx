@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 import { MobileBottomBar } from "./components/MobileBottomBar";
 import { DesktopFloatingButtons } from "./components/DesktopFloatingButtons";
 import { TapFix } from "./components/TapFix";
+import { Analytics } from "@vercel/analytics/next";
 
 const notoKR = Noto_Sans_KR({
   weight: ["300", "400", "500", "700"],
@@ -40,6 +41,7 @@ export default function RootLayout({
         <Footer className="pb-16 md:pb-0" />
         <MobileBottomBar />
         <DesktopFloatingButtons />
+        <Analytics />
       </body>
     </html>
   );
