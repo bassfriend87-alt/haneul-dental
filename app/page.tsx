@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { dentistSchema, getSpecialHours } from "@/lib/schema";
-import { PhoneIcon, NaverIcon } from "./components/icons";
+import { TrackableLink } from "./components/TrackableLink";
+import { ReservationButtons } from "./components/ReservationButtons";
 // import { KakaoIcon } from "./components/icons"; // 카카오톡 채널 연동 시 활성화
 
 export const metadata: Metadata = {
@@ -113,12 +114,14 @@ export default function HomePage() {
               보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link
+              <TrackableLink
                 href="/contact"
+                gaEvent="cta_click"
+                gaParams={{ location: "hero" }}
                 className="inline-flex items-center justify-center bg-primary text-white font-medium px-6 py-3.5 rounded-full hover:bg-primary-dark transition-colors"
               >
                 상담 예약하기
-              </Link>
+              </TrackableLink>
               <Link
                 href="/treatment"
                 className="inline-flex items-center justify-center border border-white/30 text-white font-medium px-6 py-3.5 rounded-full hover:bg-white/10 transition-colors"
@@ -189,30 +192,7 @@ export default function HomePage() {
               전화 또는 네이버 예약으로 방문 일정을 잡으실 수 있습니다.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href="tel:02-375-8278"
-                className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
-              >
-                <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
-              </a>
-              <a
-                href="https://booking.naver.com/booking/13/bizes/1555012/items/7265789"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full"
-                style={{ backgroundColor: '#03C75A', color: '#ffffff' }}
-              >
-                <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
-              </a>
-              {/* 카카오톡 채널 연동 시 활성화
-              <button
-                disabled
-                className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full cursor-not-allowed"
-                style={{ backgroundColor: '#FEE500', color: '#191919' }}
-              >
-                <KakaoIcon className="w-4 h-4 shrink-0" />카카오톡 (준비중)
-              </button>
-              */}
+              <ReservationButtons location="reservation_section" />
             </div>
           </div>
         </section>

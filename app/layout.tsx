@@ -7,6 +7,7 @@ import { MobileBottomBar } from "./components/MobileBottomBar";
 import { DesktopFloatingButtons } from "./components/DesktopFloatingButtons";
 import { TapFix } from "./components/TapFix";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const notoKR = Noto_Sans_KR({
   weight: ["300", "400", "500", "700"],
@@ -42,6 +43,9 @@ export default function RootLayout({
         <MobileBottomBar />
         <DesktopFloatingButtons />
         <Analytics />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );
