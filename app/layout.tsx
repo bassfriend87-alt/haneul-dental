@@ -69,6 +69,9 @@ export default function RootLayout({
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init','25689882210623811');
           fbq('track','PageView');
+          if (window.location.pathname.startsWith('/treatment/')) {
+            fbq('track','Lead_custom');
+          }
         `}</Script>
       </body>
     </html>

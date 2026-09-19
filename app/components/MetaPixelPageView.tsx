@@ -10,11 +10,7 @@ export function MetaPixelPageView() {
   useEffect(() => {
     if (isFirst.current) {
       isFirst.current = false;
-      // 최초 로드 시 PageView는 init 스크립트에서 이미 발동
-      // treatment 페이지라면 Lead_custom만 추가
-      if (pathname.startsWith("/treatment/")) {
-        window.fbq?.("track", "Lead_custom");
-      }
+      // 최초 로드: PageView + Lead_custom은 init 스크립트에서 처리
       return;
     }
     // 클라이언트 라우팅 시 PageView 재발동
