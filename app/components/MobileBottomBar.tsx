@@ -26,7 +26,11 @@ export function MobileBottomBar() {
           href="tel:02-375-8278"
           className="flex-1 flex flex-col items-center justify-center gap-1"
           style={{ color: "#1E3A5F" }}
-          onClick={() => window.gtag?.("event", "phone_click", { location: "floating_bar" })}
+          onClick={() => {
+            window.gtag?.("event", "phone_click", { location: "floating_bar" });
+            window.fbq?.("track", "Schedule_custom");
+            window.fbq?.("track", "Schedule_tel");
+          }}
         >
           <PhoneIcon className="w-[22px] h-[22px]" />
           <span className="text-[10px] font-semibold tracking-tight">전화 예약</span>
@@ -41,7 +45,11 @@ export function MobileBottomBar() {
           rel="noopener noreferrer"
           className="flex-1 flex flex-col items-center justify-center gap-1"
           style={{ color: "#03C75A" }}
-          onClick={() => window.gtag?.("event", "cta_click", { location: "floating_bar" })}
+          onClick={() => {
+            window.gtag?.("event", "cta_click", { location: "floating_bar" });
+            window.fbq?.("track", "Schedule_custom");
+            window.fbq?.("track", "Schedule_naver");
+          }}
         >
           <NaverIcon className="w-[22px] h-[22px]" />
           <span className="text-[10px] font-semibold tracking-tight">네이버 예약</span>

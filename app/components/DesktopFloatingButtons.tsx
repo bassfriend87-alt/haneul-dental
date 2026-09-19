@@ -43,7 +43,11 @@ export function DesktopFloatingButtons() {
         className="group relative w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform"
         style={{ backgroundColor: "#1E3A5F" }}
         title="전화 예약"
-        onClick={() => window.gtag?.("event", "phone_click", { location: "floating_bar" })}
+        onClick={() => {
+          window.gtag?.("event", "phone_click", { location: "floating_bar" });
+          window.fbq?.("track", "Schedule_custom");
+          window.fbq?.("track", "Schedule_tel");
+        }}
       >
         <PhoneIcon />
         <span className="pointer-events-none absolute right-14 bg-ink text-white text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
@@ -59,7 +63,11 @@ export function DesktopFloatingButtons() {
         className="group relative w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
         style={{ backgroundColor: "#03C75A" }}
         title="네이버 예약"
-        onClick={() => window.gtag?.("event", "cta_click", { location: "floating_bar" })}
+        onClick={() => {
+          window.gtag?.("event", "cta_click", { location: "floating_bar" });
+          window.fbq?.("track", "Schedule_custom");
+          window.fbq?.("track", "Schedule_naver");
+        }}
       >
         <span className="text-white font-black text-xl leading-none">N</span>
         <span className="pointer-events-none absolute right-14 bg-ink text-white text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">

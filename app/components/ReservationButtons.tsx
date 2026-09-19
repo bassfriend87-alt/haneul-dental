@@ -11,7 +11,11 @@ export function ReservationButtons({ location }: { location: string }) {
       <a
         href="tel:02-375-8278"
         className="inline-flex items-center justify-center gap-2 btn-deep-navy text-white font-bold px-7 py-3.5 rounded-full transition-colors"
-        onClick={() => window.gtag?.("event", "phone_click", { location })}
+        onClick={() => {
+          window.gtag?.("event", "phone_click", { location });
+          window.fbq?.("track", "Schedule_custom");
+          window.fbq?.("track", "Schedule_tel");
+        }}
       >
         <PhoneIcon className="w-4 h-4 shrink-0" />전화 예약 &middot; 02-375-8278
       </a>
@@ -21,7 +25,11 @@ export function ReservationButtons({ location }: { location: string }) {
         rel="noopener noreferrer"
         className="inline-flex items-center justify-center gap-2 font-bold px-7 py-3.5 rounded-full"
         style={{ backgroundColor: "#03C75A", color: "#ffffff" }}
-        onClick={() => window.gtag?.("event", "cta_click", { location })}
+        onClick={() => {
+          window.gtag?.("event", "cta_click", { location });
+          window.fbq?.("track", "Schedule_custom");
+          window.fbq?.("track", "Schedule_naver");
+        }}
       >
         <NaverIcon className="w-4 h-4 shrink-0" />네이버 예약
       </a>
