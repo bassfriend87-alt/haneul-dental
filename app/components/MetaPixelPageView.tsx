@@ -13,11 +13,8 @@ export function MetaPixelPageView() {
       // 최초 로드: PageView + Lead_custom은 init 스크립트에서 처리
       return;
     }
-    // 클라이언트 라우팅 시 PageView 재발동
+    // 클라이언트 라우팅 시 PageView 재발동 (Lead_custom은 TreatmentLayout에서 처리)
     window.fbq?.("track", "PageView");
-    if (pathname.startsWith("/treatment/")) {
-      window.fbq?.("track", "Lead_custom");
-    }
   }, [pathname]);
 
   return null;
