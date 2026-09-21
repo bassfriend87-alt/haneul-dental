@@ -11,7 +11,16 @@ export function MetaPixelLeadCustom() {
     let attempts = 0;
     const fire = () => {
       if (window.fbq) {
-        window.fbq("track", "Lead_custom");
+        let alreadyFired = false;
+        try {
+          alreadyFired = !!sessionStorage.getItem("lead_custom_fired");
+        } catch {}
+        if (!alreadyFired) {
+          window.fbq("track", "Lead_custom");
+          try {
+            sessionStorage.setItem("lead_custom_fired", "1");
+          } catch {}
+        }
       } else if (attempts < 30) {
         attempts++;
         timer = setTimeout(fire, 300);
