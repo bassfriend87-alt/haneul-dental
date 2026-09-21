@@ -8,10 +8,12 @@ export function MetaPixelLeadCustom() {
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
+    let attempts = 0;
     const fire = () => {
       if (window.fbq) {
         window.fbq("track", "Lead_custom");
-      } else {
+      } else if (attempts < 30) {
+        attempts++;
         timer = setTimeout(fire, 300);
       }
     };
