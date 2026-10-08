@@ -4,6 +4,9 @@ import { ScrollToTop } from "@/app/components/ScrollToTop";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
+// 달력이 빌드 시점 월에 고정되지 않도록 1시간마다 서버 HTML 재생성
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "진료시간·휴진 안내",
   description:

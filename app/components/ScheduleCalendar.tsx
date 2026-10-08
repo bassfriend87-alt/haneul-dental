@@ -52,6 +52,19 @@ function getDayStatus(date: Date, viewYear: number, viewMonth: number): DayStatu
   return "open";
 }
 
+// Asia/Seoul 기준 오늘. 서버는 UTC, 클라이언트는 방문자 로컬 타임존이라
+// new Date() 그대로 쓰면 날짜가 하루 어긋날 수 있어 명시적으로 변환한다.
+function getSeoulToday(): Date {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const get = (type: string) => Number(parts.find((p) => p.type === type)!.value);
+  return new Date(get("year"), get("month") - 1, get("day"));
+}
+
 function buildDays(year: number, month: number): Date[] {
   const firstDow = new Date(year, month, 1).getDay();
   const days: Date[] = [];
@@ -63,7 +76,7 @@ function buildDays(year: number, month: number): Date[] {
 }
 
 export function ScheduleCalendar() {
-  const today = new Date();
+  const today = getSeoulToday();
   const minYear = today.getFullYear();
   const minMonth = today.getMonth();
   const maxMonth = minMonth === 11 ? 0 : minMonth + 1;
