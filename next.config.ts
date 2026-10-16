@@ -4,18 +4,14 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
-        // 인블로그(inblog.ai) 프록시 — 블로그를 서브디렉토리(/blog)로 제공
+        // 인블로그 프록시 — 블로그를 서브디렉토리(/blog)로 제공 (인블로그 대시보드 안내 코드 기준)
         {
           source: "/blog",
-          destination: "https://inblog.ai/haneuldental",
+          destination: "https://proxy.inblog.dev/haneuldental",
         },
         {
           source: "/blog/:path*",
-          destination: "https://inblog.ai/haneuldental/:path*",
-        },
-        {
-          source: "/_inblog/:path*",
-          destination: "https://inblog.ai/haneuldental/_inblog/:path*",
+          destination: "https://proxy.inblog.dev/haneuldental/:path*",
         },
       ],
     };
