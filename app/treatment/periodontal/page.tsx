@@ -1,14 +1,18 @@
 import { Metadata } from "next";
-import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
+import { dentistSchema, getFAQSchema, getSpecialHours, getMedicalWebPageSchema } from "@/lib/schema";
+import { pageReviewDates } from "@/lib/page-review";
 import { periodontalFAQs, scalingFAQs, gumTreatmentFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
+import { PageReviewNote } from "@/app/components/PageReviewNote";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
+const description =
+  "정기적인 스케일링과 치주치료로 잇몸 건강을 관리합니다. 스케일링·잇몸치료 상담은 상암하늘치과로.";
+
 export const metadata: Metadata = {
   title: "상암동 스케일링·잇몸치료",
-  description:
-    "정기적인 스케일링과 치주치료로 잇몸 건강을 관리합니다. 스케일링·잇몸치료 상담은 상암하늘치과로.",
+  description,
   robots: { index: true, follow: true },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr"}/treatment/periodontal`,
@@ -21,6 +25,12 @@ export default function PeriodontalPage() {
     specialOpeningHoursSpecification: getSpecialHours(),
   };
   const faqSchema = getFAQSchema(periodontalFAQs);
+  const medicalWebPageSchema = getMedicalWebPageSchema({
+    path: "/treatment/periodontal",
+    lastReviewed: pageReviewDates["/treatment/periodontal"],
+    procedureName: "치주치료",
+    procedureDescription: description,
+  });
 
   return (
     <>
@@ -32,12 +42,17 @@ export default function PeriodontalPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
+      />
 
       {/* ── Hero ── */}
       <section className="bg-orange-50 px-5 py-8">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">Treatment</p>
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">치주치료</h1>
+          <PageReviewNote date={pageReviewDates["/treatment/periodontal"]} />
           <p className="text-charcoal-light leading-relaxed max-w-lg">
             정기적인 스케일링과 치주치료로 잇몸 건강을 관리합니다.<br />
             치주질환은 조기 발견과 꾸준한 관리가 핵심입니다.

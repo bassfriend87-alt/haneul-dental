@@ -3,7 +3,7 @@ import Image from "next/image";
 import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
-import { dentistSchema } from "@/lib/schema";
+import { dentistSchema, personSchema } from "@/lib/schema";
 import doctorStandWhite from "@/public/images/doctor-profile-stand-white.jpg";
 import doctorConsultTalking from "@/public/images/doctor-consult-talking.jpg";
 
@@ -54,6 +54,10 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(dentistSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
 
       {/* ── Hero ── */}

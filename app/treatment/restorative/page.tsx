@@ -1,14 +1,18 @@
 import { Metadata } from "next";
-import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
+import { dentistSchema, getFAQSchema, getSpecialHours, getMedicalWebPageSchema } from "@/lib/schema";
+import { pageReviewDates } from "@/lib/page-review";
 import { restorativeFAQs, cavityFAQs, rootCanalFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
+import { PageReviewNote } from "@/app/components/PageReviewNote";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
+const description =
+  "자연치아를 최대한 보존하는 방향으로 치료합니다. 충치·신경치료 상담은 상암하늘치과로.";
+
 export const metadata: Metadata = {
   title: "상암동 충치치료·신경치료",
-  description:
-    "자연치아를 최대한 보존하는 방향으로 치료합니다. 충치·신경치료 상담은 상암하늘치과로.",
+  description,
   robots: { index: true, follow: true },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr"}/treatment/restorative`,
@@ -21,6 +25,12 @@ export default function RestorativePage() {
     specialOpeningHoursSpecification: getSpecialHours(),
   };
   const faqSchema = getFAQSchema(restorativeFAQs);
+  const medicalWebPageSchema = getMedicalWebPageSchema({
+    path: "/treatment/restorative",
+    lastReviewed: pageReviewDates["/treatment/restorative"],
+    procedureName: "보존치료",
+    procedureDescription: description,
+  });
 
   return (
     <>
@@ -32,12 +42,17 @@ export default function RestorativePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
+      />
 
       {/* ── Hero ── */}
       <section className="bg-orange-50 px-5 py-8">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">Treatment</p>
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">보존치료</h1>
+          <PageReviewNote date={pageReviewDates["/treatment/restorative"]} />
           <p className="text-charcoal-light leading-relaxed max-w-lg">
             자연치아를 최대한 보존하는 방향으로 치료합니다.<br />
             충치 초기에 발견할수록 치아를 더 많이 지킬 수 있습니다.

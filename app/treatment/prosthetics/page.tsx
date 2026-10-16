@@ -1,15 +1,19 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
+import { dentistSchema, getFAQSchema, getSpecialHours, getMedicalWebPageSchema } from "@/lib/schema";
+import { pageReviewDates } from "@/lib/page-review";
 import { prostheticsFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
+import { PageReviewNote } from "@/app/components/PageReviewNote";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
+const description =
+  "보철과 전문의가 직접 진단부터 제작·관리까지 담당합니다. 크라운·브릿지·틀니 상담은 상암하늘치과로.";
+
 export const metadata: Metadata = {
   title: "상암동 보철치료 크라운·브릿지·틀니",
-  description:
-    "보철과 전문의가 직접 진단부터 제작·관리까지 담당합니다. 크라운·브릿지·틀니 상담은 상암하늘치과로.",
+  description,
   robots: { index: true, follow: true },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr"}/treatment/prosthetics`,
@@ -22,6 +26,12 @@ export default function ProstheticsPage() {
     specialOpeningHoursSpecification: getSpecialHours(),
   };
   const faqSchema = getFAQSchema(prostheticsFAQs);
+  const medicalWebPageSchema = getMedicalWebPageSchema({
+    path: "/treatment/prosthetics",
+    lastReviewed: pageReviewDates["/treatment/prosthetics"],
+    procedureName: "보철치료",
+    procedureDescription: description,
+  });
 
   return (
     <>
@@ -33,6 +43,10 @@ export default function ProstheticsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
+      />
 
       {/* ── Hero ── */}
       <section className="bg-orange-50 px-5 py-8">
@@ -43,6 +57,7 @@ export default function ProstheticsPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">
             보철치료
           </h1>
+          <PageReviewNote date={pageReviewDates["/treatment/prosthetics"]} />
           <p className="text-charcoal-light leading-relaxed max-w-lg">
             잘 만든 보철은, 환자가 잊고 삽니다.<br />
             보철과 전문의가 진단부터 제작·관리까지 직접 담당합니다.

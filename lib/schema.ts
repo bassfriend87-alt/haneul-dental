@@ -64,9 +64,15 @@ export function getSpecialHours() {
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://www.haneuldental.co.kr'
 
+// 사이트 전체에서 같은 엔티티를 가리킬 때 쓰는 @id (교차 페이지 참조용)
+const dentistId = `${baseUrl}/#dentist`
+const doctorId = `${baseUrl}/about#kim-junyeon`
+
 export const dentistSchema = {
   "@context": "https://schema.org",
   "@type": "Dentist",
+  "@id": dentistId,
+  "employee": { "@id": doctorId },
   "name": "상암하늘치과의원",
   "url": baseUrl,
   "telephone": "02-375-8278",
@@ -138,5 +144,68 @@ export function getFAQSchema(faqs: { question: string; answer: string }[]) {
         "text": faq.answer
       }
     }))
+  }
+}
+
+// ─────────────────────────────────────────
+// 5. Person Schema — 대표원장 (/about 페이지에서 출력)
+// 아래 텍스트는 모두 app/about/page.tsx에 이미 있는 내용만 사용한다.
+// ─────────────────────────────────────────
+
+export const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": doctorId,
+  "name": "김준연",
+  "jobTitle": "대표원장",
+  "image": `${baseUrl}/images/doctor-profile-stand-white.jpg`,
+  "url": `${baseUrl}/about`,
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certification",
+      "name": "치과보철과 전문의"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certification",
+      "name": "통합치의학과 전문의"
+    }
+  ],
+  "alumniOf": [
+    { "@type": "EducationalOrganization", "name": "경북대학교 치의학전문대학원 석사" },
+    { "@type": "EducationalOrganization", "name": "경북대학교 치과병원 인턴, 레지던트" },
+    { "@type": "EducationalOrganization", "name": "서울대학교 치의학교육연수원 고급치의학 과정 수료" }
+  ],
+  "memberOf": [
+    { "@type": "Organization", "name": "대한치과보철학회 인정의" },
+    { "@type": "Organization", "name": "대한턱관절교합학회 정회원" },
+    { "@type": "Organization", "name": "대한구강악안면임플란트학회 정회원" }
+  ],
+  "worksFor": { "@id": dentistId }
+}
+
+// ─────────────────────────────────────────
+// 6. MedicalWebPage Schema 생성 함수 (진료 페이지용)
+// about/description은 호출하는 쪽에서 해당 페이지의 실제 콘텐츠(meta description)만 전달한다.
+// ─────────────────────────────────────────
+
+export function getMedicalWebPageSchema(opts: {
+  path: string
+  lastReviewed: string
+  procedureName: string
+  procedureDescription: string
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "url": `${baseUrl}${opts.path}`,
+    "lastReviewed": opts.lastReviewed,
+    "reviewedBy": { "@id": doctorId },
+    "about": {
+      "@type": "MedicalProcedure",
+      "name": opts.procedureName,
+      "description": opts.procedureDescription
+    }
   }
 }

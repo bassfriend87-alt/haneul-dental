@@ -1,14 +1,18 @@
 import { Metadata } from "next";
-import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
+import { dentistSchema, getFAQSchema, getSpecialHours, getMedicalWebPageSchema } from "@/lib/schema";
+import { pageReviewDates } from "@/lib/page-review";
 import { aestheticFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
+import { PageReviewNote } from "@/app/components/PageReviewNote";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
+const description =
+  "보철과 전문의가 직접 설계·제작하는 라미네이트. 치아 형태와 색상 개선 상담은 상암하늘치과로.";
+
 export const metadata: Metadata = {
   title: "상암동 심미치료 라미네이트·미백",
-  description:
-    "보철과 전문의가 직접 설계·제작하는 라미네이트. 치아 형태와 색상 개선 상담은 상암하늘치과로.",
+  description,
   robots: { index: false, follow: false },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr"}/treatment/aesthetic`,
@@ -21,6 +25,12 @@ export default function AestheticPage() {
     specialOpeningHoursSpecification: getSpecialHours(),
   };
   const faqSchema = getFAQSchema(aestheticFAQs);
+  const medicalWebPageSchema = getMedicalWebPageSchema({
+    path: "/treatment/aesthetic",
+    lastReviewed: pageReviewDates["/treatment/aesthetic"],
+    procedureName: "심미치료",
+    procedureDescription: description,
+  });
 
   return (
     <>
@@ -32,12 +42,17 @@ export default function AestheticPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
+      />
 
       {/* ── Hero ── */}
       <section className="bg-orange-50 px-5 py-8">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">Treatment</p>
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">심미치료</h1>
+          <PageReviewNote date={pageReviewDates["/treatment/aesthetic"]} />
           <p className="text-charcoal-light leading-relaxed max-w-lg">
             보철과 전문의가 직접 형태와 색상을 설계·제작합니다.
           </p>

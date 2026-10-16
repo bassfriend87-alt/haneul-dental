@@ -1,15 +1,19 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { dentistSchema, getFAQSchema, getSpecialHours } from "@/lib/schema";
+import { dentistSchema, getFAQSchema, getSpecialHours, getMedicalWebPageSchema } from "@/lib/schema";
+import { pageReviewDates } from "@/lib/page-review";
 import { implantFAQs } from "@/data/faqs";
 import { FAQSection } from "@/app/components/FAQSection";
+import { PageReviewNote } from "@/app/components/PageReviewNote";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
+const description =
+  "보철과 전문의가 식립부터 크라운까지 직접 담당합니다. 무절개·즉시·뼈이식·가이드 임플란트 상담은 상암하늘치과로.";
+
 export const metadata: Metadata = {
   title: "상암동 임플란트",
-  description:
-    "보철과 전문의가 식립부터 크라운까지 직접 담당합니다. 무절개·즉시·뼈이식·가이드 임플란트 상담은 상암하늘치과로.",
+  description,
   robots: { index: true, follow: true },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.haneuldental.co.kr"}/treatment/implant`,
@@ -22,6 +26,12 @@ export default function ImplantPage() {
     specialOpeningHoursSpecification: getSpecialHours(),
   };
   const faqSchema = getFAQSchema(implantFAQs);
+  const medicalWebPageSchema = getMedicalWebPageSchema({
+    path: "/treatment/implant",
+    lastReviewed: pageReviewDates["/treatment/implant"],
+    procedureName: "임플란트",
+    procedureDescription: description,
+  });
 
   return (
     <>
@@ -33,12 +43,17 @@ export default function ImplantPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }}
+      />
 
       {/* ── Hero ── */}
       <section className="bg-orange-50 px-5 py-8">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs text-charcoal-light tracking-widest uppercase mb-6">Treatment</p>
           <h1 className="text-4xl md:text-5xl font-bold text-charcoal mb-4">임플란트</h1>
+          <PageReviewNote date={pageReviewDates["/treatment/implant"]} />
           <p className="text-charcoal-light leading-relaxed max-w-lg">
             보철과 전문의가 식립부터 크라운까지 직접 담당합니다.<br />
             식립 정확도와 보철 완성도, 두 가지를 모두 책임집니다.
