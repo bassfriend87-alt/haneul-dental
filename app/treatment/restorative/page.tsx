@@ -9,6 +9,11 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 const description =
   "자연치아를 최대한 보존하는 방향으로 치료합니다. 충치·신경치료 상담은 상암하늘치과로.";
+// Schema MedicalProcedure용 — meta description에서 안내 문장("…상담은 상암하늘치과로.")을 뺀 시술 설명
+const procedureDescription = "자연치아를 최대한 보존하는 방향으로 치료합니다.";
+
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "상암동 충치치료·신경치료",
@@ -29,7 +34,7 @@ export default function RestorativePage() {
     path: "/treatment/restorative",
     lastReviewed: pageReviewDates["/treatment/restorative"],
     procedureName: "보존치료",
-    procedureDescription: description,
+    procedureDescription,
   });
 
   return (

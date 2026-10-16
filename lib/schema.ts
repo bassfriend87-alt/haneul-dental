@@ -42,18 +42,50 @@ export const closedDates: Record<string, Record<string, string[]>> = {
 
 // ─────────────────────────────────────────
 // 2. 휴진일 → specialOpeningHoursSpecification 변환
+// Schema에는 "오늘(Asia/Seoul) ~ 60일 후"만 출력한다. 지난 휴진일을 계속 내보내면
+// Schema가 과거 데이터로 부풀고, 검색엔진이 오래된 구조화 데이터로 오인할 수 있다.
+// (/schedule 달력 화면은 closedDates 원본을 그대로 쓰므로 지난 휴진일도 계속 표시된다.)
 // ─────────────────────────────────────────
 
+// Asia/Seoul 기준 "오늘"을 YYYY-MM-DD로. new Date().getDate() 같은 로컬(서버=UTC) getter는
+// 쓰지 않고 Intl.DateTimeFormat에 timeZone을 명시해 instant → 한국 날짜를 직접 뽑는다.
+function getSeoulTodayKey(): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
+// "YYYY-MM-DD" + days → "YYYY-MM-DD". UTC 기준 Date로 순수 날짜 연산만 하므로
+// (instant/타임존 변환이 끼지 않음) 월/연 경계도 안전하게 넘어간다.
+function addDaysToKey(key: string, days: number): string {
+  const [y, m, d] = key.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  dt.setUTCDate(dt.getUTCDate() + days);
+  const yy = dt.getUTCFullYear();
+  const mm = String(dt.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(dt.getUTCDate()).padStart(2, "0");
+  return `${yy}-${mm}-${dd}`;
+}
+
 export function getSpecialHours() {
+  const todayKey = getSeoulTodayKey();
+  const maxKey = addDaysToKey(todayKey, 60);
+
   return Object.entries(closedDates).flatMap(([year, months]) =>
     Object.entries(months).flatMap(([month, days]) =>
-      days.map(day => ({
-        "@type": "OpeningHoursSpecification",
-        "opens": "00:00",
-        "closes": "00:00",
-        "validFrom": `${year}-${month}-${day}`,
-        "validThrough": `${year}-${month}-${day}`
-      }))
+      days
+        .map(day => `${year}-${month}-${day}`)
+        .filter(dateKey => dateKey >= todayKey && dateKey <= maxKey)
+        .map(dateKey => ({
+          "@type": "OpeningHoursSpecification",
+          "opens": "00:00",
+          "closes": "00:00",
+          "validFrom": dateKey,
+          "validThrough": dateKey
+        }))
     )
   )
 }
@@ -170,17 +202,49 @@ export const personSchema = {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "certification",
       "name": "통합치의학과 전문의"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "name": "치의학 석사",
+      "recognizedBy": { "@type": "EducationalOrganization", "name": "경북대학교 치의학전문대학원" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "training",
+      "name": "인턴·레지던트 수련",
+      "recognizedBy": { "@type": "EducationalOrganization", "name": "경북대학교 치과병원" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certificate",
+      "name": "고급치의학 과정 수료",
+      "recognizedBy": { "@type": "EducationalOrganization", "name": "서울대학교 치의학교육연수원" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certification",
+      "name": "대한치과보철학회 인정의",
+      "recognizedBy": { "@type": "Organization", "name": "대한치과보철학회" }
     }
   ],
   "alumniOf": [
-    { "@type": "EducationalOrganization", "name": "경북대학교 치의학전문대학원 석사" },
-    { "@type": "EducationalOrganization", "name": "경북대학교 치과병원 인턴, 레지던트" },
-    { "@type": "EducationalOrganization", "name": "서울대학교 치의학교육연수원 고급치의학 과정 수료" }
+    { "@type": "EducationalOrganization", "name": "경북대학교 치의학전문대학원" },
+    { "@type": "EducationalOrganization", "name": "경북대학교 치과병원" },
+    { "@type": "EducationalOrganization", "name": "서울대학교 치의학교육연수원" }
   ],
   "memberOf": [
-    { "@type": "Organization", "name": "대한치과보철학회 인정의" },
-    { "@type": "Organization", "name": "대한턱관절교합학회 정회원" },
-    { "@type": "Organization", "name": "대한구강악안면임플란트학회 정회원" }
+    { "@type": "Organization", "name": "대한치과보철학회" },
+    {
+      "@type": "ProgramMembership",
+      "programName": "정회원",
+      "hostingOrganization": { "@type": "Organization", "name": "대한턱관절교합학회" }
+    },
+    {
+      "@type": "ProgramMembership",
+      "programName": "정회원",
+      "hostingOrganization": { "@type": "Organization", "name": "대한구강악안면임플란트학회" }
+    }
   ],
   "worksFor": { "@id": dentistId }
 }

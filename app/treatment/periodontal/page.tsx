@@ -9,6 +9,11 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 const description =
   "정기적인 스케일링과 치주치료로 잇몸 건강을 관리합니다. 스케일링·잇몸치료 상담은 상암하늘치과로.";
+// Schema MedicalProcedure용 — meta description에서 안내 문장("…상담은 상암하늘치과로.")을 뺀 시술 설명
+const procedureDescription = "정기적인 스케일링과 치주치료로 잇몸 건강을 관리합니다.";
+
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "상암동 스케일링·잇몸치료",
@@ -29,7 +34,7 @@ export default function PeriodontalPage() {
     path: "/treatment/periodontal",
     lastReviewed: pageReviewDates["/treatment/periodontal"],
     procedureName: "치주치료",
-    procedureDescription: description,
+    procedureDescription,
   });
 
   return (

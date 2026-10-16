@@ -10,6 +10,11 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 const description =
   "보철과 전문의가 식립부터 크라운까지 직접 담당합니다. 무절개·즉시·뼈이식·가이드 임플란트 상담은 상암하늘치과로.";
+// Schema MedicalProcedure용 — meta description에서 안내 문장("…상담은 상암하늘치과로.")을 뺀 시술 설명
+const procedureDescription = "보철과 전문의가 식립부터 크라운까지 직접 담당합니다.";
+
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "상암동 임플란트",
@@ -30,7 +35,7 @@ export default function ImplantPage() {
     path: "/treatment/implant",
     lastReviewed: pageReviewDates["/treatment/implant"],
     procedureName: "임플란트",
-    procedureDescription: description,
+    procedureDescription,
   });
 
   return (

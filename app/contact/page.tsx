@@ -3,6 +3,9 @@ import { dentistSchema, getSpecialHours } from "@/lib/schema";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
 
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "오시는 길·예약 문의",
   description:

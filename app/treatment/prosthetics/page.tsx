@@ -10,6 +10,11 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 const description =
   "보철과 전문의가 직접 진단부터 제작·관리까지 담당합니다. 크라운·브릿지·틀니 상담은 상암하늘치과로.";
+// Schema MedicalProcedure용 — meta description에서 안내 문장("…상담은 상암하늘치과로.")을 뺀 시술 설명
+const procedureDescription = "보철과 전문의가 직접 진단부터 제작·관리까지 담당합니다.";
+
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "상암동 보철치료 크라운·브릿지·틀니",
@@ -30,7 +35,7 @@ export default function ProstheticsPage() {
     path: "/treatment/prosthetics",
     lastReviewed: pageReviewDates["/treatment/prosthetics"],
     procedureName: "보철치료",
-    procedureDescription: description,
+    procedureDescription,
   });
 
   return (

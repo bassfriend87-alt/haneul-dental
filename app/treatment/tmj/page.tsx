@@ -9,6 +9,11 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 const description =
   "턱 통증·소리·개구 제한 등 턱관절 증상을 치료합니다. 교합안정장치·턱관절치료 상담은 상암하늘치과로.";
+// Schema MedicalProcedure용 — meta description에서 안내 문장("…상담은 상암하늘치과로.")을 뺀 시술 설명
+const procedureDescription = "턱 통증·소리·개구 제한 등 턱관절 증상을 치료합니다.";
+
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "상암동 턱관절치료(TMJ)",
@@ -29,7 +34,7 @@ export default function TMJPage() {
     path: "/treatment/tmj",
     lastReviewed: pageReviewDates["/treatment/tmj"],
     procedureName: "턱관절치료",
-    procedureDescription: description,
+    procedureDescription,
   });
 
   return (

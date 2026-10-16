@@ -3,9 +3,12 @@ import Image from "next/image";
 import { IconStethoscope, IconMessageCircle, IconCrown } from "@tabler/icons-react";
 import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 // import { KakaoIcon } from "@/app/components/icons"; // 카카오톡 채널 연동 시 활성화
-import { dentistSchema, personSchema } from "@/lib/schema";
+import { dentistSchema, personSchema, getSpecialHours } from "@/lib/schema";
 import doctorStandWhite from "@/public/images/doctor-profile-stand-white.jpg";
 import doctorConsultTalking from "@/public/images/doctor-consult-talking.jpg";
+
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "원장 소개 — 치과보철과·통합치의학과 전문의 김준연",
@@ -49,11 +52,16 @@ const differentiators = [
 ];
 
 export default function AboutPage() {
+  const fullSchema = {
+    ...dentistSchema,
+    specialOpeningHoursSpecification: getSpecialHours(),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(dentistSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(fullSchema) }}
       />
       <script
         type="application/ld+json"

@@ -9,6 +9,11 @@ import { PhoneIcon, NaverIcon } from "@/app/components/icons";
 
 const description =
   "보철과 전문의가 직접 설계·제작하는 라미네이트. 치아 형태와 색상 개선 상담은 상암하늘치과로.";
+// Schema MedicalProcedure용 — meta description에서 안내 문장("…상담은 상암하늘치과로.")을 뺀 시술 설명
+const procedureDescription = "보철과 전문의가 직접 설계·제작하는 라미네이트.";
+
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: "상암동 심미치료 라미네이트·미백",
@@ -29,7 +34,7 @@ export default function AestheticPage() {
     path: "/treatment/aesthetic",
     lastReviewed: pageReviewDates["/treatment/aesthetic"],
     procedureName: "심미치료",
-    procedureDescription: description,
+    procedureDescription,
   });
 
   return (

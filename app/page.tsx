@@ -5,6 +5,9 @@ import { TrackableLink } from "./components/TrackableLink";
 import { ReservationButtons } from "./components/ReservationButtons";
 // import { KakaoIcon } from "./components/icons"; // 카카오톡 채널 연동 시 활성화
 
+// Dentist Schema(휴진일 포함)가 빌드 시점에 고정되지 않도록 하루 단위로 재생성
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: { absolute: "상암동 보철 전문의 크라운·임플란트·틀니 | 상암하늘치과의원" },
   description:
