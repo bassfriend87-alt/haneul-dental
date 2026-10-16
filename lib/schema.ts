@@ -142,10 +142,7 @@ export const dentistSchema = {
       "description": "야간진료 (사전 예약제)"
     }
   ],
-  "medicalSpecialty": [
-    "Prosthodontics",
-    "Pediatric"
-  ],
+  "medicalSpecialty": "https://schema.org/Dentistry",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "진료과목",
@@ -192,6 +189,7 @@ export const personSchema = {
   "jobTitle": "대표원장",
   "image": `${baseUrl}/images/doctor-profile-stand-white.jpg`,
   "url": `${baseUrl}/about`,
+  "knowsAbout": ["치과보철", "임플란트", "턱관절 치료"],
   "hasCredential": [
     {
       "@type": "EducationalOccupationalCredential",
