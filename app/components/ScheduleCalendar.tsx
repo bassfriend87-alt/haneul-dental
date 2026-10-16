@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { closedDates, holidays } from "@/lib/schema";
 
 const WEEK_DAYS = ["일", "월", "화", "수", "목", "금", "토"];
@@ -52,17 +52,22 @@ function getDayStatus(date: Date, viewYear: number, viewMonth: number): DayStatu
   return "open";
 }
 
-// Asia/Seoul 기준 오늘. 서버는 UTC, 클라이언트는 방문자 로컬 타임존이라
-// new Date() 그대로 쓰면 날짜가 하루 어긋날 수 있어 명시적으로 변환한다.
-function getSeoulToday(): Date {
-  const parts = new Intl.DateTimeFormat("en-CA", {
+// Asia/Seoul 기준 "오늘"을 YYYY-MM-DD 문자열로 반환.
+// new Date().getDate() 같은 로컬 getter는 실행 환경의 타임존(서버=UTC)을 타므로 쓰지 않고,
+// Intl.DateTimeFormat에 timeZone을 명시해 instant → 한국 날짜를 직접 뽑아낸다.
+// en-CA 로케일은 ISO 순서(YYYY-MM-DD)로 포맷하므로 그대로 키 비교에 쓸 수 있다.
+function getSeoulTodayKey(): string {
+  return new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Seoul",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).formatToParts(new Date());
-  const get = (type: string) => Number(parts.find((p) => p.type === type)!.value);
-  return new Date(get("year"), get("month") - 1, get("day"));
+  }).format(new Date());
+}
+
+function parseDateKey(key: string): { year: number; month: number; day: number } {
+  const [year, month, day] = key.split("-").map(Number);
+  return { year, month: month - 1, day }; // month: 0-indexed
 }
 
 function buildDays(year: number, month: number): Date[] {
@@ -76,14 +81,30 @@ function buildDays(year: number, month: number): Date[] {
 }
 
 export function ScheduleCalendar() {
-  const today = getSeoulToday();
-  const minYear = today.getFullYear();
-  const minMonth = today.getMonth();
+  // 초기값은 서버(ISR 캐시 생성 시점)와 클라이언트(하이드레이션 시점)가 같은 함수로
+  // 계산하지만, ISR 캐시가 최대 1시간 묵어 있을 수 있어 실제 "지금"과 다를 수 있다.
+  const [todayKey, setTodayKey] = useState(getSeoulTodayKey);
+  const today = parseDateKey(todayKey);
+  const minYear = today.year;
+  const minMonth = today.month;
   const maxMonth = minMonth === 11 ? 0 : minMonth + 1;
   const maxYear = minMonth === 11 ? minYear + 1 : minYear;
 
   const [year, setYear] = useState(minYear);
   const [month, setMonth] = useState(minMonth);
+
+  // 마운트 후 브라우저 시계로 Asia/Seoul "지금"을 다시 계산해 캐시 지연을 보정한다.
+  // 서버가 내려준 값과 다르면(= 캐시가 묵어 날짜가 바뀐 경우) 오늘 표시와
+  // 보고 있던 달(마운트 시점엔 항상 "오늘이 속한 달")을 새 값으로 갱신한다.
+  useEffect(() => {
+    const freshKey = getSeoulTodayKey();
+    if (freshKey === todayKey) return;
+    const fresh = parseDateKey(freshKey);
+    setTodayKey(freshKey);
+    setYear(fresh.year);
+    setMonth(fresh.month);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const isMin = year === minYear && month === minMonth;
   const isMax = year === maxYear && month === maxMonth;
@@ -146,7 +167,10 @@ export function ScheduleCalendar() {
       <div className="grid grid-cols-7 gap-1">
         {days.map((date, i) => {
           const status = getDayStatus(date, year, month);
-          const isToday = date.toDateString() === today.toDateString();
+          const isToday =
+            date.getFullYear() === today.year &&
+            date.getMonth() === today.month &&
+            date.getDate() === today.day;
           const holiday = (status === "closed" || status === "open-holiday" || status === "open")
             ? getHoliday(date.getFullYear(), date.getMonth(), date.getDate())
             : null;
