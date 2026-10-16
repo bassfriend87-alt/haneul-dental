@@ -5,3 +5,4 @@ Disallow: /admin
 Disallow: /api
 
 Sitemap: https://www.haneuldental.co.kr/sitemap.xml
+Sitemap: https://www.haneuldental.co.kr/blog/sitemap.xml

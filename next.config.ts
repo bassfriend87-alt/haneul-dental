@@ -1,6 +1,25 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return {
+      beforeFiles: [
+        // 인블로그(inblog.ai) 프록시 — 블로그를 서브디렉토리(/blog)로 제공
+        {
+          source: "/blog",
+          destination: "https://inblog.ai/haneuldental",
+        },
+        {
+          source: "/blog/:path*",
+          destination: "https://inblog.ai/haneuldental/:path*",
+        },
+        {
+          source: "/_inblog/:path*",
+          destination: "https://inblog.ai/haneuldental/_inblog/:path*",
+        },
+      ],
+    };
+  },
   async redirects() {
     return [
       // 개별 매핑 — 명확한 대응 관계
@@ -34,6 +53,20 @@ const nextConfig: NextConfig = {
         source: "/inet/:path*",
         destination: "/",
         permanent: true,
+      },
+      // 옛 블로그 서브도메인(blog.haneuldental.co.kr) → 서브디렉토리(/blog)로 영구 리디렉션
+      // host 조건으로 www 쪽 요청에는 영향 없음
+      {
+        source: "/",
+        destination: "https://www.haneuldental.co.kr/blog",
+        permanent: true,
+        has: [{ type: "host", value: "blog.haneuldental.co.kr" }],
+      },
+      {
+        source: "/:path+",
+        destination: "https://www.haneuldental.co.kr/blog/:path+",
+        permanent: true,
+        has: [{ type: "host", value: "blog.haneuldental.co.kr" }],
       },
     ];
   },

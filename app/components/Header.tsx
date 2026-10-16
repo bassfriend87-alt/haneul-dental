@@ -102,7 +102,7 @@ export function Header() {
           </div>
           <Link href="/fees" onClick={handleLink("/fees")} className="hover:text-primary transition-colors">수가표</Link>
           <span className="w-px h-4 bg-gray-200 self-center" />
-          <a href="https://blog.haneuldental.co.kr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">상암하늘치과의원 공식 블로그</a>
+          <a href="/blog" className="hover:text-primary transition-colors">상암하늘치과의원 공식 블로그</a>
         </nav>
 
         {/* 데스크탑 CTA 버튼 그룹 */}
@@ -251,7 +251,7 @@ export function Header() {
         <Link href="/fees" onClick={handleLink("/fees")} className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
           수가표
         </Link>
-        <a href="https://blog.haneuldental.co.kr" target="_blank" rel="noopener noreferrer" className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
+        <a href="/blog" className="block py-3 text-sm font-medium text-charcoal border-b border-gray-100 hover:text-primary transition-colors">
           공식 블로그
         </a>
       </div>
