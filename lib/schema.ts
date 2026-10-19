@@ -1,13 +1,26 @@
 // 상암하늘치과 Schema 코드
-// 매월 closedDates만 업데이트하면 Schema + /schedule 달력 동시 반영
+// 휴진일은 아래 기본 규칙으로 자동 계산되고, Schema + /schedule 달력 + 헤더 진료상태에 동시 반영된다.
+// 매월 할 일: 공휴일·휴가 등 특이 날짜만 holidays에 추가 (규칙과 다른 날만 손대면 됨)
 
 // ─────────────────────────────────────────
-// 1. 매월 업데이트: 휴진일 데이터
+// 1. 휴진일 데이터
+//
+// [기본 휴진 규칙] — 특별한 언급이 없으면 자동 적용
+//   1) 일요일, 공휴일(대체공휴일 포함) 휴진
+//   2) 매월 2번째·4번째 토요일 휴진
+//   3) 그 주(월~토) 토요일이 2·4번째 토요일이 아니면 그 주 수요일 휴진
+//      (토요일이 공휴일이어도 2·4번째 토요일이 아니면 수요일은 휴진. 공휴일은 별개로 휴진)
+//
+// [예외 처리]
+//   - 공휴일·휴가 등 추가 휴진: holidays에 날짜 추가 (isOpen 없으면 휴진)
+//   - 공휴일인데 진료: holidays에 isOpen: true
+//   - 규칙상 휴진인 날(격주 수·토)에 진료: extraOpenDates에 추가
 // ─────────────────────────────────────────
 
 // 특이 날짜 정보
 // isHoliday: 법정공휴일 여부 (날짜 텍스트 빨강 + 이름 표시)
 // isOpen: 공휴일이지만 정상진료 (파랑 "정상진료" 표시)
+// isOpen이 없는 항목은 모두 휴진으로 처리된다 (공휴일·휴가 등).
 type HolidayEntry = { name: string; isHoliday?: boolean; isOpen?: boolean };
 export const holidays: Record<string, Record<string, Record<string, HolidayEntry>>> = {
   "2026": {
@@ -23,10 +36,17 @@ export const holidays: Record<string, Record<string, Record<string, HolidayEntry
       "26": { name: "휴가" },
       "27": { name: "휴가" },
     },
+    "12": {
+      "25": { name: "성탄절", isHoliday: true },
+    },
   }
 }
 
-export const closedDates: Record<string, Record<string, string[]>> = {
+// 규칙상 휴진이지만 예외적으로 진료하는 날 (격주 수·토 등). 예: "2026": { "11": ["04"] }
+const extraOpenDates: Record<string, Record<string, string[]>> = {}
+
+// 규칙 도입 이전 달의 확정 휴진일 (그대로 유지, 수정하지 않음)
+const manualClosedDates: Record<string, Record<string, string[]>> = {
   "2026": {
     "05": ["05", "13", "14", "27", "28"],
     //     공휴일  수·토격주  수·토격주
@@ -36,9 +56,65 @@ export const closedDates: Record<string, Record<string, string[]>> = {
     //     수격주  토격주   수격주  추석연휴(목·금·토)  수격주
     "10": ["09", "10", "14", "24", "26", "27", "28"],
     //     한글날  토격주  수격주  휴가(토~수, 일은 자동)
-    // 매월 추가
   }
 }
+
+// 규칙 자동 계산 범위 (YYYY-MM). 공휴일 데이터(holidays)가 입력된 달까지만 계산한다.
+// 다음 해 공휴일을 holidays에 넣은 뒤 RULES_END를 늘리면 그 달까지 자동 반영된다.
+const RULES_START = "2026-11"
+const RULES_END = "2026-12"
+
+const pad2 = (n: number) => String(n).padStart(2, "0")
+
+function getHolidayEntry(y: number, m: number, d: number): HolidayEntry | undefined {
+  return holidays[String(y)]?.[pad2(m)]?.[pad2(d)]
+}
+
+// 일요일을 제외한 휴진 판정 (공휴일·격주 토요일·격주 수요일). m: 1~12
+// 날짜 연산은 Date.UTC로만 해서 실행 환경 타임존 영향을 받지 않는다.
+function isRuleClosed(y: number, m: number, d: number): boolean {
+  if (extraOpenDates[String(y)]?.[pad2(m)]?.includes(pad2(d))) return false
+  const holiday = getHolidayEntry(y, m, d)
+  if (holiday) return !holiday.isOpen
+
+  const dow = new Date(Date.UTC(y, m - 1, d)).getUTCDay()
+  if (dow === 6) {
+    const nth = Math.ceil(d / 7)
+    return nth === 2 || nth === 4
+  }
+  if (dow === 3) {
+    // 같은 주(월~토) 토요일 = 수요일 + 3일 (다음 달로 넘어갈 수 있음)
+    // 그 토요일이 2·4번째 토요일이 아니면 수요일 휴진. 토요일 공휴일 여부는 보지 않는다.
+    const sat = new Date(Date.UTC(y, m - 1, d + 3))
+    const satNth = Math.ceil(sat.getUTCDate() / 7)
+    return satNth !== 2 && satNth !== 4
+  }
+  return false
+}
+
+function buildClosedDates(): Record<string, Record<string, string[]>> {
+  const result: Record<string, Record<string, string[]>> = {}
+  for (const [year, months] of Object.entries(manualClosedDates)) {
+    result[year] = { ...months }
+  }
+
+  let [y, m] = RULES_START.split("-").map(Number)
+  const [endY, endM] = RULES_END.split("-").map(Number)
+  while (y < endY || (y === endY && m <= endM)) {
+    const lastDay = new Date(Date.UTC(y, m, 0)).getUTCDate()
+    const days: string[] = []
+    for (let d = 1; d <= lastDay; d++) {
+      const dow = new Date(Date.UTC(y, m - 1, d)).getUTCDay()
+      if (dow !== 0 && isRuleClosed(y, m, d)) days.push(pad2(d)) // 일요일은 각 화면에서 자동 처리
+    }
+    result[String(y)] ??= {}
+    result[String(y)][pad2(m)] ??= days
+    if (m === 12) { y++; m = 1 } else m++
+  }
+  return result
+}
+
+export const closedDates: Record<string, Record<string, string[]>> = buildClosedDates()
 
 // ─────────────────────────────────────────
 // 2. 휴진일 → specialOpeningHoursSpecification 변환
